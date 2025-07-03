@@ -1,0 +1,15 @@
+using FC4.HotelReservation.Application.UseCases.Reservation.Common;
+using FC4.HotelReservation.Domain.Repositories;
+
+namespace FC4.HotelReservation.Application.UseCases.Reservation.ListReservations;
+
+public class ListReservations(IReservationRepository reservationRepository) : IListReservations
+{
+    public async Task<IEnumerable<ReservationOutput>> Handle(
+        ListReservationsInput request,
+        CancellationToken cancellationToken)
+    {
+        var reservations = await reservationRepository.GetByGuestIdAsync(request.GuestId, cancellationToken);
+        return reservations.Select(ReservationOutput.FromReservation);
+    }
+}
