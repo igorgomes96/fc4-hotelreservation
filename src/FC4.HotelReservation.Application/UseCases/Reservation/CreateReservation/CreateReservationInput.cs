@@ -9,16 +9,12 @@ public record CreateReservationInput(
     DateTime StartDate,
     DateTime EndDate,
     Guid GuestId,
-    int RoomQuantity,
-    decimal Amount,
-    string Currency
+    int RoomQuantity
 ) : IRequest<CreateReservationOutput>
 {
-    public Domain.Entities.Reservation ToReservation()
+    public Domain.Entities.Reservation ToReservation(Money totalAmount)
     {
         var stayPeriod = new DateRange(StartDate, EndDate);
-        var totalAmount = new Money(Amount, Currency);
-        
         return new Domain.Entities.Reservation(HotelId, RoomTypeId, stayPeriod, GuestId, RoomQuantity, totalAmount);
     }
 }

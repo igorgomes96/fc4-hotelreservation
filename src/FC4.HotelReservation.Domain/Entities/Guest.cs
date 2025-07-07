@@ -10,7 +10,6 @@ public class Guest : AggregateRoot
     public string LastName { get; }
     public Email Email { get; private set; }
     
-
     public Guest(string firstName, string lastName, Email email)
     {
         FirstName = Guard.Against.NullOrWhiteSpace(firstName, nameof(firstName));

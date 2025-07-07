@@ -1,11 +1,12 @@
 using FC4.HotelReservation.Domain.Entities;
+using FC4.HotelReservation.Domain.Services.Interfaces;
 using FC4.HotelReservation.Domain.Specifications.Compositions;
 using FC4.HotelReservation.Domain.Specifications.Context;
 using FC4.HotelReservation.Domain.ValueObjects;
 
 namespace FC4.HotelReservation.Domain.Services;
 
-public class RateService
+public class RateService : IRateService
 {
     private readonly PremiumDiscountSpecification _premiumDiscountSpec;
     private readonly StandardDiscountSpecification _standardDiscountSpec;

@@ -1,9 +1,10 @@
+using FC4.HotelReservation.Application.Common;
 using FC4.HotelReservation.Domain.Enums;
 using FC4.HotelReservation.Domain.Repositories;
 
 namespace FC4.HotelReservation.Application.UseCases.Payment.UpdatePaymentStatus;
 
-public class UpdatePaymentStatus(IPaymentRepository paymentRepository) : IUpdatePaymentStatus
+public class UpdatePaymentStatus(IPaymentRepository paymentRepository, IUnitOfWork unitOfWork) : IUpdatePaymentStatus
 {
     public async Task Handle(UpdatePaymentStatusInput request, CancellationToken cancellationToken)
     {
@@ -30,5 +31,6 @@ public class UpdatePaymentStatus(IPaymentRepository paymentRepository) : IUpdate
         }
 
         await paymentRepository.UpdateAsync(payment, cancellationToken);
+        await unitOfWork.CommitAsync(cancellationToken);
     }
 }

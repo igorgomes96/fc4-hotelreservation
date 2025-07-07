@@ -1,0 +1,27 @@
+using FC4.HotelReservation.Application.Common;
+using FC4.HotelReservation.Domain.Repositories;
+using FC4.HotelReservation.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace FC4.HotelReservation.Infrastructure;
+
+public static class ServiceCollectionExtensions
+{
+    public static IServiceCollection AddRepositories(this IServiceCollection services)
+    {
+        return services
+            .AddScoped<IUnitOfWork, UnitOfWork>()
+            .AddScoped<IHotelRepository, HotelRepository>()
+            .AddScoped<IPaymentRepository, PaymentRepository>()
+            .AddScoped<IReservationRepository, ReservationRepository>()
+            .AddScoped<IRoomRepository, RoomRepository>()
+            .AddScoped<IRoomTypeRateRepository, RoomTypeRateRepository>()
+            .AddDbContext<HotelDbContext>((serviceProvider, options) =>
+            {
+                var configuration = serviceProvider.GetRequiredService<IConfiguration>();
+                options.UseNpgsql(configuration.GetConnectionString("HotelReservationDb"));
+            });
+    }
+}
