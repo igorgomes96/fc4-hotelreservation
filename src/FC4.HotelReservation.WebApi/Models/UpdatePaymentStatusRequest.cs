@@ -1,0 +1,14 @@
+using FC4.HotelReservation.Application.UseCases.Payment.UpdatePaymentStatus;
+using FC4.HotelReservation.Domain.Enums;
+
+namespace FC4.HotelReservation.WebApi.Models;
+
+public record UpdatePaymentStatusRequest(
+    PaymentStatus Status,
+    string TransactionId)
+{
+    public UpdatePaymentStatusInput ToInput(Guid paymentId)
+    {
+        return new UpdatePaymentStatusInput(paymentId, Status, TransactionId);
+    }
+}
