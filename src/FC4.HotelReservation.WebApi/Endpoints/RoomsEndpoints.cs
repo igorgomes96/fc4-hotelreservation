@@ -2,7 +2,7 @@ using FC4.HotelReservation.Application.UseCases.Room.CreateRoom;
 using FC4.HotelReservation.Application.UseCases.Room.GetRoom;
 using MediatR;
 
-namespace FC4.HotelReservation.WebApi;
+namespace FC4.HotelReservation.WebApi.Endpoints;
 
 public static class RoomsEndpoints
 {

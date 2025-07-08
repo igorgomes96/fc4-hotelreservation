@@ -11,6 +11,8 @@ public class RoomTypeInventory : AggregateRoot
     public int TotalInventory { get; private set; }
     public int TotalReserved { get; private set; }
 
+    private RoomTypeInventory() { } // For EF Core
+    
     public RoomTypeInventory(Guid hotelId, Guid roomTypeId, DateTime date, int totalInventory)
     {
         HotelId = Guard.Against.Default(hotelId, nameof(hotelId));

@@ -17,6 +17,8 @@ public class Reservation : AggregateRoot
     public Money TotalAmount { get; private set; }
     public DateTime CreatedAt { get; private set; }
 
+    private Reservation() { } // For EF Core
+    
     public Reservation(
         Guid hotelId,
         Guid roomTypeId,

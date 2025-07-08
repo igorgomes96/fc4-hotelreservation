@@ -1,7 +1,7 @@
 namespace FC4.HotelReservation.Application.UseCases.Hotel.GetHotel;
 
 public record GetHotelOutput(
-    Guid HotelId,
+    Guid Id,
     string Name,
     string Street,
     string City,

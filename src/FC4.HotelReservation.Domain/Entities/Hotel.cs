@@ -9,7 +9,7 @@ public class Hotel : AggregateRoot
     public string Name { get; private set; }
     public Address Address { get; private set; }
     
-
+    private Hotel() { } // For EF Core
     public Hotel(string name, Address address)
     {
         Name = Guard.Against.NullOrWhiteSpace(name, nameof(name));

@@ -4,7 +4,7 @@ using FC4.HotelReservation.Application.UseCases.Reservation.GetReservation;
 using FC4.HotelReservation.Application.UseCases.Reservation.ListReservations;
 using MediatR;
 
-namespace FC4.HotelReservation.WebApi;
+namespace FC4.HotelReservation.WebApi.Endpoints;
 
 public static class ReservationsEndpoints
 {

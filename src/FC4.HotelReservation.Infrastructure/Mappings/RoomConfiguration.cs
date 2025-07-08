@@ -50,5 +50,7 @@ public class RoomConfiguration : IEntityTypeConfiguration<Room>
             .WithMany()
             .HasForeignKey(r => r.RoomTypeId)
             .HasConstraintName("fk_rooms_room_types");
+        
+        builder.Ignore(g => g.Events);
     }
 }

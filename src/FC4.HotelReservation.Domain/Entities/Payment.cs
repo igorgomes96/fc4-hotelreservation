@@ -13,6 +13,8 @@ public class Payment : AggregateRoot
     public PaymentStatus Status { get; private set; }
     public DateTime ProcessedAt { get; private set; }
     public string? TransactionId { get; private set; }
+    
+    private Payment() { } // For EF Core
 
     public Payment(Guid reservationId, Money amount)
     {

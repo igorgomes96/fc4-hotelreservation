@@ -1,7 +1,7 @@
 using FC4.HotelReservation.WebApi.Models;
 using MediatR;
 
-namespace FC4.HotelReservation.WebApi;
+namespace FC4.HotelReservation.WebApi.Endpoints;
 
 public static class PaymentsEndpoints
 {

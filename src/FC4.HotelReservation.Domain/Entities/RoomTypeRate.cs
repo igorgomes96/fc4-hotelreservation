@@ -11,6 +11,8 @@ public class RoomTypeRate : AggregateRoot
     public DateTime Date { get; private set; }
     public Money Rate { get; private set; }
 
+    private RoomTypeRate() { } // For EF Core
+    
     public RoomTypeRate(Guid hotelId, Guid roomTypeId, DateTime date, Money rate)
     {
         HotelId = Guard.Against.Default(hotelId, nameof(hotelId));

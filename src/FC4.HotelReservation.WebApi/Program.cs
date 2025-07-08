@@ -2,12 +2,15 @@ using FC4.HotelReservation.Application;
 using FC4.HotelReservation.Domain;
 using FC4.HotelReservation.Infrastructure;
 using FC4.HotelReservation.WebApi;
+using FC4.HotelReservation.WebApi.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services
+    .AddProblemDetails()
+    .AddExceptionHandler<GlobalExceptionHandler>()
     .AddDomainServices()
     .AddRepositories()
     .AddUseCases();
@@ -20,6 +23,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseExceptionHandler();
 
 app.MapGroup("/v1/hotels")
     .MapHotelsApi()
@@ -42,3 +46,8 @@ app.MapGroup("/v1/reservations")
     .WithTags("Reservations");
 
 app.Run();
+
+namespace FC4.HotelReservation.WebApi
+{
+    public partial class Program;
+}

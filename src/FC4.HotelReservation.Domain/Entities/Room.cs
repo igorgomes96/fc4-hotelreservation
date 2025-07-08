@@ -12,6 +12,8 @@ public class Room : AggregateRoot
     public string Name { get; private set; }
     public bool IsAvailable { get; private set; }
 
+    private Room() { } // For EF Core
+    
     public Room(Guid roomTypeId, int floor, string number, Guid hotelId, string name, bool isAvailable = true)
     {
         RoomTypeId = Guard.Against.Default(roomTypeId, nameof(roomTypeId));
