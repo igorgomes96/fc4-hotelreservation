@@ -1,0 +1,97 @@
+using System.Net;
+using System.Net.Http.Json;
+using FC4.HotelReservation.Domain.Enums;
+using FluentAssertions;
+using static FC4.HotelReservation.IntegrationTests.DataBuilders.UpdatePaymentStatusInputBuilder;
+using static FC4.HotelReservation.IntegrationTests.DataBuilders.PaymentBuilder;
+
+namespace FC4.HotelReservation.IntegrationTests.Payment;
+
+[Collection(nameof(WebApiFixture))]
+public class UpdatePaymentStatusTest(WebApiFixture fixture) : IAsyncDisposable
+{
+    private readonly HttpClient _client = fixture.CreateClient();
+    
+    [Theory]
+    [InlineData(PaymentStatus.Processing, PaymentStatus.Completed, ReservationStatus.Paid)]
+    [InlineData(PaymentStatus.Processing, PaymentStatus.Failed, ReservationStatus.Rejected)]
+    [InlineData(PaymentStatus.Completed, PaymentStatus.Refunded, ReservationStatus.Cancelled)]
+    public async Task UpdatePaymentStatus_WithStatusThatChangesReservation_ShouldUpdateReservationStatus(
+        PaymentStatus currentPaymentStatus,
+        PaymentStatus newPaymentStatus, 
+        ReservationStatus expectedReservationStatus)
+    {
+        // Arrange
+        var reservation = await fixture.CreateReservationInDatabaseAsync();
+        var payment = APayment()
+            .WithStatus(currentPaymentStatus)
+            .WithReservationId(reservation.Id).Build();
+        await fixture.CreatePaymentInDatabaseAsync(payment);
+        
+        var input = AUpdatePaymentStatusInput()
+            .WithPaymentId(payment.Id)
+            .WithStatus(newPaymentStatus)
+            .Build();
+
+        // Act
+        var response = await _client.PatchAsJsonAsync($"/v1/payments/{payment.Id}", input);
+
+        // Assert
+        response.StatusCode.Should().Be(HttpStatusCode.NoContent);
+        
+        var updatedPayment = await fixture.GetPaymentByIdAsync(payment.Id);
+        updatedPayment.Should().NotBeNull();
+        updatedPayment.Status.Should().Be(newPaymentStatus);
+        
+        var updatedReservation = await fixture.GetReservationByIdAsync(reservation.Id);
+        updatedReservation.Should().NotBeNull();
+        updatedReservation.Status.Should().Be(expectedReservationStatus);
+    }
+    
+    [Fact]
+    public async Task UpdatePaymentStatus_WithProcessingStatus_ShouldNotUpdateReservationStatus()
+    {
+        // Arrange
+        var reservation = await fixture.CreateReservationInDatabaseAsync();
+        var payment = await fixture.CreatePaymentInDatabaseAsync(
+            APayment().WithReservationId(reservation.Id).Build());
+        
+        var input = AUpdatePaymentStatusInput()
+            .WithPaymentId(payment.Id)
+            .WithStatus(PaymentStatus.Processing)
+            .Build();
+
+        // Act
+        var response = await _client.PatchAsJsonAsync($"/v1/payments/{payment.Id}", input);
+
+        // Assert
+        response.StatusCode.Should().Be(HttpStatusCode.NoContent);
+        
+        var updatedPayment = await fixture.GetPaymentByIdAsync(payment.Id);
+        updatedPayment.Should().NotBeNull();
+        updatedPayment.Status.Should().Be(input.Status);
+        
+        var updatedReservation = await fixture.GetReservationByIdAsync(reservation.Id);
+        updatedReservation.Should().NotBeNull();
+        updatedReservation.Status.Should().Be(reservation.Status);
+    }
+    
+    [Fact]
+    public async Task UpdatePaymentStatus_WithNonExistentPayment_ShouldReturnNotFound()
+    {
+        // Arrange
+        var nonExistentId = Guid.NewGuid();
+        var input = AUpdatePaymentStatusInput().WithPaymentId(nonExistentId).Build();
+        
+        // Act
+        var response = await _client.PatchAsJsonAsync($"/v1/payments/{nonExistentId}", input);
+        
+        // Assert
+        response.StatusCode.Should().Be(HttpStatusCode.NotFound);
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        await fixture.CleanDatabaseAsync();
+    }
+}

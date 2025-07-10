@@ -6,7 +6,7 @@ namespace FC4.HotelReservation.Infrastructure.Repositories;
 
 public class HotelRepository(HotelDbContext context) : IHotelRepository
 {
-    public async Task<Hotel?> GetHotelByIdAsync(Guid hotelId, CancellationToken cancellationToken)
+    public async Task<Hotel?> GetByIdAsync(Guid hotelId, CancellationToken cancellationToken)
     {
         return await context.Hotels
             .SingleOrDefaultAsync(h => h.Id == hotelId, cancellationToken);

@@ -38,16 +38,22 @@ public class ReservationConfiguration : IEntityTypeConfiguration<Reservation>
             
         builder.Property(r => r.CreatedAt)
             .HasColumnName("created_at")
+            .HasConversion(date => DateTime.SpecifyKind(date, DateTimeKind.Utc),
+                date => DateTime.SpecifyKind(date, DateTimeKind.Utc))
             .IsRequired();
         
         builder.OwnsOne(r => r.StayPeriod, period =>
         {
             period.Property(p => p.StartDate)
                 .HasColumnName("stay_start_date")
+                .HasConversion(date => DateTime.SpecifyKind(date, DateTimeKind.Utc),
+                    date => DateTime.SpecifyKind(date, DateTimeKind.Utc))
                 .IsRequired();
                 
             period.Property(p => p.EndDate)
                 .HasColumnName("stay_end_date")
+                .HasConversion(date => DateTime.SpecifyKind(date, DateTimeKind.Utc),
+                    date => DateTime.SpecifyKind(date, DateTimeKind.Utc))
                 .IsRequired();
         });
 

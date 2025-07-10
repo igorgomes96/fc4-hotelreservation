@@ -1,4 +1,5 @@
 using FC4.HotelReservation.Application.Common;
+using FC4.HotelReservation.Application.Exceptions;
 using FC4.HotelReservation.Domain.Enums;
 using FC4.HotelReservation.Domain.Repositories;
 
@@ -9,7 +10,7 @@ public class UpdatePaymentStatus(IPaymentRepository paymentRepository, IUnitOfWo
     public async Task Handle(UpdatePaymentStatusInput request, CancellationToken cancellationToken)
     {
         var payment = await paymentRepository.GetByIdAsync(request.PaymentId, cancellationToken)
-                      ?? throw new InvalidOperationException("Payment not found");
+                      ?? throw new NotFoundException("Payment not found");
 
         switch (request.Status)
         {

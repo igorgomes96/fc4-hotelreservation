@@ -1,0 +1,93 @@
+using Bogus;
+using FC4.HotelReservation.Domain.Entities;
+using FC4.HotelReservation.Domain.Enums;
+using FC4.HotelReservation.Domain.ValueObjects;
+
+namespace FC4.HotelReservation.IntegrationTests.DataBuilders;
+
+public class ReservationBuilder
+{
+    private readonly Faker _faker = new();
+    private Guid _id = Guid.NewGuid();
+    private Guid _hotelId = Guid.NewGuid();
+    private Guid _roomTypeId = Guid.NewGuid();
+    private Guid _guestId = Guid.NewGuid();
+    private readonly DateTime _checkInDate;
+    private readonly DateTime _checkOutDate;
+    private ReservationStatus _status = ReservationStatus.Pending;
+    private readonly decimal _totalAmount;
+    private readonly int _roomQuantity;
+
+    public ReservationBuilder()
+    {
+        _checkInDate = _faker.Date.Future();
+        _checkOutDate = _checkInDate.AddDays(_faker.Random.Int(1, 14));
+        _totalAmount = _faker.Random.Decimal(100, 5000);
+        _roomQuantity = _faker.Random.Int(1, 5);
+    }
+    
+    public static ReservationBuilder AReservation() => new();
+
+    public ReservationBuilder WithId(Guid id)
+    {
+        _id = id;
+        return this;
+    }
+
+    public ReservationBuilder WithHotelId(Guid hotelId)
+    {
+        _hotelId = hotelId;
+        return this;
+    }
+
+    public ReservationBuilder WithRoomTypeId(Guid roomTypeId)
+    {
+        _roomTypeId = roomTypeId;
+        return this;
+    }
+
+    public ReservationBuilder WithGuestId(Guid guestId)
+    {
+        _guestId = guestId;
+        return this;
+    }
+
+    public ReservationBuilder WithStatus(ReservationStatus status)
+    {
+        _status = status;
+        return this;
+    }
+
+    public Reservation Build()
+    {
+        var reservation = new Reservation(_hotelId, _roomTypeId,
+            new DateRange(_checkInDate, _checkOutDate), _guestId, _roomQuantity,
+            new Money(_totalAmount, "BRL"))
+        {
+            Id = _id
+        };
+
+        switch (_status)
+        {
+            case ReservationStatus.Pending:
+                break;
+            case ReservationStatus.Paid:
+                reservation.MarkAsPaid();
+                break;
+            case ReservationStatus.Cancelled:
+                reservation.Cancel();
+                break;
+            case ReservationStatus.Rejected:
+                reservation.Reject();
+                break;
+            case ReservationStatus.Refunded:
+                reservation.MarkAsPaid();
+                reservation.Refund();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(_status), _status, null);
+        }
+
+        return reservation;
+    }
+}

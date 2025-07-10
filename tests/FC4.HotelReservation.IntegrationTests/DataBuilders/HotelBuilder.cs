@@ -21,9 +21,8 @@ public class HotelBuilder
             _faker.Address.ZipCode()
         );
     }
-    
-    public static Domain.Entities.Hotel AHotel()
-        => new HotelBuilder().Build();
+
+    public static HotelBuilder AHotel() => new();
 
     public HotelBuilder WithId(Guid id)
     {

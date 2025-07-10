@@ -7,7 +7,7 @@ public class GetHotel(IHotelRepository repository) : IGetHotel
 {
     public async Task<GetHotelOutput> Handle(GetHotelInput request, CancellationToken cancellationToken)
     {
-        var hotel = await repository.GetHotelByIdAsync(request.HotelId, cancellationToken)
+        var hotel = await repository.GetByIdAsync(request.HotelId, cancellationToken)
                     ?? throw new NotFoundException("Hotel not found");
         return GetHotelOutput.FromHotel(hotel);
     }

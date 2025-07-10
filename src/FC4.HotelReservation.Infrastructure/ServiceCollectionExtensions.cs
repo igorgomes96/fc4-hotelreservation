@@ -15,6 +15,7 @@ public static class ServiceCollectionExtensions
             .AddScoped<IUnitOfWork, UnitOfWork>()
             .AddScoped<IHotelRepository, HotelRepository>()
             .AddScoped<IPaymentRepository, PaymentRepository>()
+            .AddScoped<IRoomTypeRepository, RoomTypeRepository>()
             .AddScoped<IReservationRepository, ReservationRepository>()
             .AddScoped<IRoomRepository, RoomRepository>()
             .AddScoped<IRoomTypeRateRepository, RoomTypeRateRepository>()

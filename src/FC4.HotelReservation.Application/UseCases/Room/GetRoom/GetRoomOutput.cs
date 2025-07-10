@@ -1,7 +1,7 @@
 namespace FC4.HotelReservation.Application.UseCases.Room.GetRoom;
 
 public record GetRoomOutput(
-    Guid RoomId,
+    Guid Id,
     Guid RoomTypeId,
     int Floor,
     string Number,
