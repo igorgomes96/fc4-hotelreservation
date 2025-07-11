@@ -44,6 +44,7 @@ public class Reservation : AggregateRoot
             throw new InvalidOperationException("Reservation is already cancelled or rejected");
 
         Status = ReservationStatus.Cancelled;
+        RaiseEvent(new ReservationCanceledEvent(Id, HotelId, RoomTypeId, StayPeriod, RoomQuantity));
     }
 
     public void Reject()
@@ -52,6 +53,7 @@ public class Reservation : AggregateRoot
             throw new InvalidOperationException("Can only reject pending reservations");
 
         Status = ReservationStatus.Rejected;
+        RaiseEvent(new ReservationCanceledEvent(Id, HotelId, RoomTypeId, StayPeriod, RoomQuantity));
     }
 
     public void MarkAsPaid()

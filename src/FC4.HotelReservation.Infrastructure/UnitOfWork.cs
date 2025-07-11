@@ -10,27 +10,30 @@ public class UnitOfWork(
 {
     public async Task CommitAsync(CancellationToken cancellationToken)
     {
-        var aggregateRoots = dbContext.ChangeTracker
-            .Entries<AggregateRoot>()
-            .Where(entry => entry.Entity.Events.Any())
-            .Select(entry => entry.Entity)
-            .ToList();
-
-        var events = aggregateRoots
-            .SelectMany(aggregate => aggregate.Events)
-            .ToList();
-
-        foreach (var @event in events)
+        // Esse loop é ncessário pois a manipulação de eventos pode gerar novos eventos
+        while (true)
         {
-            await publisher.Publish((dynamic)@event, cancellationToken);
-        }
+            var aggregateRoots = dbContext.ChangeTracker
+                .Entries<AggregateRoot>()
+                .Where(entry => entry.Entity.Events.Count > 0)
+                .Select(entry => entry.Entity)
+                .ToList();
 
-        foreach (var aggregate in aggregateRoots)
-        {
-            aggregate.ClearEvents();
+            if (aggregateRoots.Count == 0)
+            {
+                break;
+            }
+
+            foreach (var aggregate in aggregateRoots)
+            {
+                foreach (var @event in aggregate.Events.ToList())
+                {
+                    await publisher.Publish((dynamic)@event, cancellationToken);
+                    aggregate.RemoveEvent(@event);
+                }
+            }
         }
 
         await dbContext.SaveChangesAsync(cancellationToken);
     }
-    
 }

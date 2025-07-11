@@ -25,6 +25,8 @@ public class RoomTypeInventoryConfiguration : IEntityTypeConfiguration<RoomTypeI
             
         builder.Property(rti => rti.Date)
             .HasColumnName("date")
+            .HasConversion(date => DateTime.SpecifyKind(date, DateTimeKind.Utc),
+                date => DateTime.SpecifyKind(date, DateTimeKind.Utc))
             .IsRequired();
             
         builder.Property(rti => rti.TotalInventory)

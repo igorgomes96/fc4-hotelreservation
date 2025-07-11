@@ -19,6 +19,7 @@ public static class ServiceCollectionExtensions
             .AddScoped<IReservationRepository, ReservationRepository>()
             .AddScoped<IRoomRepository, RoomRepository>()
             .AddScoped<IRoomTypeRateRepository, RoomTypeRateRepository>()
+            .AddScoped<IRoomTypeInventoryRepository, RoomTypeInventoryRepository>()
             .AddDbContext<HotelDbContext>((serviceProvider, options) =>
             {
                 var configuration = serviceProvider.GetRequiredService<IConfiguration>();

@@ -12,11 +12,11 @@ public class ReservationBuilder
     private Guid _hotelId = Guid.NewGuid();
     private Guid _roomTypeId = Guid.NewGuid();
     private Guid _guestId = Guid.NewGuid();
-    private readonly DateTime _checkInDate;
-    private readonly DateTime _checkOutDate;
+    private DateTime _checkInDate;
+    private DateTime _checkOutDate;
     private ReservationStatus _status = ReservationStatus.Pending;
+    private int _roomQuantity;
     private readonly decimal _totalAmount;
-    private readonly int _roomQuantity;
 
     public ReservationBuilder()
     {
@@ -51,16 +51,34 @@ public class ReservationBuilder
         _guestId = guestId;
         return this;
     }
+    
+    public ReservationBuilder WithStartDate(DateTime startDate)
+    {
+        _checkInDate = startDate;
+        return this;
+    }
+    
+    public ReservationBuilder WithEndDate(DateTime endDate)
+    {
+        _checkOutDate = endDate;
+        return this;
+    }
 
     public ReservationBuilder WithStatus(ReservationStatus status)
     {
         _status = status;
         return this;
     }
-
-    public Reservation Build()
+    
+    public ReservationBuilder WithRoomQuantity(int roomQuantity)
     {
-        var reservation = new Reservation(_hotelId, _roomTypeId,
+        _roomQuantity = roomQuantity;
+        return this;
+    }
+
+    public Domain.Entities.Reservation Build()
+    {
+        var reservation = new Domain.Entities.Reservation(_hotelId, _roomTypeId,
             new DateRange(_checkInDate, _checkOutDate), _guestId, _roomQuantity,
             new Money(_totalAmount, "BRL"))
         {

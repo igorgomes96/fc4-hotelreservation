@@ -28,30 +28,4 @@ public class HotelDbContext(DbContextOptions<HotelDbContext> options) : DbContex
         
         base.OnModelCreating(modelBuilder);
     }
-    /*
-    public override int SaveChanges()
-    {
-        ConvertDateTimesToUtc();
-        return base.SaveChanges();
-    }
-
-    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-    {
-        ConvertDateTimesToUtc();
-        return await base.SaveChangesAsync(cancellationToken);
-    }
-
-    private void ConvertDateTimesToUtc()
-    {
-        foreach (var entry in ChangeTracker.Entries())
-        {
-            foreach (var prop in entry.Properties)
-            {
-                if (prop.CurrentValue is DateTime dt && dt.Kind != DateTimeKind.Utc)
-                {
-                    prop.CurrentValue = DateTime.SpecifyKind(dt, DateTimeKind.Utc);
-                }
-            }
-        }
-    }*/
 }

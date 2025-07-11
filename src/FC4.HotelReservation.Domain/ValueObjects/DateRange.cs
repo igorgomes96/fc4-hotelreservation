@@ -17,4 +17,16 @@ public record DateRange
     public DateTime EndDate { get; }
 
     public int NightCount => (EndDate - StartDate).Days;
+
+    public IEnumerable<DateTime> GetDates()
+    {
+        var currentDate = StartDate.Date;
+        var endDate = EndDate.Date;
+    
+        while (currentDate < endDate)
+        {
+            yield return currentDate;
+            currentDate = currentDate.AddDays(1);
+        }
+    }
 }

@@ -25,6 +25,8 @@ public class RoomTypeRateConfiguration : IEntityTypeConfiguration<RoomTypeRate>
             
         builder.Property(rtr => rtr.Date)
             .HasColumnName("date")
+            .HasConversion(date => DateTime.SpecifyKind(date, DateTimeKind.Utc),
+                date => DateTime.SpecifyKind(date, DateTimeKind.Utc))
             .IsRequired();
             
         builder.OwnsOne(rtr => rtr.Rate, money =>

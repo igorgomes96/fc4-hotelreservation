@@ -1,3 +1,4 @@
+using FC4.HotelReservation.Application.Exceptions;
 using FC4.HotelReservation.Application.UseCases.Reservation.Common;
 using FC4.HotelReservation.Domain.Repositories;
 
@@ -8,7 +9,7 @@ public class GetReservation(IReservationRepository reservationRepository) : IGet
     public async Task<ReservationOutput> Handle(GetReservationInput request, CancellationToken cancellationToken)
     {
         var reservation = await reservationRepository.GetByIdAsync(request.ReservationId, cancellationToken)
-                          ?? throw new InvalidOperationException("Reservation not found");
+                          ?? throw new NotFoundException("Reservation not found");
 
         return ReservationOutput.FromReservation(reservation);
     }
