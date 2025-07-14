@@ -16,4 +16,8 @@
         <InternalsVisibleTo Include="FC4.HotelReservation.IntegrationTests" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Include=".diagrams\include.puml" />
+    </ItemGroup>
+
 </Project>

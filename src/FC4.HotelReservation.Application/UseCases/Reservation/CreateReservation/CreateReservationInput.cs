@@ -15,6 +15,6 @@ public record CreateReservationInput(
     public Domain.Entities.Reservation ToReservation(Money totalAmount)
     {
         var stayPeriod = new DateRange(StartDate, EndDate);
-        return new Domain.Entities.Reservation(HotelId, RoomTypeId, stayPeriod, GuestId, RoomQuantity, totalAmount);
+        return Domain.Entities.Reservation.Create(HotelId, RoomTypeId, stayPeriod, GuestId, RoomQuantity, totalAmount);
     }
 }

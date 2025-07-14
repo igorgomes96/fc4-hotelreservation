@@ -78,12 +78,10 @@ public class ReservationBuilder
 
     public Domain.Entities.Reservation Build()
     {
-        var reservation = new Domain.Entities.Reservation(_hotelId, _roomTypeId,
+        var reservation = Domain.Entities.Reservation.Create(_hotelId, _roomTypeId,
             new DateRange(_checkInDate, _checkOutDate), _guestId, _roomQuantity,
-            new Money(_totalAmount, "BRL"))
-        {
-            Id = _id
-        };
+            new Money(_totalAmount, "BRL"));
+        reservation.Id = _id;
 
         switch (_status)
         {

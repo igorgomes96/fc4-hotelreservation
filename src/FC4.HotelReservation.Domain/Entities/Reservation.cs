@@ -19,7 +19,7 @@ public class Reservation : AggregateRoot
 
     private Reservation() { } // For EF Core
     
-    public Reservation(
+    private Reservation(
         Guid hotelId,
         Guid roomTypeId,
         DateRange stayPeriod,
@@ -36,6 +36,17 @@ public class Reservation : AggregateRoot
         Status = ReservationStatus.Pending;
         CreatedAt = DateTime.UtcNow;
         RaiseEvent(new ReservationCreatedEvent(Id, TotalAmount));
+    }
+    
+    public static Reservation Create(
+        Guid hotelId,
+        Guid roomTypeId,
+        DateRange stayPeriod,
+        Guid guestId,
+        int roomQuantity,
+        Money totalAmount)
+    {
+        return new Reservation(hotelId, roomTypeId, stayPeriod, guestId, roomQuantity, totalAmount);
     }
     
     public void Cancel()
