@@ -39,7 +39,7 @@ public class PaymentConfiguration: IEntityTypeConfiguration<Payment>
             
         builder.OwnsOne(p => p.Amount, money =>
         {
-            money.Property(m => m.Amount)
+            money.Property(m => m.Value)
                 .HasColumnName("amount")
                 .HasPrecision(18, 2)
                 .IsRequired();

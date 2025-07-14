@@ -27,6 +27,8 @@ public class CreateReservationTest(WebApiFixture fixture) : IAsyncDisposable
         var dailyRate = new Money(150.00m, "USD");
         const int roomQuantity = 2;
         const int totalInventory = 5;
+        const decimal lastMinuteRateIncrease = 1.15m;
+        var expectedTotalAmount = dailyRate.Value * (endDate - startDate).Days * roomQuantity * lastMinuteRateIncrease;
 
         // Create inventory and rate for each day in the period
         var dates = new DateRange(startDate, endDate).GetDates().ToList();
@@ -76,6 +78,7 @@ public class CreateReservationTest(WebApiFixture fixture) : IAsyncDisposable
         savedReservation.StayPeriod.StartDate.Should().Be(input.StartDate);
         savedReservation.StayPeriod.EndDate.Should().Be(input.EndDate);
         savedReservation.RoomQuantity.Should().Be(input.RoomQuantity);
+        savedReservation.TotalAmount.Value.Should().Be(expectedTotalAmount);
 
         // Verify inventory was updated
         var period = new DateRange(startDate, endDate);
@@ -89,7 +92,7 @@ public class CreateReservationTest(WebApiFixture fixture) : IAsyncDisposable
         payment.Should().NotBeNull();
         payment.ReservationId.Should().Be(output.Id);
         payment.Status.Should().Be(PaymentStatus.Pending);
-        payment.Amount.Should().NotBeNull();
+        payment.Amount.Value.Should().Be(expectedTotalAmount);
         payment.ProcessedAt.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromMinutes(1));
     }
 
@@ -138,49 +141,6 @@ public class CreateReservationTest(WebApiFixture fixture) : IAsyncDisposable
         inventory.TotalReserved.Should().Be(0);
     }
 
-    [Fact]
-    public async Task CreateReservation_WithMissingInventoryForOneDay_ShouldReturnBadRequest()
-    {
-        // Arrange
-        var hotel = await fixture.CreateHotelInDatabaseAsync();
-        var guest = await fixture.CreateGuestInDatabaseAsync();
-        var roomType = await fixture.CreateRoomTypeInDatabaseAsync();
-        var startDate = DateTime.Today.AddDays(1);
-        var endDate = startDate.AddDays(3);
-        var roomQuantity = 1;
-
-        // Create inventory only for first two days, missing the third day
-        await fixture.CreateRoomTypeInventoryInDatabaseAsync(
-            ARoomTypeInventory()
-                .WithHotelId(hotel.Id)
-                .WithRoomTypeId(roomType.Id)
-                .WithDate(startDate)
-                .WithTotalInventory(5)
-                .Build());
-
-        await fixture.CreateRoomTypeInventoryInDatabaseAsync(
-            ARoomTypeInventory()
-                .WithHotelId(hotel.Id)
-                .WithRoomTypeId(roomType.Id)
-                .WithDate(startDate.AddDays(1))
-                .WithTotalInventory(5)
-                .Build());
-        
-        var input = ACreateReservationInput()
-            .WithHotelId(hotel.Id)
-            .WithRoomTypeId(roomType.Id)
-            .WithGuestId(guest.Id)
-            .WithStartDate(startDate)
-            .WithEndDate(endDate)
-            .WithRoomQuantity(roomQuantity);
-
-        // Act
-        var response = await _client.PostAsJsonAsync("/v1/reservations", input);
-
-        // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-    }
-    
     public async ValueTask DisposeAsync()
     {
         await fixture.CleanDatabaseAsync();

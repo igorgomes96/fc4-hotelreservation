@@ -1,4 +1,5 @@
 using FC4.HotelReservation.Domain.Entities;
+using FC4.HotelReservation.Domain.Repositories;
 using FC4.HotelReservation.Domain.Services.Interfaces;
 using FC4.HotelReservation.Domain.Specifications.Compositions;
 using FC4.HotelReservation.Domain.Specifications.Context;
@@ -6,24 +7,21 @@ using FC4.HotelReservation.Domain.ValueObjects;
 
 namespace FC4.HotelReservation.Domain.Services;
 
-public class RateService : IRateService
+public class RateService(IRoomTypeRateRepository roomTypeRateRepository) : IRateService
 {
-    private readonly PremiumDiscountSpecification _premiumDiscountSpec;
-    private readonly StandardDiscountSpecification _standardDiscountSpec;
-    private readonly LastMinuteBookingSpecification _lastMinuteSpec;
+    private readonly PremiumDiscountSpecification _premiumDiscountSpec = new();
+    private readonly StandardDiscountSpecification _standardDiscountSpec = new();
+    private readonly LastMinuteBookingSpecification _lastMinuteSpec = new();
 
-    public RateService()
-    {
-        _premiumDiscountSpec = new PremiumDiscountSpecification();
-        _standardDiscountSpec = new StandardDiscountSpecification();
-        _lastMinuteSpec = new LastMinuteBookingSpecification();
-    }
-
-    public Money CalculateTotalAmountAsync(
+    public async Task<Money> CalculateTotalAmountAsync(
+        Guid hotelId,
+        Guid roomTypeId,
         DateRange stayPeriod,
-        int roomQuantity, 
-        IEnumerable<RoomTypeRate> rates)
+        int roomQuantity,
+        CancellationToken cancellationToken)
     {
+        var rates = await roomTypeRateRepository.GetRateForPeriodAsync(
+            hotelId, roomTypeId, stayPeriod, cancellationToken);
         var baseAmount = CalculateBaseAmount(rates, roomQuantity);
         var reservationContext = new ReservationContext(stayPeriod, roomQuantity, DateTime.UtcNow);
         var adjustedAmount = ApplyPriceAdjustments(baseAmount, reservationContext);
@@ -32,14 +30,14 @@ public class RateService : IRateService
 
     private static Money CalculateBaseAmount(IEnumerable<RoomTypeRate> rates, int roomQuantity)
     {
-        var totalBaseRate = rates.Sum(rate => rate.Rate.Amount);
+        var totalBaseRate = rates.Sum(rate => rate.Rate.Value);
         var currency = rates.First().Rate.Currency;
         return new Money(totalBaseRate * roomQuantity, currency);
     }
 
     private Money ApplyPriceAdjustments(Money baseAmount, ReservationContext reservation)
     {
-        var adjustedAmount = baseAmount.Amount;
+        var adjustedAmount = baseAmount.Value;
 
         if (_premiumDiscountSpec.IsSatisfiedBy(reservation))
         {

@@ -24,7 +24,7 @@ public record ReservationOutput(
             reservation.StayPeriod.EndDate,
             reservation.Status,
             reservation.RoomQuantity,
-            reservation.TotalAmount.Amount,
+            reservation.TotalAmount.Value,
             reservation.TotalAmount.Currency,
             reservation.CreatedAt);
     }

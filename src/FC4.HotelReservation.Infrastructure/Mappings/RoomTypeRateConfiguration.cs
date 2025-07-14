@@ -31,7 +31,7 @@ public class RoomTypeRateConfiguration : IEntityTypeConfiguration<RoomTypeRate>
             
         builder.OwnsOne(rtr => rtr.Rate, money =>
         {
-            money.Property(m => m.Amount)
+            money.Property(m => m.Value)
                 .HasColumnName("rate_amount")
                 .HasPrecision(18, 2)
                 .IsRequired();

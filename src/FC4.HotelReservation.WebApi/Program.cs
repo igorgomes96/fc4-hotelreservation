@@ -45,6 +45,11 @@ app.MapGroup("/v1/reservations")
     .WithOpenApi()
     .WithTags("Reservations");
 
+app.MapGroup("/v1/rates")
+    .MapRatesApi()
+    .WithOpenApi()
+    .WithTags("rates");
+
 app.Run();
 
 namespace FC4.HotelReservation.WebApi

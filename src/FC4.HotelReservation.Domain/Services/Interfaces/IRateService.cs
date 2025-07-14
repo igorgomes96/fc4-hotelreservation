@@ -5,5 +5,10 @@ namespace FC4.HotelReservation.Domain.Services.Interfaces;
 
 public interface IRateService
 {
-    Money CalculateTotalAmountAsync(DateRange stayPeriod, int roomQuantity, IEnumerable<RoomTypeRate> rates);
+    Task<Money> CalculateTotalAmountAsync(
+        Guid hotelId,
+        Guid roomTypeId,
+        DateRange stayPeriod,
+        int roomQuantity,
+        CancellationToken cancellationToken);
 }

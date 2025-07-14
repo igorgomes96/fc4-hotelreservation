@@ -59,7 +59,7 @@ public class ReservationConfiguration : IEntityTypeConfiguration<Reservation>
 
         builder.OwnsOne(r => r.TotalAmount, money =>
         {
-            money.Property(m => m.Amount)
+            money.Property(m => m.Value)
                 .HasColumnName("total_amount")
                 .HasPrecision(18, 2)
                 .IsRequired();

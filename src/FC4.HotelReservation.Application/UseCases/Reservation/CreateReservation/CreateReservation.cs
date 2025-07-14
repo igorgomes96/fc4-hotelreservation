@@ -8,7 +8,6 @@ namespace FC4.HotelReservation.Application.UseCases.Reservation.CreateReservatio
 
 public class CreateReservation(
     IReservationRepository reservationRepository,
-    IRoomTypeRateRepository roomTypeRateRepository,
     IRoomTypeInventoryRepository roomTypeInventoryRepository,
     IRateService rateService,
     IUnitOfWork unitOfWork) : ICreateReservation
@@ -26,9 +25,8 @@ public class CreateReservation(
             throw new InvalidOperationException("Not enough rooms available for the requested period");
         }
 
-        var rates = await roomTypeRateRepository.GetRateForPeriodAsync(
-            request.HotelId, request.RoomTypeId, period, cancellationToken);
-        var totalAmount = rateService.CalculateTotalAmountAsync(period, request.RoomQuantity, rates);
+        var totalAmount = await rateService.CalculateTotalAmountAsync(
+            request.HotelId, request.RoomTypeId, period, request.RoomQuantity, cancellationToken);
         var reservation = request.ToReservation(totalAmount);
         await reservationRepository.CreateAsync(reservation, cancellationToken);
 
