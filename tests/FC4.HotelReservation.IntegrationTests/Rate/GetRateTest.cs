@@ -44,10 +44,10 @@ public class GetRateTest(WebApiFixture fixture) : IAsyncDisposable
 
         // Assert
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var output = await response.Content.ReadFromJsonAsync<GetRateOutput>(fixture.JsonSettings);
-        output.Should().NotBeNull();
-        output.Amount.Should().Be(200.00m * dates.Count * roomQuantity * lastMinuteRateIncrease);
-        output.Currency.Should().Be("USD");
+        var output = await response.Content.ReadFromJsonAsync<IEnumerable<GetRateOutput>>(fixture.JsonSettings);
+        output.Should().NotBeNullOrEmpty();
+        output.Single().Amount.Should().Be(200.00m * dates.Count * roomQuantity * lastMinuteRateIncrease);
+        output.Single().Currency.Should().Be("USD");
     }
 
     public async ValueTask DisposeAsync()
