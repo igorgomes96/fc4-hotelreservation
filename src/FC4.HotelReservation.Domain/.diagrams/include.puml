@@ -32,6 +32,13 @@ package Hotels {
         + Id : Guid
         + Description : string
     }
+    class RoomTypeRate {
+        + Id : Guid
+        + HotelId : Guid
+        + RoomTypeId : Guid
+        + Date : DateTime
+        + Rate : Money
+    }
 }
 
 package Payments {
@@ -74,16 +81,6 @@ package Reservations {
         + TotalInventory : int
         + TotalReserved : int
         + AvailableInventory : int
-    }
-}
-
-package Rates {
-    class RoomTypeRate {
-        + Id : Guid
-        + HotelId : Guid
-        + RoomTypeId : Guid
-        + Date : DateTime
-        + Rate : Money
     }
 }
 

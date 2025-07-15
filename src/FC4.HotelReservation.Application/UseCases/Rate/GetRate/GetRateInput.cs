@@ -8,4 +8,4 @@ public record GetRateInput(
     DateTime StartDate,
     DateTime EndDate,
     int RoomQuantity
-) : IRequest<GetRateOutput>;
+) : IRequest<IEnumerable<GetRateOutput>>;
