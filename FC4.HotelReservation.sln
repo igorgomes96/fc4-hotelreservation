@@ -14,6 +14,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC4.HotelReservation.WebApi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC4.HotelReservation.IntegrationTests", "tests\FC4.HotelReservation.IntegrationTests\FC4.HotelReservation.IntegrationTests.csproj", "{C6D49D4C-D4E2-43E3-A483-EAFE13E11D8F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{9DF4EA85-30B7-4D07-964E-A2FAEC583E54}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hotels", "Hotels", "{A82749F4-D3C4-4706-AC81-8CFE8F049971}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC4.HotelReservation.Hotels.Domain", "modules\Hotels\FC4.HotelReservation.Hotels.Domain\FC4.HotelReservation.Hotels.Domain.csproj", "{69486334-5DD5-439D-B949-67136932FFA9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +31,8 @@ Global
 		{4AD42713-710C-4970-A359-CC9E18FC6198} = {54B2E312-A7D0-486B-A04E-972663F0B9C0}
 		{4AD62AFF-985D-480F-93BA-22E3871AEB33} = {54B2E312-A7D0-486B-A04E-972663F0B9C0}
 		{C6D49D4C-D4E2-43E3-A483-EAFE13E11D8F} = {2B1E1088-4F31-4499-A994-D5F1304D27C1}
+		{A82749F4-D3C4-4706-AC81-8CFE8F049971} = {9DF4EA85-30B7-4D07-964E-A2FAEC583E54}
+		{69486334-5DD5-439D-B949-67136932FFA9} = {A82749F4-D3C4-4706-AC81-8CFE8F049971}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{398503A8-07B0-42E3-A531-DDB0B7660BB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -47,5 +55,9 @@ Global
 		{C6D49D4C-D4E2-43E3-A483-EAFE13E11D8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6D49D4C-D4E2-43E3-A483-EAFE13E11D8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6D49D4C-D4E2-43E3-A483-EAFE13E11D8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69486334-5DD5-439D-B949-67136932FFA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69486334-5DD5-439D-B949-67136932FFA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69486334-5DD5-439D-B949-67136932FFA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69486334-5DD5-439D-B949-67136932FFA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
