@@ -1,6 +1,6 @@
 using System.Net;
 using System.Net.Http.Json;
-using FC4.HotelReservation.Application.UseCases.Rate.GetRate;
+using FC4.HotelReservation.Catalog.Application.UseCases.Rate.GetRate;
 using FC4.HotelReservation.Shared.Domain.ValueObjects;
 using FluentAssertions;
 using static FC4.HotelReservation.IntegrationTests.DataBuilders.RoomTypeRateBuilder;

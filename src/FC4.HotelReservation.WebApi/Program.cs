@@ -1,4 +1,5 @@
 using FC4.HotelReservation.Application;
+using FC4.HotelReservation.Catalog.Application;
 using FC4.HotelReservation.Catalog.Domain;
 using FC4.HotelReservation.Infrastructure;
 using FC4.HotelReservation.WebApi;
@@ -11,9 +12,10 @@ builder.Services.AddSwaggerGen();
 builder.Services
     .AddProblemDetails()
     .AddExceptionHandler<GlobalExceptionHandler>()
-    .AddDomainServices()
+    .AddCatalogDomainServices()
     .AddRepositories()
-    .AddUseCases();
+    .AddUseCases()
+    .AddCatalogUseCases();
 
 var app = builder.Build();
 

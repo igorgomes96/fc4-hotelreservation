@@ -1,7 +1,7 @@
 using FC4.HotelReservation.Application.Exceptions;
 using FC4.HotelReservation.Catalog.Domain.Repositories;
 
-namespace FC4.HotelReservation.Application.UseCases.Room.GetRoom;
+namespace FC4.HotelReservation.Catalog.Application.UseCases.Room.GetRoom;
 
 public class GetRoom(IRoomRepository roomRepository) : IGetRoom
 {

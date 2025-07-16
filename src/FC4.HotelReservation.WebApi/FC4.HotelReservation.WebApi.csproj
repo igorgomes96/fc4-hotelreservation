@@ -12,6 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\modules\Catalog\FC4.HotelReservation.Catalog.Application\FC4.HotelReservation.Catalog.Application.csproj" />
       <ProjectReference Include="..\FC4.HotelReservation.Infrastructure\FC4.HotelReservation.Infrastructure.csproj" />
     </ItemGroup>
 

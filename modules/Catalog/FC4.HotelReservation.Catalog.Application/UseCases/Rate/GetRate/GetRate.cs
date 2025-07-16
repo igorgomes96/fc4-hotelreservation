@@ -1,7 +1,7 @@
 using FC4.HotelReservation.Catalog.Domain.Services;
 using FC4.HotelReservation.Shared.Domain.ValueObjects;
 
-namespace FC4.HotelReservation.Application.UseCases.Rate.GetRate;
+namespace FC4.HotelReservation.Catalog.Application.UseCases.Rate.GetRate;
 
 public class GetRate(RateService rateService) : IGetRate
 {

@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace FC4.HotelReservation.Application.UseCases.Rate.GetRate;
+namespace FC4.HotelReservation.Catalog.Application.UseCases.Rate.GetRate;
 
 public record GetRateInput(
     Guid HotelId,

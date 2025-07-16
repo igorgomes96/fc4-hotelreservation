@@ -5,7 +5,7 @@ namespace FC4.HotelReservation.Catalog.Domain;
 
 public static class ServiceCollectionExtension
 {
-    public static IServiceCollection AddDomainServices(this IServiceCollection services)
+    public static IServiceCollection AddCatalogDomainServices(this IServiceCollection services)
     {
         return services.AddTransient<RateService>();
     }

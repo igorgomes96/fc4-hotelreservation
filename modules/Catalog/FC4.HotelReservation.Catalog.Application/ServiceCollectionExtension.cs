@@ -1,13 +1,13 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace FC4.HotelReservation.Application;
+namespace FC4.HotelReservation.Catalog.Application;
 
 public static class ServiceCollectionExtension
 {
-    public static IServiceCollection AddUseCases(
+    public static void AddCatalogUseCases(
         this IServiceCollection services)
     {
-        return services.AddMediatR(x => x.RegisterServicesFromAssemblies(
+        services.AddMediatR(x => x.RegisterServicesFromAssemblies(
             typeof(ServiceCollectionExtension).Assembly));
     }
 }

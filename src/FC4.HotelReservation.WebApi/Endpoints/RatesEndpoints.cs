@@ -1,4 +1,4 @@
-using FC4.HotelReservation.Application.UseCases.Rate.GetRate;
+using FC4.HotelReservation.Catalog.Application.UseCases.Rate.GetRate;
 using MediatR;
 
 namespace FC4.HotelReservation.WebApi.Endpoints;

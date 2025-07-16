@@ -1,7 +1,7 @@
 using FC4.HotelReservation.Application.Common;
 using FC4.HotelReservation.Catalog.Domain.Repositories;
 
-namespace FC4.HotelReservation.Application.UseCases.Hotel.CreateHotel;
+namespace FC4.HotelReservation.Catalog.Application.UseCases.Hotel.CreateHotel;
 
 public class CreateHotel(IHotelRepository repository, IUnitOfWork unitOfWork) : ICreateHotel
 {
