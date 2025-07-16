@@ -11,8 +11,8 @@ public record CreateRoomInput(
     bool IsAvailable
 ) : IRequest<CreateRoomOutput>
 {
-    public Domain.Entities.Room ToRoom()
+    public Catalog.Domain.Entities.Room ToRoom()
     {
-        return new Domain.Entities.Room(RoomTypeId, Floor, Number, HotelId, Name, IsAvailable);
+        return new Catalog.Domain.Entities.Room(RoomTypeId, Floor, Number, HotelId, Name, IsAvailable);
     }
 }

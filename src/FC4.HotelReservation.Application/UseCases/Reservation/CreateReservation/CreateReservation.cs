@@ -1,15 +1,15 @@
 using FC4.HotelReservation.Application.Common;
-using FC4.HotelReservation.Domain.Entities;
-using FC4.HotelReservation.Domain.Repositories;
-using FC4.HotelReservation.Domain.Services.Interfaces;
-using FC4.HotelReservation.Domain.ValueObjects;
+using FC4.HotelReservation.Catalog.Domain.Services;
+using FC4.HotelReservation.Reservations.Domain.Entities;
+using FC4.HotelReservation.Reservations.Domain.Repositories;
+using FC4.HotelReservation.Shared.Domain.ValueObjects;
 
 namespace FC4.HotelReservation.Application.UseCases.Reservation.CreateReservation;
 
 public class CreateReservation(
     IReservationRepository reservationRepository,
     IRoomTypeInventoryRepository roomTypeInventoryRepository,
-    IRateService rateService,
+    RateService rateService,
     IUnitOfWork unitOfWork) : ICreateReservation
 {
     public async Task<CreateReservationOutput> Handle(

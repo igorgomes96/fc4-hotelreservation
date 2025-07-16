@@ -1,5 +1,5 @@
 using Bogus;
-using FC4.HotelReservation.Domain.ValueObjects;
+using FC4.HotelReservation.Shared.Domain.ValueObjects;
 
 namespace FC4.HotelReservation.IntegrationTests.DataBuilders;
 
@@ -42,7 +42,7 @@ public class HotelBuilder
         return this;
     }
 
-    public Domain.Entities.Hotel Build()
+    public Catalog.Domain.Entities.Hotel Build()
         => new(_name, _address)
         {
             Id = _id

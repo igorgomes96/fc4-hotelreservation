@@ -1,5 +1,5 @@
 using FC4.HotelReservation.Application;
-using FC4.HotelReservation.Domain;
+using FC4.HotelReservation.Catalog.Domain;
 using FC4.HotelReservation.Infrastructure;
 using FC4.HotelReservation.WebApi;
 using FC4.HotelReservation.WebApi.Endpoints;

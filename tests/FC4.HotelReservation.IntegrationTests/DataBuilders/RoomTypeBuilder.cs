@@ -1,4 +1,5 @@
 using Bogus;
+using FC4.HotelReservation.Catalog.Domain.Entities;
 
 namespace FC4.HotelReservation.IntegrationTests.DataBuilders;
 
@@ -27,9 +28,9 @@ public class RoomTypeBuilder
         return this;
     }
     
-    public Domain.Entities.RoomType Build()
+    public RoomType Build()
     {
-        return new Domain.Entities.RoomType(_description)
+        return new RoomType(_description)
         {
             Id = _id
         };

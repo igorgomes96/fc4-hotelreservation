@@ -1,4 +1,4 @@
-using FC4.HotelReservation.Domain.Enums;
+using FC4.HotelReservation.Reservations.Domain.Enums;
 
 namespace FC4.HotelReservation.Application.UseCases.Reservation.Common;
 
@@ -14,7 +14,7 @@ public record ReservationOutput(
     string Currency,
     DateTime CreatedAt)
 {
-    public static ReservationOutput FromReservation(Domain.Entities.Reservation reservation)
+    public static ReservationOutput FromReservation(Reservations.Domain.Entities.Reservation reservation)
     {
         return new ReservationOutput(
             reservation.Id,

@@ -1,5 +1,5 @@
 using FC4.HotelReservation.Application.Common;
-using FC4.HotelReservation.Domain.Repositories;
+using FC4.HotelReservation.Catalog.Domain.Repositories;
 
 namespace FC4.HotelReservation.Application.UseCases.Hotel.CreateHotel;
 

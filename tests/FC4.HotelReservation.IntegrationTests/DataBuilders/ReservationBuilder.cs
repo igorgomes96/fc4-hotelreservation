@@ -1,7 +1,6 @@
 using Bogus;
-using FC4.HotelReservation.Domain.Entities;
-using FC4.HotelReservation.Domain.Enums;
-using FC4.HotelReservation.Domain.ValueObjects;
+using FC4.HotelReservation.Reservations.Domain.Enums;
+using FC4.HotelReservation.Shared.Domain.ValueObjects;
 
 namespace FC4.HotelReservation.IntegrationTests.DataBuilders;
 
@@ -76,9 +75,9 @@ public class ReservationBuilder
         return this;
     }
 
-    public Domain.Entities.Reservation Build()
+    public Reservations.Domain.Entities.Reservation Build()
     {
-        var reservation = Domain.Entities.Reservation.Create(_hotelId, _roomTypeId,
+        var reservation = Reservations.Domain.Entities.Reservation.Create(_hotelId, _roomTypeId,
             new DateRange(_checkInDate, _checkOutDate), _guestId, _roomQuantity,
             new Money(_totalAmount, "BRL"));
         reservation.Id = _id;

@@ -1,4 +1,4 @@
-using FC4.HotelReservation.Domain.ValueObjects;
+using FC4.HotelReservation.Shared.Domain.ValueObjects;
 using MediatR;
 
 namespace FC4.HotelReservation.Application.UseCases.Hotel.CreateHotel;
@@ -12,9 +12,9 @@ public record CreateHotelInput(
     string ZipCode
 ) : IRequest<CreateHotelOutput>
 {
-    public Domain.Entities.Hotel ToHotel()
+    public Catalog.Domain.Entities.Hotel ToHotel()
     {
-        return new Domain.Entities.Hotel(
+        return new Catalog.Domain.Entities.Hotel(
             Name,
             new Address(
                 Street,

@@ -1,9 +1,9 @@
-using FC4.HotelReservation.Domain.Services.Interfaces;
-using FC4.HotelReservation.Domain.ValueObjects;
+using FC4.HotelReservation.Catalog.Domain.Services;
+using FC4.HotelReservation.Shared.Domain.ValueObjects;
 
 namespace FC4.HotelReservation.Application.UseCases.Rate.GetRate;
 
-public class GetRate(IRateService rateService) : IGetRate
+public class GetRate(RateService rateService) : IGetRate
 {
     public async Task<IEnumerable<GetRateOutput>> Handle(GetRateInput request, CancellationToken cancellationToken)
     {

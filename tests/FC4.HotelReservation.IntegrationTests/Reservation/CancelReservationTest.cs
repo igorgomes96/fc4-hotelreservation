@@ -1,6 +1,6 @@
 using System.Net;
-using FC4.HotelReservation.Domain.Enums;
-using FC4.HotelReservation.Domain.ValueObjects;
+using FC4.HotelReservation.Reservations.Domain.Enums;
+using FC4.HotelReservation.Shared.Domain.ValueObjects;
 using FluentAssertions;
 using static FC4.HotelReservation.IntegrationTests.DataBuilders.ReservationBuilder;
 using static FC4.HotelReservation.IntegrationTests.DataBuilders.RoomTypeInventoryBuilder;

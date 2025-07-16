@@ -1,4 +1,5 @@
-using FC4.HotelReservation.Domain.Entities;
+using FC4.HotelReservation.Catalog.Domain.Entities;
+using FC4.HotelReservation.Reservations.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

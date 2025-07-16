@@ -12,4 +12,8 @@
         <PackageReference Include="Ardalis.SmartEnum" Version="8.0.0"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <InternalsVisibleTo Include="FC4.HotelReservation.IntegrationTests" />
+    </ItemGroup>
+
 </Project>

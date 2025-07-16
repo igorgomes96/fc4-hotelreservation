@@ -64,7 +64,7 @@ public class RoomBuilder
         return this;
     }
 
-    public Domain.Entities.Room Build()
+    public Catalog.Domain.Entities.Room Build()
         => new(_roomTypeId, _floor, _number, _hotelId, _name, _isAvailable)
         {
             Id = _id

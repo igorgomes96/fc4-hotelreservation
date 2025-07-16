@@ -1,5 +1,5 @@
-using FC4.HotelReservation.Domain.Entities;
-using FC4.HotelReservation.Domain.Repositories;
+using FC4.HotelReservation.Reservations.Domain.Entities;
+using FC4.HotelReservation.Reservations.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace FC4.HotelReservation.Infrastructure.Repositories;

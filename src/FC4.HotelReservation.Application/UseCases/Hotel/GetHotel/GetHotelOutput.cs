@@ -10,7 +10,7 @@ public record GetHotelOutput(
     string ZipCode
 )
 {
-    public static GetHotelOutput FromHotel(Domain.Entities.Hotel hotel)
+    public static GetHotelOutput FromHotel(Catalog.Domain.Entities.Hotel hotel)
     {
         return new GetHotelOutput(
             hotel.Id,
