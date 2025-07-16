@@ -26,9 +26,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC4.HotelReservation.Paymen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC4.HotelReservation.Reservations.Domain", "modules\Reservations\FC4.HotelReservation.Reservations.Domain\FC4.HotelReservation.Reservations.Domain.csproj", "{D3AE2AEC-7D8F-4C16-91F4-9940EB906BF2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{836DD3C2-F1DF-4C87-8045-4CE4C6179BFE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{836DD3C2-F1DF-4C87-8045-4CE4C6179BFE}"
 	ProjectSection(SolutionItems) = preProject
 		..\README.md = ..\README.md
+		diagram.puml = diagram.puml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{5B6468FF-17AC-439F-83B7-99134977B44A}"
