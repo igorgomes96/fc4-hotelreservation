@@ -65,14 +65,6 @@ package Reservations {
         + CreatedAt : DateTime
     }
     
-    class Guest {
-        + Id : Guid
-        + FirstName : string
-        + LastName : string
-        + Email : Email
-        + FullName : string
-    }
-    
     class RoomTypeInventory {
         + Id : Guid
         + HotelId : Guid
@@ -81,6 +73,16 @@ package Reservations {
         + TotalInventory : int
         + TotalReserved : int
         + AvailableInventory : int
+    }
+}
+
+package Guests {
+    class Guest {
+        + Id : Guid
+        + FirstName : string
+        + LastName : string
+        + Email : Email
+        + FullName : string
     }
 }
 

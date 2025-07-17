@@ -1,6 +1,6 @@
 using FC4.HotelReservation.Shared.Application.IntegrationEvents;
 
-namespace FC4.HotelReservation.Payments.IntegrationEvents;
+namespace FC4.HotelReservation.Payments.Events.IntegrationEvents;
 
 public class PaymentStatusChanged(Guid paymentId, Guid reservationId, PaymentStatusEnum paymentStatus) : IntegrationEvent
 {

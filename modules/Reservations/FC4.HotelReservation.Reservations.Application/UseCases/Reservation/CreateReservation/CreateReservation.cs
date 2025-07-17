@@ -1,4 +1,4 @@
-using FC4.HotelReservation.Catalog.Domain.Services;
+using FC4.HotelReservation.Reservations.Application.Gateway;
 using FC4.HotelReservation.Reservations.Domain.Entities;
 using FC4.HotelReservation.Reservations.Domain.Repositories;
 using FC4.HotelReservation.Shared.Application;
@@ -9,7 +9,7 @@ namespace FC4.HotelReservation.Reservations.Application.UseCases.Reservation.Cre
 public class CreateReservation(
     IReservationRepository reservationRepository,
     IRoomTypeInventoryRepository roomTypeInventoryRepository,
-    RateService rateService,
+    ICatalogRateGateway rateGateway,
     IUnitOfWork unitOfWork) : ICreateReservation
 {
     public async Task<CreateReservationOutput> Handle(
@@ -25,7 +25,7 @@ public class CreateReservation(
             throw new InvalidOperationException("Not enough rooms available for the requested period");
         }
 
-        var totalAmount = await rateService.CalculateTotalAmountAsync(
+        var totalAmount = await rateGateway.CalculateTotalAmountAsync(
             request.HotelId, request.RoomTypeId, period, request.RoomQuantity, cancellationToken);
         var reservation = request.ToReservation(totalAmount);
         await reservationRepository.CreateAsync(reservation, cancellationToken);

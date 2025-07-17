@@ -1,4 +1,4 @@
-using FC4.HotelReservation.Payments.IntegrationEvents;
+using FC4.HotelReservation.Payments.Events.IntegrationEvents;
 using FC4.HotelReservation.Reservations.Application.UseCases.Reservation.ProcessPaymentStatus;
 using MassTransit;
 using MediatR;
@@ -12,6 +12,7 @@ public class PaymentStatusChangedConsumer(IMediator mediator) : IConsumer<Paymen
         await mediator.Send(new ProcessPaymentStatusInput(
                 context.Message.PaymentId,
                 context.Message.ReservationId,
-                (PaymentStatus)context.Message.PaymentStatus));
+                (PaymentStatus)context.Message.PaymentStatus),
+            context.CancellationToken);
     }
 }

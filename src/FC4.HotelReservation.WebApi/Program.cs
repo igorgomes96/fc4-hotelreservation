@@ -2,6 +2,8 @@ using FC.HotelReservation.Payments.Application;
 using FC4.HotelReservation.Catalog.Application;
 using FC4.HotelReservation.Catalog.Domain;
 using FC4.HotelReservation.Infrastructure;
+using FC4.HotelReservation.Payments.Consumers;
+using FC4.HotelReservation.Reservations.Adapters;
 using FC4.HotelReservation.Reservations.Application;
 using FC4.HotelReservation.Reservations.Consumers;
 using FC4.HotelReservation.WebApi;
@@ -20,13 +22,13 @@ builder.Services
     .AddCatalogUseCases()
     .AddPaymentsUseCases()
     .AddReservationsUseCases()
-    .AddMassTransit(config =>
+    .AddReservationAdapters()
+    .AddMassTransit(configurator =>
     {
-        config.AddReservationConsumers();
-        config.UsingInMemory((context, cfg) =>
-        {
-            cfg.ConfigureEndpoints(context);
-        });
+        configurator
+            .AddReservationConsumers()
+            .AddPaymentConsumers()
+            .UsingInMemory((context, cfg) => { cfg.ConfigureEndpoints(context); });
     });
 
 var app = builder.Build();

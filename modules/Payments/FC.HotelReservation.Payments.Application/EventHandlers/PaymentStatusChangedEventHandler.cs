@@ -1,5 +1,6 @@
 using FC4.HotelReservation.Payments.Domain.Events;
-using FC4.HotelReservation.Payments.IntegrationEvents;
+using FC4.HotelReservation.Payments.Events;
+using FC4.HotelReservation.Payments.Events.IntegrationEvents;
 using MassTransit;
 using MediatR;
 
