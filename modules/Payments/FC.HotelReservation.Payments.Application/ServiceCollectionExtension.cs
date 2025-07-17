@@ -1,10 +1,10 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace FC4.HotelReservation.Catalog.Application;
+namespace FC.HotelReservation.Payments.Application;
 
 public static class ServiceCollectionExtension
 {
-    public static IServiceCollection AddCatalogUseCases(
+    public static IServiceCollection AddPaymentsUseCases(
         this IServiceCollection services)
     {
         return services.AddMediatR(x => x.RegisterServicesFromAssemblies(

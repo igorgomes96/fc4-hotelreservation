@@ -1,3 +1,4 @@
+using FC.HotelReservation.Payments.Application;
 using FC4.HotelReservation.Application;
 using FC4.HotelReservation.Catalog.Application;
 using FC4.HotelReservation.Catalog.Domain;
@@ -15,7 +16,8 @@ builder.Services
     .AddCatalogDomainServices()
     .AddRepositories()
     .AddUseCases()
-    .AddCatalogUseCases();
+    .AddCatalogUseCases()
+    .AddPaymentsUseCases();
 
 var app = builder.Build();
 
@@ -25,6 +27,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 app.UseExceptionHandler();
 
 app.MapGroup("/v1/hotels")
