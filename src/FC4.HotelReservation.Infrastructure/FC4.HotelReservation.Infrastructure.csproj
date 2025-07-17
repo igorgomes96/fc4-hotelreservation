@@ -11,7 +11,9 @@
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.11"/>
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\..\modules\Catalog\FC4.HotelReservation.Catalog.Application\FC4.HotelReservation.Catalog.Application.csproj" />
+      <ProjectReference Include="..\..\modules\Payments\FC.HotelReservation.Payments.Application\FC.HotelReservation.Payments.Application.csproj" />
+      <ProjectReference Include="..\..\modules\Reservations\FC4.HotelReservation.Reservations.Application\FC4.HotelReservation.Reservations.Application.csproj" />
       <ProjectReference Include="..\..\modules\Reservations\FC4.HotelReservation.Reservations.Domain\FC4.HotelReservation.Reservations.Domain.csproj" />
-      <ProjectReference Include="..\FC4.HotelReservation.Application\FC4.HotelReservation.Application.csproj" />
     </ItemGroup>
 </Project>

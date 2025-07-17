@@ -1,4 +1,4 @@
-namespace FC4.HotelReservation.Application.Common;
+namespace FC4.HotelReservation.Shared.Application;
 
 public interface IUnitOfWork
 {

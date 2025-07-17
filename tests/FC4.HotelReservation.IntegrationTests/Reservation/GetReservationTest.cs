@@ -1,6 +1,6 @@
 using System.Net;
 using System.Net.Http.Json;
-using FC4.HotelReservation.Application.UseCases.Reservation.Common;
+using FC4.HotelReservation.Reservations.Application.UseCases.Reservation.Common;
 using FC4.HotelReservation.Reservations.Domain.Enums;
 using FluentAssertions;
 

@@ -3,7 +3,7 @@ using FC4.HotelReservation.Payments.Domain.Repositories;
 using FC4.HotelReservation.Reservations.Domain.Events;
 using MediatR;
 
-namespace FC4.HotelReservation.Application.EventHandlers;
+namespace FC.HotelReservation.Payments.Application.EventHandlers;
 
 public class ReservationCreatedEventHandler(IPaymentRepository paymentRepository)
     : INotificationHandler<ReservationCreatedEvent>

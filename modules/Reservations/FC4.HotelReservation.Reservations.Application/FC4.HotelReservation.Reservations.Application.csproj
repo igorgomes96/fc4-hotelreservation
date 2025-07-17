@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\shared\FC4.HotelReservation.Shared.Application\FC4.HotelReservation.Shared.Application.csproj" />
+      <ProjectReference Include="..\..\Catalog\FC4.HotelReservation.Catalog.Domain\FC4.HotelReservation.Catalog.Domain.csproj" />
+      <ProjectReference Include="..\..\Payments\FC4.HotelReservation.Payments.Domain\FC4.HotelReservation.Payments.Domain.csproj" />
+      <ProjectReference Include="..\FC4.HotelReservation.Reservations.Domain\FC4.HotelReservation.Reservations.Domain.csproj" />
+    </ItemGroup>
+
+</Project>

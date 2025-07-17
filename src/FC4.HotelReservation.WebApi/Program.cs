@@ -1,8 +1,8 @@
 using FC.HotelReservation.Payments.Application;
-using FC4.HotelReservation.Application;
 using FC4.HotelReservation.Catalog.Application;
 using FC4.HotelReservation.Catalog.Domain;
 using FC4.HotelReservation.Infrastructure;
+using FC4.HotelReservation.Reservations.Application;
 using FC4.HotelReservation.WebApi;
 using FC4.HotelReservation.WebApi.Endpoints;
 
@@ -15,9 +15,9 @@ builder.Services
     .AddExceptionHandler<GlobalExceptionHandler>()
     .AddCatalogDomainServices()
     .AddRepositories()
-    .AddUseCases()
     .AddCatalogUseCases()
-    .AddPaymentsUseCases();
+    .AddPaymentsUseCases()
+    .AddReservationsUseCases();
 
 var app = builder.Build();
 

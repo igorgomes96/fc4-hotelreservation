@@ -2,7 +2,7 @@ using FC4.HotelReservation.Reservations.Domain.Events;
 using FC4.HotelReservation.Reservations.Domain.Repositories;
 using MediatR;
 
-namespace FC4.HotelReservation.Application.EventHandlers;
+namespace FC4.HotelReservation.Reservations.Application.EventHandlers;
 
 public class ReservationCanceledEventHandler(IRoomTypeInventoryRepository roomTypeInventoryRepository)
     : INotificationHandler<ReservationCanceledEvent>
