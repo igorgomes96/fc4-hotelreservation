@@ -1,19 +1,19 @@
-using FC4.HotelReservation.Payments.Domain.Enums;
-using FC4.HotelReservation.Payments.Domain.Events;
 using FC4.HotelReservation.Reservations.Domain.Repositories;
+using FC4.HotelReservation.Shared.Application;
 using MediatR;
 
-namespace FC4.HotelReservation.Reservations.Application.EventHandlers;
+namespace FC4.HotelReservation.Reservations.Application.UseCases.Reservation.ProcessPaymentStatus;
 
-public class PaymentStatusChangedEventHandler(IReservationRepository reservationRepository)
-    : INotificationHandler<PaymentStatusChangedEvent>
+public class ProcessPaymentStatus(
+    IUnitOfWork unitOfWork,
+    IReservationRepository reservationRepository) : IProcessPaymentStatus
 {
-    public async Task Handle(PaymentStatusChangedEvent notification, CancellationToken cancellationToken)
+    public async Task Handle(ProcessPaymentStatusInput request, CancellationToken cancellationToken)
     {
-        var reservation = await reservationRepository.GetByIdAsync(notification.ReservationId, cancellationToken)
+        var reservation = await reservationRepository.GetByIdAsync(request.ReservationId, cancellationToken)
                           ?? throw new InvalidOperationException("Reservation not found");
 
-        switch (notification.PaymentStatus)
+        switch (request.PaymentStatus)
         {
             case PaymentStatus.Completed:
                 reservation.MarkAsPaid();
@@ -31,5 +31,6 @@ public class PaymentStatusChangedEventHandler(IReservationRepository reservation
         }
 
         await reservationRepository.UpdateAsync(reservation, cancellationToken);
+        await unitOfWork.CommitAsync(cancellationToken);
     }
 }

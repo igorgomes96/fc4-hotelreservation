@@ -15,6 +15,8 @@
       <ProjectReference Include="..\..\modules\Catalog\FC4.HotelReservation.Catalog.Application\FC4.HotelReservation.Catalog.Application.csproj" />
       <ProjectReference Include="..\..\modules\Payments\FC.HotelReservation.Payments.Application\FC.HotelReservation.Payments.Application.csproj" />
       <ProjectReference Include="..\..\modules\Reservations\FC4.HotelReservation.Reservations.Application\FC4.HotelReservation.Reservations.Application.csproj" />
+      <ProjectReference Include="..\..\modules\Reservations\FC4.HotelReservation.Reservations.Consumers\FC4.HotelReservation.Reservations.Consumers.csproj" />
+      <ProjectReference Include="..\..\shared\FC4.HotelReservation.Shared.Infrastructure\FC4.HotelReservation.Shared.Infrastructure.csproj" />
       <ProjectReference Include="..\FC4.HotelReservation.Infrastructure\FC4.HotelReservation.Infrastructure.csproj" />
     </ItemGroup>
 

@@ -8,8 +8,8 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\shared\FC4.HotelReservation.Shared.Application\FC4.HotelReservation.Shared.Application.csproj" />
-      <ProjectReference Include="..\..\Reservations\FC4.HotelReservation.Reservations.Domain\FC4.HotelReservation.Reservations.Domain.csproj" />
       <ProjectReference Include="..\FC4.HotelReservation.Payments.Domain\FC4.HotelReservation.Payments.Domain.csproj" />
+      <ProjectReference Include="..\FC4.HotelReservation.Payments.IntegrationEvents\FC4.HotelReservation.Payments.IntegrationEvents.csproj" />
     </ItemGroup>
 
 </Project>

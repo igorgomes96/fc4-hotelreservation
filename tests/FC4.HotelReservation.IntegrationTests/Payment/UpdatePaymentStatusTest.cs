@@ -47,6 +47,7 @@ public class UpdatePaymentStatusTest(WebApiFixture fixture) : IAsyncDisposable
         updatedPayment.Should().NotBeNull();
         updatedPayment.Status.Should().Be(newPaymentStatus);
 
+        await Task.Delay(50);
         var updatedReservation = await fixture.GetReservationByIdAsync(reservation.Id);
         updatedReservation.Should().NotBeNull();
         updatedReservation.Status.Should().Be(expectedReservationStatus);
@@ -109,7 +110,8 @@ public class UpdatePaymentStatusTest(WebApiFixture fixture) : IAsyncDisposable
         var updatedPayment = await fixture.GetPaymentByIdAsync(payment.Id);
         updatedPayment.Should().NotBeNull();
         updatedPayment.Status.Should().Be(PaymentStatus.Failed);
-
+        
+        await Task.Delay(50); // Ensure the reservation status is updated after payment processing
         var updatedReservation = await fixture.GetReservationByIdAsync(reservation.Id);
         updatedReservation.Should().NotBeNull();
         updatedReservation.Status.Should().Be(ReservationStatus.Rejected);
