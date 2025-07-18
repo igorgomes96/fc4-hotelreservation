@@ -1,4 +1,4 @@
-using FC4.HotelReservation.Shared.Domain.ValueObjects;
+using FC4.HotelReservation.Reservations.Domain.ValueObjects;
 using MediatR;
 
 namespace FC4.HotelReservation.Reservations.Application.UseCases.Reservation.CreateReservation;
@@ -12,9 +12,9 @@ public record CreateReservationInput(
     int RoomQuantity
 ) : IRequest<CreateReservationOutput>
 {
-    public Reservations.Domain.Entities.Reservation ToReservation(Money totalAmount)
+    public Domain.Entities.Reservation ToReservation(Money totalAmount)
     {
         var stayPeriod = new DateRange(StartDate, EndDate);
-        return Reservations.Domain.Entities.Reservation.Create(HotelId, RoomTypeId, stayPeriod, GuestId, RoomQuantity, totalAmount);
+        return Domain.Entities.Reservation.Create(HotelId, RoomTypeId, stayPeriod, GuestId, RoomQuantity, totalAmount);
     }
 }

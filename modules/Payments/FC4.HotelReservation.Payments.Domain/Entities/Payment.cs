@@ -1,8 +1,8 @@
 using Ardalis.GuardClauses;
 using FC4.HotelReservation.Payments.Domain.Enums;
 using FC4.HotelReservation.Payments.Domain.Events;
+using FC4.HotelReservation.Payments.Domain.ValueObjects;
 using FC4.HotelReservation.Shared.Domain;
-using FC4.HotelReservation.Shared.Domain.ValueObjects;
 
 namespace FC4.HotelReservation.Payments.Domain.Entities;
 

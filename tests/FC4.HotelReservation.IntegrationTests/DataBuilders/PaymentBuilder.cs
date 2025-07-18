@@ -1,6 +1,6 @@
 using Bogus;
 using FC4.HotelReservation.Payments.Domain.Enums;
-using FC4.HotelReservation.Shared.Domain.ValueObjects;
+using FC4.HotelReservation.Payments.Domain.ValueObjects;
 
 namespace FC4.HotelReservation.IntegrationTests.DataBuilders;
 

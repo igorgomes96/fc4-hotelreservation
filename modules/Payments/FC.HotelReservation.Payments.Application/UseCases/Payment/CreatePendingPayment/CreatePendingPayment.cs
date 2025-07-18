@@ -1,6 +1,6 @@
 using FC4.HotelReservation.Payments.Domain.Repositories;
+using FC4.HotelReservation.Payments.Domain.ValueObjects;
 using FC4.HotelReservation.Shared.Application;
-using FC4.HotelReservation.Shared.Domain.ValueObjects;
 using Entities = FC4.HotelReservation.Payments.Domain.Entities;
 
 namespace FC.HotelReservation.Payments.Application.UseCases.Payment.CreatePendingPayment;

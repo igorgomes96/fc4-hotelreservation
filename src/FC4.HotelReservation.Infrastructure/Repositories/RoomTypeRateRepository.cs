@@ -1,6 +1,6 @@
 using FC4.HotelReservation.Catalog.Domain.Entities;
 using FC4.HotelReservation.Catalog.Domain.Repositories;
-using FC4.HotelReservation.Shared.Domain.ValueObjects;
+using FC4.HotelReservation.Catalog.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 
 namespace FC4.HotelReservation.Infrastructure.Repositories;

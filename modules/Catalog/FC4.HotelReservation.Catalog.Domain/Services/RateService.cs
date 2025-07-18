@@ -2,7 +2,7 @@ using FC4.HotelReservation.Catalog.Domain.Entities;
 using FC4.HotelReservation.Catalog.Domain.Repositories;
 using FC4.HotelReservation.Catalog.Domain.Specifications.Compositions;
 using FC4.HotelReservation.Catalog.Domain.Specifications.Context;
-using FC4.HotelReservation.Shared.Domain.ValueObjects;
+using FC4.HotelReservation.Catalog.Domain.ValueObjects;
 
 namespace FC4.HotelReservation.Catalog.Domain.Services;
 

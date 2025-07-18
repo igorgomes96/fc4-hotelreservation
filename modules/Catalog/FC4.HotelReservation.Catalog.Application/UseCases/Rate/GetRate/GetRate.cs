@@ -1,5 +1,5 @@
 using FC4.HotelReservation.Catalog.Domain.Services;
-using FC4.HotelReservation.Shared.Domain.ValueObjects;
+using FC4.HotelReservation.Catalog.Domain.ValueObjects;
 
 namespace FC4.HotelReservation.Catalog.Application.UseCases.Rate.GetRate;
 

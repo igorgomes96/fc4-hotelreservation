@@ -1,6 +1,7 @@
 using Bogus;
+using FC4.HotelReservation.Catalog.Domain.ValueObjects;
 using FC4.HotelReservation.Reservations.Domain.Entities;
-using FC4.HotelReservation.Shared.Domain.ValueObjects;
+using FC4.HotelReservation.Reservations.Domain.ValueObjects;
 
 namespace FC4.HotelReservation.IntegrationTests.DataBuilders;
 

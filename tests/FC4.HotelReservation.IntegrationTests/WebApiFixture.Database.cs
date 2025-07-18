@@ -1,8 +1,8 @@
 using FC4.HotelReservation.Catalog.Domain.Entities;
+using FC4.HotelReservation.Catalog.Domain.ValueObjects;
 using FC4.HotelReservation.Infrastructure;
 using FC4.HotelReservation.Reservations.Domain.Entities;
 using FC4.HotelReservation.Shared.Domain;
-using FC4.HotelReservation.Shared.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using static FC4.HotelReservation.IntegrationTests.DataBuilders.HotelBuilder;
