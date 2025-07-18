@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Guest = FC4.HotelReservation.Reservations.Domain.Entities.Guest;
 
-namespace FC4.HotelReservation.Infrastructure.Mappings;
+namespace FC4.HotelReservation.Reservations.Infra.Data.Mappings;
 
 public class ReservationConfiguration : IEntityTypeConfiguration<Reservation>
 {

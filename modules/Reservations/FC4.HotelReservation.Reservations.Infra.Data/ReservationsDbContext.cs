@@ -1,10 +1,9 @@
-using FC4.HotelReservation.Payments.Domain.Entities;
 using FC4.HotelReservation.Reservations.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace FC4.HotelReservation.Infrastructure;
+namespace FC4.HotelReservation.Reservations.Infra.Data;
 
-public class HotelDbContext(DbContextOptions<HotelDbContext> options) : DbContext(options)
+public class ReservationsDbContext(DbContextOptions<ReservationsDbContext> options) : DbContext(options)
 {
     public DbSet<Guest> Guests { get; set; }
     public DbSet<Reservation> Reservations { get; set; }
@@ -12,7 +11,9 @@ public class HotelDbContext(DbContextOptions<HotelDbContext> options) : DbContex
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(HotelDbContext).Assembly);
+        modelBuilder.HasDefaultSchema("reservations");
+        
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(ReservationsDbContext).Assembly);
         base.OnModelCreating(modelBuilder);
     }
 }

@@ -1,7 +1,7 @@
 using System.Text.Json;
 using FC4.HotelReservation.Catalog.Infra.Data;
-using FC4.HotelReservation.Infrastructure;
 using FC4.HotelReservation.Payments.Infra.Data;
+using FC4.HotelReservation.Reservations.Infra.Data;
 using FC4.HotelReservation.WebApi;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
@@ -46,8 +46,8 @@ public partial class WebApiFixture : WebApplicationFactory<Program>
         var host = base.CreateHost(builder);
         
         using var scope = host.Services.CreateScope();
-        var dbContext = scope.ServiceProvider.GetRequiredService<HotelDbContext>();
-        dbContext.Database.Migrate();
+        var reservationsDbContext = scope.ServiceProvider.GetRequiredService<ReservationsDbContext>();
+        reservationsDbContext.Database.Migrate();
         
         var catalogContext = scope.ServiceProvider.GetRequiredService<CatalogDbContext>();
         catalogContext.Database.Migrate();

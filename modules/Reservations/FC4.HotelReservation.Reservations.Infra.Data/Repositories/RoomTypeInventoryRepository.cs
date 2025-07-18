@@ -3,9 +3,9 @@ using FC4.HotelReservation.Reservations.Domain.Repositories;
 using FC4.HotelReservation.Reservations.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 
-namespace FC4.HotelReservation.Infrastructure.Repositories;
+namespace FC4.HotelReservation.Reservations.Infra.Data.Repositories;
 
-public class RoomTypeInventoryRepository(HotelDbContext context) : IRoomTypeInventoryRepository
+public class RoomTypeInventoryRepository(ReservationsDbContext context) : IRoomTypeInventoryRepository
 {
     public async Task<List<RoomTypeInventory>> GetInventoryForPeriodAsync(
         Guid hotelId, 

@@ -1,9 +1,9 @@
 using FC4.HotelReservation.Catalog.Domain.Entities;
 using FC4.HotelReservation.Catalog.Domain.ValueObjects;
 using FC4.HotelReservation.Catalog.Infra.Data;
-using FC4.HotelReservation.Infrastructure;
 using FC4.HotelReservation.Payments.Infra.Data;
 using FC4.HotelReservation.Reservations.Domain.Entities;
+using FC4.HotelReservation.Reservations.Infra.Data;
 using FC4.HotelReservation.Shared.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,10 +33,10 @@ public partial class WebApiFixture
         var paymentsContext = scope.ServiceProvider.GetRequiredService<PaymentsDbContext>();
         await paymentsContext.Database.ExecuteSqlRawAsync("DELETE FROM payments.payments");
 
-        var dbContext = scope.ServiceProvider.GetRequiredService<HotelDbContext>();
-        await dbContext.Database.ExecuteSqlRawAsync("DELETE FROM public.room_type_inventories");
-        await dbContext.Database.ExecuteSqlRawAsync("DELETE FROM public.reservations");
-        await dbContext.Database.ExecuteSqlRawAsync("DELETE FROM public.guests");
+        var reservationsDbContext = scope.ServiceProvider.GetRequiredService<ReservationsDbContext>();
+        await reservationsDbContext.Database.ExecuteSqlRawAsync("DELETE FROM reservations.room_type_inventories");
+        await reservationsDbContext.Database.ExecuteSqlRawAsync("DELETE FROM reservations.reservations");
+        await reservationsDbContext.Database.ExecuteSqlRawAsync("DELETE FROM reservations.guests");
     }
 
     private async Task<T> AddToDatabaseAsync<T, TDbContext>(T entity) 
@@ -95,7 +95,7 @@ public partial class WebApiFixture
                 .Build();
         }
 
-        return await AddToDatabaseAsync<Reservations.Domain.Entities.Reservation, HotelDbContext>(reservation);
+        return await AddToDatabaseAsync<Reservations.Domain.Entities.Reservation, ReservationsDbContext>(reservation);
     }
 
     public async Task<Payments.Domain.Entities.Payment> CreatePaymentInDatabaseAsync(
@@ -108,7 +108,7 @@ public partial class WebApiFixture
     public async Task<Guest> CreateGuestInDatabaseAsync(Guest? guest = null)
     {
         guest ??= AGuest().Build();
-        return await AddToDatabaseAsync<Guest, HotelDbContext>(guest);
+        return await AddToDatabaseAsync<Guest, ReservationsDbContext>(guest);
     }
 
     public async Task<RoomTypeRate> CreateRoomTypeRateInDatabaseAsync(RoomTypeRate? rate = null)
@@ -120,7 +120,7 @@ public partial class WebApiFixture
     public async Task<RoomTypeInventory> CreateRoomTypeInventoryInDatabaseAsync(RoomTypeInventory? inventory = null)
     {
         inventory ??= ARoomTypeInventory().Build();
-        return await AddToDatabaseAsync<RoomTypeInventory, HotelDbContext>(inventory);
+        return await AddToDatabaseAsync<RoomTypeInventory, ReservationsDbContext>(inventory);
     }
 
     public async Task<Payments.Domain.Entities.Payment?> GetPaymentByReservationIdAsync(Guid reservationId)
@@ -134,7 +134,7 @@ public partial class WebApiFixture
         DateRange period)
     {
         using var scope = Services.CreateScope();
-        var dbContext = scope.ServiceProvider.GetRequiredService<HotelDbContext>();
+        var dbContext = scope.ServiceProvider.GetRequiredService<ReservationsDbContext>();
 
         var dates = period.GetDates().ToList();
         return await dbContext.RoomTypeInventories
@@ -162,7 +162,7 @@ public partial class WebApiFixture
     public async Task<Reservations.Domain.Entities.Reservation?> GetReservationByIdAsync(Guid reservationId)
     {
         using var scope = Services.CreateScope();
-        var dbContext = scope.ServiceProvider.GetRequiredService<HotelDbContext>();
+        var dbContext = scope.ServiceProvider.GetRequiredService<ReservationsDbContext>();
         return await dbContext.Reservations.FirstOrDefaultAsync(r => r.Id == reservationId);
     }
 
@@ -176,7 +176,7 @@ public partial class WebApiFixture
     public async Task<List<Reservations.Domain.Entities.Reservation>> GetReservationsByGuestIdAsync(Guid guestId)
     {
         using var scope = Services.CreateScope();
-        var dbContext = scope.ServiceProvider.GetRequiredService<HotelDbContext>();
+        var dbContext = scope.ServiceProvider.GetRequiredService<ReservationsDbContext>();
         return await dbContext.Reservations
             .Where(r => r.GuestId == guestId)
             .ToListAsync();
@@ -185,7 +185,7 @@ public partial class WebApiFixture
     public async Task<RoomTypeInventory?> GetRoomTypeInventoryAsync(Guid hotelId, Guid roomTypeId, DateTime startDate)
     {
         using var scope = Services.CreateScope();
-        var dbContext = scope.ServiceProvider.GetRequiredService<HotelDbContext>();
+        var dbContext = scope.ServiceProvider.GetRequiredService<ReservationsDbContext>();
 
         return await dbContext.RoomTypeInventories
             .FirstOrDefaultAsync(i => i.HotelId == hotelId &&

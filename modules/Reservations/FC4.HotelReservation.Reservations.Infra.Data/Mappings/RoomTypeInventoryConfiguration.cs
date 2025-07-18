@@ -2,7 +2,7 @@ using FC4.HotelReservation.Reservations.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace FC4.HotelReservation.Infrastructure.Mappings;
+namespace FC4.HotelReservation.Reservations.Infra.Data.Mappings;
 
 public class RoomTypeInventoryConfiguration : IEntityTypeConfiguration<RoomTypeInventory>
 {

@@ -1,11 +1,11 @@
-using FC4.HotelReservation.Shared.Application;
+using FC4.HotelReservation.Reservations.Application;
 using FC4.HotelReservation.Shared.Domain;
 using MediatR;
 
-namespace FC4.HotelReservation.Infrastructure;
+namespace FC4.HotelReservation.Reservations.Infra.Data;
 
 public class UnitOfWork(
-    HotelDbContext dbContext,
+    ReservationsDbContext dbContext,
     IPublisher publisher) : IUnitOfWork
 {
     public async Task CommitAsync(CancellationToken cancellationToken)
