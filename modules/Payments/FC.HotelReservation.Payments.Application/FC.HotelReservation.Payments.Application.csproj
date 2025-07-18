@@ -7,7 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\shared\FC4.HotelReservation.Shared.Application\FC4.HotelReservation.Shared.Application.csproj" />
       <ProjectReference Include="..\FC4.HotelReservation.Payments.Domain\FC4.HotelReservation.Payments.Domain.csproj" />
       <ProjectReference Include="..\FC4.HotelReservation.Payments.Events\FC4.HotelReservation.Payments.Events.csproj" />
     </ItemGroup>

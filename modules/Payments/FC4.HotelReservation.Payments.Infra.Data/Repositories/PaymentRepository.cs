@@ -2,9 +2,9 @@ using FC4.HotelReservation.Payments.Domain.Entities;
 using FC4.HotelReservation.Payments.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace FC4.HotelReservation.Infrastructure.Repositories;
+namespace FC4.HotelReservation.Payments.Infra.Data.Repositories;
 
-public class PaymentRepository(HotelDbContext context) : IPaymentRepository
+public class PaymentRepository(PaymentsDbContext context) : IPaymentRepository
 {
     public async Task<Payment?> GetByIdAsync(Guid paymentId, CancellationToken cancellationToken)
     {

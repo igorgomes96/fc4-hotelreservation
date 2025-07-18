@@ -2,6 +2,7 @@ using FC4.HotelReservation.Catalog.Domain.Entities;
 using FC4.HotelReservation.Catalog.Domain.ValueObjects;
 using FC4.HotelReservation.Catalog.Infra.Data;
 using FC4.HotelReservation.Infrastructure;
+using FC4.HotelReservation.Payments.Infra.Data;
 using FC4.HotelReservation.Reservations.Domain.Entities;
 using FC4.HotelReservation.Shared.Domain;
 using Microsoft.EntityFrameworkCore;
@@ -28,9 +29,11 @@ public partial class WebApiFixture
         await catalogContext.Database.ExecuteSqlRawAsync("DELETE FROM catalog.room_type_rates");
         await catalogContext.Database.ExecuteSqlRawAsync("DELETE FROM catalog.room_types");
         await catalogContext.Database.ExecuteSqlRawAsync("DELETE FROM catalog.hotels");
+        
+        var paymentsContext = scope.ServiceProvider.GetRequiredService<PaymentsDbContext>();
+        await paymentsContext.Database.ExecuteSqlRawAsync("DELETE FROM payments.payments");
 
         var dbContext = scope.ServiceProvider.GetRequiredService<HotelDbContext>();
-        await dbContext.Database.ExecuteSqlRawAsync("DELETE FROM public.payments");
         await dbContext.Database.ExecuteSqlRawAsync("DELETE FROM public.room_type_inventories");
         await dbContext.Database.ExecuteSqlRawAsync("DELETE FROM public.reservations");
         await dbContext.Database.ExecuteSqlRawAsync("DELETE FROM public.guests");
@@ -99,7 +102,7 @@ public partial class WebApiFixture
         Payments.Domain.Entities.Payment? payment = null)
     {
         payment ??= APayment().Build();
-        return await AddToDatabaseAsync<Payments.Domain.Entities.Payment, HotelDbContext>(payment);
+        return await AddToDatabaseAsync<Payments.Domain.Entities.Payment, PaymentsDbContext>(payment);
     }
 
     public async Task<Guest> CreateGuestInDatabaseAsync(Guest? guest = null)
@@ -123,7 +126,7 @@ public partial class WebApiFixture
     public async Task<Payments.Domain.Entities.Payment?> GetPaymentByReservationIdAsync(Guid reservationId)
     {
         using var scope = Services.CreateScope();
-        var dbContext = scope.ServiceProvider.GetRequiredService<HotelDbContext>();
+        var dbContext = scope.ServiceProvider.GetRequiredService<PaymentsDbContext>();
         return await dbContext.Payments.FirstOrDefaultAsync(p => p.ReservationId == reservationId);
     }
 
@@ -166,7 +169,7 @@ public partial class WebApiFixture
     public async Task<Payments.Domain.Entities.Payment?> GetPaymentByIdAsync(Guid paymentId)
     {
         using var scope = Services.CreateScope();
-        var dbContext = scope.ServiceProvider.GetRequiredService<HotelDbContext>();
+        var dbContext = scope.ServiceProvider.GetRequiredService<PaymentsDbContext>();
         return await dbContext.Payments.FirstOrDefaultAsync(p => p.Id == paymentId);
     }
 

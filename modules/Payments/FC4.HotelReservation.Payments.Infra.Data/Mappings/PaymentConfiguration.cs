@@ -1,9 +1,8 @@
 using FC4.HotelReservation.Payments.Domain.Entities;
-using FC4.HotelReservation.Reservations.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace FC4.HotelReservation.Infrastructure.Mappings;
+namespace FC4.HotelReservation.Payments.Infra.Data.Mappings;
 
 public class PaymentConfiguration: IEntityTypeConfiguration<Payment>
 {
@@ -19,11 +18,6 @@ public class PaymentConfiguration: IEntityTypeConfiguration<Payment>
         builder.Property(p => p.ReservationId)
             .HasColumnName("reservation_id")
             .IsRequired();
-        
-        builder.HasOne<Reservation>()
-            .WithMany()
-            .HasForeignKey(p => p.ReservationId)
-            .HasConstraintName("fk_payments_reservations");
             
         builder.Property(p => p.Status)
             .HasColumnName("status")

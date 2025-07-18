@@ -4,6 +4,7 @@ using FC4.HotelReservation.Catalog.Domain;
 using FC4.HotelReservation.Catalog.Infra.Data;
 using FC4.HotelReservation.Infrastructure;
 using FC4.HotelReservation.Payments.Consumers;
+using FC4.HotelReservation.Payments.Infra.Data;
 using FC4.HotelReservation.Reservations.Adapters;
 using FC4.HotelReservation.Reservations.Application;
 using FC4.HotelReservation.Reservations.Consumers;
@@ -23,6 +24,7 @@ builder.Services
     .AddCatalogRepositories()
     .AddRepositories()
     .AddPaymentsUseCases()
+    .AddPaymentRepositories()
     .AddReservationsUseCases()
     .AddReservationAdapters()
     .AddMassTransit(configurator =>
