@@ -26,6 +26,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\modules\Catalog\FC4.HotelReservation.Catalog.Infra.Data\FC4.HotelReservation.Catalog.Infra.Data.csproj" />
       <ProjectReference Include="..\..\src\FC4.HotelReservation.WebApi\FC4.HotelReservation.WebApi.csproj" />
     </ItemGroup>
 

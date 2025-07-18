@@ -52,6 +52,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC4.HotelReservation.Paymen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC4.HotelReservation.Reservations.Adapters", "modules\Reservations\FC4.HotelReservation.Reservations.Adapters\FC4.HotelReservation.Reservations.Adapters.csproj", "{7C4EC6C1-9F63-4978-B041-A2AA3E7EB756}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC4.HotelReservation.Catalog.Infra.Data", "modules\Catalog\FC4.HotelReservation.Catalog.Infra.Data\FC4.HotelReservation.Catalog.Infra.Data.csproj", "{3BF38858-2028-40AD-A5D4-6098D9649937}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,7 @@ Global
 		{8642B2A8-B1C2-4E1A-819B-57E42C2002B4} = {5BECF7E2-C2C7-4F4A-B446-70BCAC0E974F}
 		{60CFC84E-A26C-4AAC-BF2C-C5BC3A76F6CE} = {E9DC3DF1-4343-4049-96CA-1A5C12D1A350}
 		{7C4EC6C1-9F63-4978-B041-A2AA3E7EB756} = {5BECF7E2-C2C7-4F4A-B446-70BCAC0E974F}
+		{3BF38858-2028-40AD-A5D4-6098D9649937} = {5B6468FF-17AC-439F-83B7-99134977B44A}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{4AD42713-710C-4970-A359-CC9E18FC6198}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -143,5 +146,9 @@ Global
 		{7C4EC6C1-9F63-4978-B041-A2AA3E7EB756}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C4EC6C1-9F63-4978-B041-A2AA3E7EB756}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C4EC6C1-9F63-4978-B041-A2AA3E7EB756}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BF38858-2028-40AD-A5D4-6098D9649937}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BF38858-2028-40AD-A5D4-6098D9649937}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BF38858-2028-40AD-A5D4-6098D9649937}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BF38858-2028-40AD-A5D4-6098D9649937}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

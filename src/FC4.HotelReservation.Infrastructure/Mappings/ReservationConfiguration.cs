@@ -1,4 +1,3 @@
-using FC4.HotelReservation.Catalog.Domain.Entities;
 using FC4.HotelReservation.Reservations.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -71,16 +70,6 @@ public class ReservationConfiguration : IEntityTypeConfiguration<Reservation>
                 .HasMaxLength(3)
                 .IsRequired();
         });
-        
-        builder.HasOne<Hotel>()
-            .WithMany()
-            .HasForeignKey(r => r.HotelId)
-            .HasConstraintName("fk_reservations_hotels");
-            
-        builder.HasOne<RoomType>()
-            .WithMany()
-            .HasForeignKey(r => r.RoomTypeId)
-            .HasConstraintName("fk_reservations_room_types");
             
         builder.HasOne<Guest>()
             .WithMany()

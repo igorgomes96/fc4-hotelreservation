@@ -1,6 +1,7 @@
 using FC.HotelReservation.Payments.Application;
 using FC4.HotelReservation.Catalog.Application;
 using FC4.HotelReservation.Catalog.Domain;
+using FC4.HotelReservation.Catalog.Infra.Data;
 using FC4.HotelReservation.Infrastructure;
 using FC4.HotelReservation.Payments.Consumers;
 using FC4.HotelReservation.Reservations.Adapters;
@@ -18,8 +19,9 @@ builder.Services
     .AddProblemDetails()
     .AddExceptionHandler<GlobalExceptionHandler>()
     .AddCatalogDomainServices()
-    .AddRepositories()
     .AddCatalogUseCases()
+    .AddCatalogRepositories()
+    .AddRepositories()
     .AddPaymentsUseCases()
     .AddReservationsUseCases()
     .AddReservationAdapters()

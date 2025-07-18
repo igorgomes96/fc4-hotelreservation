@@ -2,9 +2,9 @@ using FC4.HotelReservation.Catalog.Domain.Entities;
 using FC4.HotelReservation.Catalog.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace FC4.HotelReservation.Infrastructure.Repositories;
+namespace FC4.HotelReservation.Catalog.Infra.Data.Repositories;
 
-public class HotelRepository(HotelDbContext context) : IHotelRepository
+public class HotelRepository(CatalogDbContext context) : IHotelRepository
 {
     public async Task<Hotel?> GetByIdAsync(Guid hotelId, CancellationToken cancellationToken)
     {

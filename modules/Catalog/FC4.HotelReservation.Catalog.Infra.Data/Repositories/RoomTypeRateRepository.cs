@@ -3,9 +3,9 @@ using FC4.HotelReservation.Catalog.Domain.Repositories;
 using FC4.HotelReservation.Catalog.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 
-namespace FC4.HotelReservation.Infrastructure.Repositories;
+namespace FC4.HotelReservation.Catalog.Infra.Data.Repositories;
 
-public class RoomTypeRateRepository(HotelDbContext context) : IRoomTypeRateRepository
+public class RoomTypeRateRepository(CatalogDbContext context) : IRoomTypeRateRepository
 {
     public async Task<IEnumerable<RoomTypeRate>> GetRateForPeriodAsync(
         Guid hotelId, 
