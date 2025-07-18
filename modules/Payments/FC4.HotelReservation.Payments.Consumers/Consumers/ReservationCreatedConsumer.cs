@@ -1,4 +1,4 @@
-using FC.HotelReservation.Payments.Application.UseCases.Payment.CreatePendingPayment;
+using FC4.HotelReservation.Payments.Application.UseCases.Payment.CreatePendingPayment;
 using FC4.HotelReservation.Reservations.Events.IntegrationEvents;
 using MassTransit;
 using MediatR;

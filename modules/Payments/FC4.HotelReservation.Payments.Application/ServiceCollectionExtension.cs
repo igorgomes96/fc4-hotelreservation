@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace FC.HotelReservation.Payments.Application;
+namespace FC4.HotelReservation.Payments.Application;
 
 public static class ServiceCollectionExtension
 {

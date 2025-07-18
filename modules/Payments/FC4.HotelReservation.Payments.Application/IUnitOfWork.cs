@@ -1,4 +1,4 @@
-namespace FC.HotelReservation.Payments.Application;
+namespace FC4.HotelReservation.Payments.Application;
 
 public interface IUnitOfWork
 {

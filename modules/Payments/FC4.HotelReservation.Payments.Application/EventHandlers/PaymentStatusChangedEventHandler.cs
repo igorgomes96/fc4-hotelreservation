@@ -4,7 +4,7 @@ using FC4.HotelReservation.Payments.Events.IntegrationEvents;
 using MassTransit;
 using MediatR;
 
-namespace FC.HotelReservation.Payments.Application.EventHandlers;
+namespace FC4.HotelReservation.Payments.Application.EventHandlers;
 
 public class PaymentStatusChangedEventHandler(IPublishEndpoint publisher)
     : INotificationHandler<PaymentStatusChangedEvent>

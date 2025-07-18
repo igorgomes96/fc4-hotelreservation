@@ -36,7 +36,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC4.HotelReservation.Catalo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC4.HotelReservation.Shared.Application", "shared\FC4.HotelReservation.Shared.Application\FC4.HotelReservation.Shared.Application.csproj", "{47EF9698-6B9D-4CEC-B87B-1CDFB21EBAD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC.HotelReservation.Payments.Application", "modules\Payments\FC.HotelReservation.Payments.Application\FC.HotelReservation.Payments.Application.csproj", "{619991AD-2FDC-4F2D-88FD-CC4335501307}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC4.HotelReservation.Payments.Application", "modules\Payments\FC4.HotelReservation.Payments.Application\FC4.HotelReservation.Payments.Application.csproj", "{619991AD-2FDC-4F2D-88FD-CC4335501307}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC4.HotelReservation.Reservations.Application", "modules\Reservations\FC4.HotelReservation.Reservations.Application\FC4.HotelReservation.Reservations.Application.csproj", "{7DD66F35-3139-4734-96EF-FDCB61F4A360}"
 EndProject

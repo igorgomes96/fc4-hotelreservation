@@ -1,5 +1,5 @@
 using MediatR;
 
-namespace FC.HotelReservation.Payments.Application.UseCases.Payment.UpdatePaymentStatus;
+namespace FC4.HotelReservation.Payments.Application.UseCases.Payment.UpdatePaymentStatus;
 
 public interface IUpdatePaymentStatus : IRequestHandler<UpdatePaymentStatusInput>;

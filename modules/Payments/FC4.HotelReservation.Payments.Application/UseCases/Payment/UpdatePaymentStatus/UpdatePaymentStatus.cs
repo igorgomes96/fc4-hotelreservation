@@ -3,7 +3,7 @@ using FC4.HotelReservation.Payments.Domain.Repositories;
 using FC4.HotelReservation.Shared.Application;
 using FC4.HotelReservation.Shared.Application.Exceptions;
 
-namespace FC.HotelReservation.Payments.Application.UseCases.Payment.UpdatePaymentStatus;
+namespace FC4.HotelReservation.Payments.Application.UseCases.Payment.UpdatePaymentStatus;
 
 public class UpdatePaymentStatus(IPaymentRepository paymentRepository, IUnitOfWork unitOfWork) : IUpdatePaymentStatus
 {

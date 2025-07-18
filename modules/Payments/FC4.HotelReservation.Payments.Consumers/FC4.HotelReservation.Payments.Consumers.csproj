@@ -8,7 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Reservations\FC4.HotelReservation.Reservations.Events\FC4.HotelReservation.Reservations.Events.csproj" />
-      <ProjectReference Include="..\FC.HotelReservation.Payments.Application\FC.HotelReservation.Payments.Application.csproj" />
+      <ProjectReference Include="..\FC4.HotelReservation.Payments.Application\FC4.HotelReservation.Payments.Application.csproj" />
     </ItemGroup>
 
 </Project>
