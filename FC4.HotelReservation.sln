@@ -25,7 +25,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{836DD3C2-F1DF-4C87-8045-4CE4C6179BFE}"
 	ProjectSection(SolutionItems) = preProject
 		..\README.md = ..\README.md
-		diagram.puml = diagram.puml
+		diagram_monolith.puml = diagram_monolith.puml
+		diagram_modules.puml = diagram_modules.puml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{5B6468FF-17AC-439F-83B7-99134977B44A}"
