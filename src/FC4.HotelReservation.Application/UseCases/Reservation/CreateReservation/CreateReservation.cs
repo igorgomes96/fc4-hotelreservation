@@ -10,12 +10,16 @@ public class CreateReservation(
     IReservationRepository reservationRepository,
     IRoomTypeInventoryRepository roomTypeInventoryRepository,
     IRateService rateService,
+    IGuestRepository guestRepository,
     IUnitOfWork unitOfWork) : ICreateReservation
 {
     public async Task<CreateReservationOutput> Handle(
         CreateReservationInput request,
         CancellationToken cancellationToken)
     {
+        _ = await guestRepository.GetByIdAsync(request.GuestId, cancellationToken)
+            ?? throw new InvalidOperationException("Guest not found");
+        
         var period = new DateRange(request.StartDate, request.EndDate);
         var inventories = await roomTypeInventoryRepository.GetInventoryForPeriodAsync(
             request.HotelId, request.RoomTypeId, period, cancellationToken);

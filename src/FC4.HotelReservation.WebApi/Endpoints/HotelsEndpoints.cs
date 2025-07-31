@@ -11,7 +11,7 @@ public static class HotelsEndpoints
         group.MapPost("/", async (CreateHotelInput input, IMediator mediator) =>
         {
             var output = await mediator.Send(input);
-            return TypedResults.Created($"/hotel/{output.Id}", output);
+            return TypedResults.Created($"/hotels/{output.Id}", output);
         });
 
         group.MapGet("/{id:guid}", async (Guid id, IMediator mediator) => 

@@ -35,6 +35,11 @@ app.MapGroup("/v1/rooms")
     .WithOpenApi()
     .WithTags("Rooms");
 
+app.MapGroup("/v1/guests")
+    .MapGuestsApi()
+    .WithOpenApi()
+    .WithTags("Guests");
+
 app.MapGroup("/v1/payments")
     .MapPaymentsApi()
     .WithOpenApi()
@@ -48,7 +53,7 @@ app.MapGroup("/v1/reservations")
 app.MapGroup("/v1/rates")
     .MapRatesApi()
     .WithOpenApi()
-    .WithTags("rates");
+    .WithTags("Rates");
 
 app.Run();
 
