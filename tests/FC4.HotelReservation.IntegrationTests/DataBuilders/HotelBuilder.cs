@@ -43,8 +43,5 @@ public class HotelBuilder
     }
 
     public Domain.Entities.Hotel Build()
-        => new(_name, _address)
-        {
-            Id = _id
-        };
+        => new(_id, _name, _address);
 }

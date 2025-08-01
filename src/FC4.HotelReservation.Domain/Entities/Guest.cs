@@ -12,16 +12,16 @@ public class Guest : AggregateRoot
     
     private Guest() { } // For EF Core
     
-    public Guest(string firstName, string lastName, Email email)
+    public Guest(Guid id, string firstName, string lastName, Email email) : base(id)
     {
         FirstName = Guard.Against.NullOrWhiteSpace(firstName, nameof(firstName));
         LastName = Guard.Against.NullOrWhiteSpace(lastName, nameof(lastName));
         Email = Guard.Against.Null(email, nameof(email));
     }
     
-    public void UpdateEmail(Email email)
+    public static Guest Create(string firstName, string lastName, Email email)
     {
-        Email = Guard.Against.Null(email, nameof(email));
+        return new Guest(Guid.NewGuid(), firstName, lastName, email);
     }
 
     public string FullName => $"{FirstName} {LastName}";

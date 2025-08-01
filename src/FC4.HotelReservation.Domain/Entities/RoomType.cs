@@ -9,8 +9,13 @@ public class RoomType : AggregateRoot
     
     private RoomType() { } // For EF Core
     
-    public RoomType(string description)
+    public RoomType(Guid id, string description) : base(id)
     {
         Description = Guard.Against.NullOrWhiteSpace(description, nameof(description));
+    }
+    
+    public static RoomType Create(string description)
+    {
+        return new RoomType(Guid.NewGuid(), description);
     }
 }

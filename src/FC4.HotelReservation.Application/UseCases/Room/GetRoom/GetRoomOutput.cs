@@ -6,7 +6,6 @@ public record GetRoomOutput(
     int Floor,
     string Number,
     Guid HotelId,
-    string Name,
     bool IsAvailable)
 {
     public static GetRoomOutput FromRoom(Domain.Entities.Room room)
@@ -17,7 +16,6 @@ public record GetRoomOutput(
             room.Floor,
             room.Number,
             room.HotelId,
-            room.Name,
             room.IsAvailable
         );
     }

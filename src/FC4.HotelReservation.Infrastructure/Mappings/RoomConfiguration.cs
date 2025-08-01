@@ -32,11 +32,6 @@ public class RoomConfiguration : IEntityTypeConfiguration<Room>
             .HasMaxLength(10)
             .IsRequired();
             
-        builder.Property(r => r.Name)
-            .HasColumnName("name")
-            .HasMaxLength(100)
-            .IsRequired();
-            
         builder.Property(r => r.IsAvailable)
             .HasColumnName("is_available")
             .IsRequired();

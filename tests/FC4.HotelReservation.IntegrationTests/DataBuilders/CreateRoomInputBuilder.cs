@@ -10,14 +10,12 @@ public class CreateRoomInputBuilder
     private int _floor;
     private string _number;
     private Guid _hotelId = Guid.NewGuid();
-    private string _name;
     private bool _isAvailable = true;
 
     public CreateRoomInputBuilder()
     {
         _floor = _faker.Random.Int(1, 20);
         _number = _faker.Random.Int(100, 999).ToString();
-        _name = _faker.Commerce.ProductName();
     }
 
     public static CreateRoomInputBuilder ACreateRoomInput() => new();
@@ -46,12 +44,6 @@ public class CreateRoomInputBuilder
         return this;
     }
 
-    public CreateRoomInputBuilder WithName(string name)
-    {
-        _name = name;
-        return this;
-    }
-
     public CreateRoomInputBuilder WithIsAvailable(bool isAvailable)
     {
         _isAvailable = isAvailable;
@@ -63,7 +55,6 @@ public class CreateRoomInputBuilder
         Floor: _floor,
         Number: _number,
         HotelId: _hotelId,
-        Name: _name,
         IsAvailable: _isAvailable
     );
 }

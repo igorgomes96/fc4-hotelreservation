@@ -43,5 +43,5 @@ public class RoomTypeRateBuilder
         return this;
     }
 
-    public RoomTypeRate Build() => new(_hotelId, _roomTypeId, _date, _rate);
+    public RoomTypeRate Build() => new(Guid.NewGuid(), _hotelId, _roomTypeId, _date, _rate);
 }

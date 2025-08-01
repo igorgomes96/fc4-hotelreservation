@@ -52,12 +52,6 @@ public class RoomTypeInventoryBuilder
 
     public RoomTypeInventory Build()
     {
-        var inventory = new RoomTypeInventory(_hotelId, _roomTypeId, _date, _totalInventory);
-        if (_totalReserved > 0)
-        {
-            inventory.ReserveRooms(_totalReserved);
-        }
-
-        return inventory;
+        return new RoomTypeInventory(Guid.NewGuid(), _hotelId, _roomTypeId, _date, _totalInventory, _totalReserved);
     }
 }

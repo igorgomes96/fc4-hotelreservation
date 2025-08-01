@@ -10,7 +10,7 @@ public class ReservationCreatedEventHandler(IPaymentRepository paymentRepository
 {
     public async Task Handle(ReservationCreatedEvent notification, CancellationToken cancellationToken)
     {
-        var payment = new Payment(notification.ReservationId, notification.Amount);
+        var payment = Payment.Create(notification.ReservationId, notification.Amount);
         await paymentRepository.CreateAsync(payment, cancellationToken);
     }
 }

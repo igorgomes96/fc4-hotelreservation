@@ -7,12 +7,11 @@ public record CreateRoomInput(
     int Floor,
     string Number,
     Guid HotelId,
-    string Name,
     bool IsAvailable
 ) : IRequest<CreateRoomOutput>
 {
     public Domain.Entities.Room ToRoom()
     {
-        return new Domain.Entities.Room(RoomTypeId, Floor, Number, HotelId, Name, IsAvailable);
+        return Domain.Entities.Room.Create(RoomTypeId, Floor, Number, HotelId, IsAvailable);
     }
 }

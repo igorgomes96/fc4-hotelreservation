@@ -1,6 +1,14 @@
+using Ardalis.GuardClauses;
+
 namespace FC4.HotelReservation.Domain.Common;
 
 public abstract class Entity
 {
-    public Guid Id { get; internal set; } = Guid.NewGuid();
+    protected Entity() {}
+    protected Entity(Guid id)
+    {
+        Id = Guard.Against.Default(id, nameof(id));
+    }
+    
+    public Guid Id { get; }
 }

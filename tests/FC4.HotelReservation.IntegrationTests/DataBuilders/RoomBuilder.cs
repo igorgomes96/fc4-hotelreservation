@@ -10,14 +10,12 @@ public class RoomBuilder
     private int _floor;
     private string _number;
     private Guid _hotelId = Guid.NewGuid();
-    private string _name;
     private bool _isAvailable = true;
 
     public RoomBuilder()
     {
         _floor = _faker.Random.Int(1, 20);
         _number = _faker.Random.Int(100, 999).ToString();
-        _name = _faker.Commerce.ProductName();
     }
     
     public static RoomBuilder ARoom() => new();
@@ -52,12 +50,6 @@ public class RoomBuilder
         return this;
     }
 
-    public RoomBuilder WithName(string name)
-    {
-        _name = name;
-        return this;
-    }
-
     public RoomBuilder WithIsAvailable(bool isAvailable)
     {
         _isAvailable = isAvailable;
@@ -65,8 +57,5 @@ public class RoomBuilder
     }
 
     public Domain.Entities.Room Build()
-        => new(_roomTypeId, _floor, _number, _hotelId, _name, _isAvailable)
-        {
-            Id = _id
-        };
+        => new(_id, _roomTypeId, _floor, _number, _hotelId, _isAvailable);
 }

@@ -44,8 +44,5 @@ public class GuestBuilder
     }
     
     public Domain.Entities.Guest Build() 
-        => new(_firstName, _lastName, new Domain.ValueObjects.Email(_email!))
-        {
-            Id = _id
-        };
+        => new(_id, _firstName, _lastName, new Domain.ValueObjects.Email(_email!));
 }

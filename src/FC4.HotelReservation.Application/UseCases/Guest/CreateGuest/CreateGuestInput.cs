@@ -10,7 +10,7 @@ public record CreateGuestInput(
 {
     public Domain.Entities.Guest ToGuest()
     {
-        return new Domain.Entities.Guest(
+        return Domain.Entities.Guest.Create(
             FirstName,
             LastName,
             Email);

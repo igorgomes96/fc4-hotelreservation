@@ -25,7 +25,7 @@ public class ReservationBuilder
         _totalAmount = _faker.Random.Decimal(100, 5000);
         _roomQuantity = _faker.Random.Int(1, 5);
     }
-    
+
     public static ReservationBuilder AReservation() => new();
 
     public ReservationBuilder WithId(Guid id)
@@ -51,13 +51,13 @@ public class ReservationBuilder
         _guestId = guestId;
         return this;
     }
-    
+
     public ReservationBuilder WithStartDate(DateTime startDate)
     {
         _checkInDate = startDate;
         return this;
     }
-    
+
     public ReservationBuilder WithEndDate(DateTime endDate)
     {
         _checkOutDate = endDate;
@@ -69,7 +69,7 @@ public class ReservationBuilder
         _status = status;
         return this;
     }
-    
+
     public ReservationBuilder WithRoomQuantity(int roomQuantity)
     {
         _roomQuantity = roomQuantity;
@@ -78,32 +78,8 @@ public class ReservationBuilder
 
     public Domain.Entities.Reservation Build()
     {
-        var reservation = Domain.Entities.Reservation.Create(_hotelId, _roomTypeId,
+        return new Domain.Entities.Reservation(_id, _hotelId, _roomTypeId,
             new DateRange(_checkInDate, _checkOutDate), _guestId, _roomQuantity,
-            new Money(_totalAmount, "BRL"));
-        reservation.Id = _id;
-
-        switch (_status)
-        {
-            case ReservationStatus.Pending:
-                break;
-            case ReservationStatus.Paid:
-                reservation.MarkAsPaid();
-                break;
-            case ReservationStatus.Cancelled:
-                reservation.Cancel();
-                break;
-            case ReservationStatus.Rejected:
-                reservation.Reject();
-                break;
-            case ReservationStatus.Refunded:
-                reservation.MarkAsPaid();
-                reservation.Refund();
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(_status), _status, null);
-        }
-
-        return reservation;
+            new Money(_totalAmount, "BRL"), _status, DateTime.UtcNow);
     }
 }

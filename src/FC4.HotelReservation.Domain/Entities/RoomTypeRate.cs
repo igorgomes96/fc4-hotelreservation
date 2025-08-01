@@ -13,16 +13,16 @@ public class RoomTypeRate : AggregateRoot
 
     private RoomTypeRate() { } // For EF Core
     
-    public RoomTypeRate(Guid hotelId, Guid roomTypeId, DateTime date, Money rate)
+    public RoomTypeRate(Guid id, Guid hotelId, Guid roomTypeId, DateTime date, Money rate) : base(id)
     {
         HotelId = Guard.Against.Default(hotelId, nameof(hotelId));
         RoomTypeId = Guard.Against.Default(roomTypeId, nameof(roomTypeId));
         Date = Guard.Against.Default(date, nameof(date));
         Rate = Guard.Against.Null(rate, nameof(rate));
     }
-
-    public void UpdateRate(Money newRate)
+    
+    public static RoomTypeRate Create(Guid hotelId, Guid roomTypeId, DateTime date, Money rate)
     {
-        Rate = Guard.Against.Null(newRate, nameof(newRate));
+        return new RoomTypeRate(Guid.NewGuid(), hotelId, roomTypeId, date, rate);
     }
 }

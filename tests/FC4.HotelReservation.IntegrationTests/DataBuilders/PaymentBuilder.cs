@@ -17,7 +17,7 @@ public class PaymentBuilder
     {
         _amount = _faker.Random.Decimal(100, 5000);
     }
-    
+
     public static PaymentBuilder APayment() => new();
 
     public PaymentBuilder WithId(Guid id)
@@ -52,36 +52,8 @@ public class PaymentBuilder
 
     public Domain.Entities.Payment Build()
     {
-        var payment = new Domain.Entities.Payment(_reservationId, new Money(_amount, "BRL"))
-        {
-            Id = _id
-        };
-
         var transactionId = _transactionId ?? _faker.Random.AlphaNumeric(10);
-        switch (_status)
-        {
-            case PaymentStatus.Pending:
-                break;
-            case PaymentStatus.Processing:
-                payment.MarkAsProcessing(transactionId);
-                break;
-            case PaymentStatus.Completed:
-                payment.MarkAsProcessing(transactionId);
-                payment.MarkAsCompleted();
-                break;
-            case PaymentStatus.Failed:
-                payment.MarkAsProcessing(transactionId);
-                payment.MarkAsFailed();
-                break;
-            case PaymentStatus.Refunded:
-                payment.MarkAsProcessing(transactionId);
-                payment.MarkAsCompleted();
-                payment.Refund();
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(_status), _status, null);
-        }
-
-        return payment;
+        return new Domain.Entities.Payment(_id, _reservationId, new Money(_amount, "BRL"),
+            _status, DateTime.UtcNow, transactionId);
     }
 }

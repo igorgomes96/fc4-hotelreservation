@@ -10,14 +10,14 @@ public class Hotel : AggregateRoot
     public Address Address { get; private set; }
     
     private Hotel() { } // For EF Core
-    public Hotel(string name, Address address)
+    public Hotel(Guid id, string name, Address address) : base(id)
     {
         Name = Guard.Against.NullOrWhiteSpace(name, nameof(name));
         Address = Guard.Against.Null(address, nameof(address));
     }
-
-    public void UpdateAddress(Address address)
+    
+    public static Hotel Create(string name, Address address)
     {
-        Address = Guard.Against.Null(address, nameof(address));
+        return new Hotel(Guid.NewGuid(), name, address);
     }
 }

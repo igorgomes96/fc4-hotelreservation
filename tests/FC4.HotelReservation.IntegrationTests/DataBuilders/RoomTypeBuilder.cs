@@ -29,9 +29,6 @@ public class RoomTypeBuilder
     
     public Domain.Entities.RoomType Build()
     {
-        return new Domain.Entities.RoomType(_description)
-        {
-            Id = _id
-        };
+        return new Domain.Entities.RoomType(_id, _description);
     }
 }

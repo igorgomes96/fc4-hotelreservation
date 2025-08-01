@@ -14,7 +14,7 @@ public record CreateHotelInput(
 {
     public Domain.Entities.Hotel ToHotel()
     {
-        return new Domain.Entities.Hotel(
+        return Domain.Entities.Hotel.Create(
             Name,
             new Address(
                 Street,
