@@ -14,6 +14,4 @@ public record Address(
     public string State { get; } = Guard.Against.NullOrWhiteSpace(State, nameof(State));
     public string Country { get; } = Guard.Against.NullOrWhiteSpace(Country, nameof(Country));
     public string ZipCode { get; } = Guard.Against.NullOrWhiteSpace(ZipCode, nameof(ZipCode));
-
-    public override string ToString() => $"{Street}, {City}, {State}, {Country}, {ZipCode}";
 }

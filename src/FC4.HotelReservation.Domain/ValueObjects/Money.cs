@@ -6,6 +6,4 @@ public record Money(decimal Value, string Currency)
 {
     public decimal Value { get; } = Value;
     public string Currency { get; } = Guard.Against.NullOrWhiteSpace(Currency, nameof(Currency));
-
-    public override string ToString() => $"{Value} {Currency}";
 }
