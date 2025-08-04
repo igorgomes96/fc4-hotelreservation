@@ -4,7 +4,7 @@ namespace FC4.HotelReservation.Domain.Common;
 
 public abstract class AggregateRoot : Entity
 {
-    protected AggregateRoot() : base() { }
+    protected AggregateRoot() { }
     
     protected AggregateRoot(Guid id) : base(id)
     {
