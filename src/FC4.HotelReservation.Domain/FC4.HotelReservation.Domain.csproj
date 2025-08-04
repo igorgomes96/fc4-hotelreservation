@@ -9,7 +9,6 @@
     <ItemGroup>
         <PackageReference Include="MediatR" Version="12.2.0"/>
         <PackageReference Include="Ardalis.GuardClauses" Version="4.6.0"/>
-        <PackageReference Include="Ardalis.SmartEnum" Version="8.0.0"/>
     </ItemGroup>
 
     <ItemGroup>
