@@ -3,6 +3,7 @@ using FC4.HotelReservation.Domain;
 using FC4.HotelReservation.Infrastructure;
 using FC4.HotelReservation.WebApi;
 using FC4.HotelReservation.WebApi.Endpoints;
+using ServiceCollectionExtension = FC4.HotelReservation.Application.ServiceCollectionExtension;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();

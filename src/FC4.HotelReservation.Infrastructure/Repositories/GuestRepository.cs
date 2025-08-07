@@ -12,8 +12,8 @@ public class GuestRepository(HotelDbContext context) : IGuestRepository
             .SingleOrDefaultAsync(g => g.Id == hotelId, cancellationToken);
     }
 
-    public async Task CreateGuestAsync(Guest hotel, CancellationToken cancellationToken)
+    public async Task CreateGuestAsync(Guest guest, CancellationToken cancellationToken)
     {
-        await context.Guests.AddAsync(hotel, cancellationToken);
+        await context.Guests.AddAsync(guest, cancellationToken);
     }
 }

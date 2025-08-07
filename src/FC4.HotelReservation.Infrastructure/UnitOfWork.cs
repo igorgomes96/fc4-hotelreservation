@@ -10,7 +10,7 @@ public class UnitOfWork(
 {
     public async Task CommitAsync(CancellationToken cancellationToken)
     {
-        // Esse loop é ncessário pois a manipulação de eventos pode gerar novos eventos
+        // Esse loop é necessário pois a manipulação de eventos pode gerar novos eventos
         while (true)
         {
             var aggregateRoots = dbContext.ChangeTracker
