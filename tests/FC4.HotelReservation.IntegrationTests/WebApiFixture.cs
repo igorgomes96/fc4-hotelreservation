@@ -3,6 +3,7 @@ using FC4.HotelReservation.Infrastructure;
 using FC4.HotelReservation.WebApi;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -44,7 +45,7 @@ public partial class WebApiFixture : WebApplicationFactory<Program>
         
         using var scope = host.Services.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<HotelDbContext>();
-        dbContext.Database.EnsureCreatedAsync().GetAwaiter().GetResult();
+        dbContext.Database.Migrate();
         
         return host;
     }
