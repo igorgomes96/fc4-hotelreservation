@@ -1,4 +1,5 @@
 using Bogus;
+using FC4.HotelReservation.Shared.Domain.ValueObjects;
 
 namespace FC4.HotelReservation.IntegrationTests.DataBuilders;
 
@@ -44,5 +45,5 @@ public class GuestBuilder
     }
     
     public Domain.Entities.Guest Build() 
-        => new(_id, _firstName, _lastName, new Domain.ValueObjects.Email(_email!));
+        => new(_id, _firstName, _lastName, new Email(_email!));
 }

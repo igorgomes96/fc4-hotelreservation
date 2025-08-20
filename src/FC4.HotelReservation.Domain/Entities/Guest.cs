@@ -1,6 +1,6 @@
 using Ardalis.GuardClauses;
-using FC4.HotelReservation.Domain.Common;
-using FC4.HotelReservation.Domain.ValueObjects;
+using FC4.HotelReservation.Shared.Domain;
+using FC4.HotelReservation.Shared.Domain.ValueObjects;
 
 namespace FC4.HotelReservation.Domain.Entities;
 

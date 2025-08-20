@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\modules\Catalog\FC4.HotelReservation.Catalog.Domain\FC4.HotelReservation.Catalog.Domain.csproj" />
       <ProjectReference Include="..\FC4.HotelReservation.Domain\FC4.HotelReservation.Domain.csproj" />
     </ItemGroup>
 

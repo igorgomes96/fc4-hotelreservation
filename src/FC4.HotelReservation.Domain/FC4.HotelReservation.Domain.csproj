@@ -7,16 +7,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="MediatR" Version="12.2.0"/>
-        <PackageReference Include="Ardalis.GuardClauses" Version="4.6.0"/>
-    </ItemGroup>
-
-    <ItemGroup>
         <InternalsVisibleTo Include="FC4.HotelReservation.IntegrationTests" />
     </ItemGroup>
 
     <ItemGroup>
       <Content Include=".diagrams\include.puml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\shared\FC4.HotelReservation.Shared.Domain\FC4.HotelReservation.Shared.Domain.csproj" />
     </ItemGroup>
 
 </Project>

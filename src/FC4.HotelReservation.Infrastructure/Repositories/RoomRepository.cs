@@ -1,3 +1,5 @@
+using FC4.HotelReservation.Catalog.Domain.Entities;
+using FC4.HotelReservation.Catalog.Domain.Repositories;
 using FC4.HotelReservation.Domain.Entities;
 using FC4.HotelReservation.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;

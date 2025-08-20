@@ -1,4 +1,4 @@
-using FC4.HotelReservation.Domain.ValueObjects;
+using FC4.HotelReservation.Shared.Domain.ValueObjects;
 using MediatR;
 
 namespace FC4.HotelReservation.Application.UseCases.Reservation.CreateReservation;

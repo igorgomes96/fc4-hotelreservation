@@ -1,5 +1,5 @@
-using FC4.HotelReservation.Domain.Common;
 using FC4.HotelReservation.Domain.Enums;
+using FC4.HotelReservation.Shared.Domain;
 
 namespace FC4.HotelReservation.Domain.Events;
 

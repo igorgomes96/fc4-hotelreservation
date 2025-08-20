@@ -56,6 +56,6 @@ public class RoomBuilder
         return this;
     }
 
-    public Domain.Entities.Room Build()
+    public Catalog.Domain.Entities.Room Build()
         => new(_id, _roomTypeId, _floor, _number, _hotelId, _isAvailable);
 }

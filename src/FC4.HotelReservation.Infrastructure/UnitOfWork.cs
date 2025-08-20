@@ -1,5 +1,5 @@
 using FC4.HotelReservation.Application.Common;
-using FC4.HotelReservation.Domain.Common;
+using FC4.HotelReservation.Shared.Domain;
 using MediatR;
 
 namespace FC4.HotelReservation.Infrastructure;

@@ -1,7 +1,8 @@
-using FC4.HotelReservation.Domain.Common;
+using FC4.HotelReservation.Catalog.Domain.Entities;
 using FC4.HotelReservation.Domain.Entities;
-using FC4.HotelReservation.Domain.ValueObjects;
 using FC4.HotelReservation.Infrastructure;
+using FC4.HotelReservation.Shared.Domain;
+using FC4.HotelReservation.Shared.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using static FC4.HotelReservation.IntegrationTests.DataBuilders.HotelBuilder;
@@ -43,13 +44,13 @@ public partial class WebApiFixture
         return entity;
     }
 
-    public async Task<Domain.Entities.Hotel> CreateHotelInDatabaseAsync(Domain.Entities.Hotel? hotel = null)
+    public async Task<Catalog.Domain.Entities.Hotel> CreateHotelInDatabaseAsync(Catalog.Domain.Entities.Hotel? hotel = null)
     {
         hotel ??= AHotel().Build();
         return await AddToDatabaseAsync(hotel);
     }
 
-    public async Task<Domain.Entities.Room> CreateRoomInDatabaseAsync(Domain.Entities.Room? room = null)
+    public async Task<Catalog.Domain.Entities.Room> CreateRoomInDatabaseAsync(Catalog.Domain.Entities.Room? room = null)
     {
         if (room is null)
         {
@@ -132,14 +133,14 @@ public partial class WebApiFixture
     }
 
 
-    public async Task<Domain.Entities.Hotel?> GetHotelByIdAsync(Guid hotelId)
+    public async Task<Catalog.Domain.Entities.Hotel?> GetHotelByIdAsync(Guid hotelId)
     {
         using var scope = Services.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<HotelDbContext>();
         return await dbContext.Hotels.FirstOrDefaultAsync(h => h.Id == hotelId);
     }
 
-    public async Task<Domain.Entities.Room?> GetRoomByIdAsync(Guid roomId)
+    public async Task<Catalog.Domain.Entities.Room?> GetRoomByIdAsync(Guid roomId)
     {
         using var scope = Services.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<HotelDbContext>();

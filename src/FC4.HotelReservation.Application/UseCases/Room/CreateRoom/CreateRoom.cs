@@ -1,5 +1,6 @@
 using FC4.HotelReservation.Application.Common;
 using FC4.HotelReservation.Application.Exceptions;
+using FC4.HotelReservation.Catalog.Domain.Repositories;
 using FC4.HotelReservation.Domain.Repositories;
 
 namespace FC4.HotelReservation.Application.UseCases.Room.CreateRoom;

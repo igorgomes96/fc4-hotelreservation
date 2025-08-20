@@ -1,5 +1,5 @@
 using Ardalis.GuardClauses;
-using FC4.HotelReservation.Domain.Common;
+using FC4.HotelReservation.Shared.Domain;
 
 namespace FC4.HotelReservation.Domain.Entities;
 

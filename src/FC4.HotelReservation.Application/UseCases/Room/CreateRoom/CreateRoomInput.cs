@@ -10,8 +10,8 @@ public record CreateRoomInput(
     bool IsAvailable
 ) : IRequest<CreateRoomOutput>
 {
-    public Domain.Entities.Room ToRoom()
+    public Catalog.Domain.Entities.Room ToRoom()
     {
-        return Domain.Entities.Room.Create(RoomTypeId, Floor, Number, HotelId, IsAvailable);
+        return Catalog.Domain.Entities.Room.Create(RoomTypeId, Floor, Number, HotelId, IsAvailable);
     }
 }

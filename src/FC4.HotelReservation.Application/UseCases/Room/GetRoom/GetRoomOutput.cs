@@ -8,7 +8,7 @@ public record GetRoomOutput(
     Guid HotelId,
     bool IsAvailable)
 {
-    public static GetRoomOutput FromRoom(Domain.Entities.Room room)
+    public static GetRoomOutput FromRoom(Catalog.Domain.Entities.Room room)
     {
         return new GetRoomOutput(
             room.Id,
