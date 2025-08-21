@@ -10,7 +10,7 @@ public class CreateReservation(
     IReservationRepository reservationRepository,
     IRoomTypeInventoryRepository roomTypeInventoryRepository,
     IRateService rateService,
-    IGuestRepository guestRepository,
+    IReservationGuestRepository guestRepository,
     IUnitOfWork unitOfWork) : ICreateReservation
 {
     public async Task<CreateReservationOutput> Handle(

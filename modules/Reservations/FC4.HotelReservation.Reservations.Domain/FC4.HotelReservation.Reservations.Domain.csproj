@@ -12,11 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include=".diagrams\include.puml" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\..\shared\FC4.HotelReservation.Shared.Domain\FC4.HotelReservation.Shared.Domain.csproj" />
+      <ProjectReference Include="..\..\..\shared\FC4.HotelReservation.Shared.Domain\FC4.HotelReservation.Shared.Domain.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,6 +1,7 @@
 using FC4.HotelReservation.Application.Common;
 using FC4.HotelReservation.Catalog.Domain.Repositories;
 using FC4.HotelReservation.Domain.Repositories;
+using FC4.HotelReservation.Guests.Domain.Repositories;
 using FC4.HotelReservation.Infrastructure.Repositories;
 using FC4.HotelReservation.Payments.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,7 @@ public static class ServiceCollectionExtensions
             .AddScoped<IHotelRepository, HotelRepository>()
             .AddScoped<IPaymentRepository, PaymentRepository>()
             .AddScoped<IGuestRepository, GuestRepository>()
+            .AddScoped<IReservationGuestRepository, ReservationGuestRepository>()
             .AddScoped<IRoomTypeRepository, RoomTypeRepository>()
             .AddScoped<IReservationRepository, ReservationRepository>()
             .AddScoped<IRoomRepository, RoomRepository>()

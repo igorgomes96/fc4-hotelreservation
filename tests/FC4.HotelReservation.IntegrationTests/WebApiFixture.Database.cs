@@ -93,7 +93,7 @@ public partial class WebApiFixture
         return await AddToDatabaseAsync(payment);
     }
 
-    public async Task<Domain.Entities.Guest> CreateGuestInDatabaseAsync(Domain.Entities.Guest? guest = null)
+    public async Task<Guests.Domain.Entities.Guest> CreateGuestInDatabaseAsync(Guests.Domain.Entities.Guest? guest = null)
     {
         guest ??= AGuest().Build();
         return await AddToDatabaseAsync(guest);
@@ -147,7 +147,7 @@ public partial class WebApiFixture
         return await dbContext.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
     }
     
-    public async Task<Domain.Entities.Guest?> GetGuestByIdAsync(Guid hotelId)
+    public async Task<Guests.Domain.Entities.Guest?> GetGuestByIdAsync(Guid hotelId)
     {
         using var scope = Services.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<HotelDbContext>();

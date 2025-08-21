@@ -8,9 +8,9 @@ public record CreateGuestInput(
     string Email
 ) : IRequest<CreateGuestOutput>
 {
-    public Domain.Entities.Guest ToGuest()
+    public Guests.Domain.Entities.Guest ToGuest()
     {
-        return Domain.Entities.Guest.Create(
+        return Guests.Domain.Entities.Guest.Create(
             FirstName,
             LastName,
             Email);

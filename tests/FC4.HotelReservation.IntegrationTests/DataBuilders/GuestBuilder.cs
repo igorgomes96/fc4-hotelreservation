@@ -44,6 +44,6 @@ public class GuestBuilder
         return this;
     }
     
-    public Domain.Entities.Guest Build() 
+    public Guests.Domain.Entities.Guest Build() 
         => new(_id, _firstName, _lastName, new Email(_email!));
 }

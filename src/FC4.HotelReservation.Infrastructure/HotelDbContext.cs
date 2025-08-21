@@ -1,5 +1,6 @@
 using FC4.HotelReservation.Catalog.Domain.Entities;
 using FC4.HotelReservation.Domain.Entities;
+using FC4.HotelReservation.Guests.Domain.Entities;
 using FC4.HotelReservation.Infrastructure.Mappings;
 using FC4.HotelReservation.Payments.Domain.Entities;
 using Microsoft.EntityFrameworkCore;

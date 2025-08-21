@@ -1,9 +1,8 @@
-using FC4.HotelReservation.Domain.Entities;
+using FC4.HotelReservation.Guests.Domain.Entities;
 
-namespace FC4.HotelReservation.Domain.Repositories;
+namespace FC4.HotelReservation.Guests.Domain.Repositories;
 
 public interface IGuestRepository
 {
-    Task<Guest?> GetByIdAsync(Guid hotelId, CancellationToken cancellationToken); 
     Task CreateGuestAsync(Guest guest, CancellationToken cancellationToken);
 }

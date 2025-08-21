@@ -1,5 +1,4 @@
 using Bogus;
-using FC4.HotelReservation.Domain.Enums;
 using FC4.HotelReservation.Payments.Domain.Enums;
 using FC4.HotelReservation.Shared.Domain.ValueObjects;
 
