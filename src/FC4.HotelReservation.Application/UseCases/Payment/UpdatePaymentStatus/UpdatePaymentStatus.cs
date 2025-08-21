@@ -2,6 +2,8 @@ using FC4.HotelReservation.Application.Common;
 using FC4.HotelReservation.Application.Exceptions;
 using FC4.HotelReservation.Domain.Enums;
 using FC4.HotelReservation.Domain.Repositories;
+using FC4.HotelReservation.Payments.Domain.Enums;
+using FC4.HotelReservation.Payments.Domain.Repositories;
 
 namespace FC4.HotelReservation.Application.UseCases.Payment.UpdatePaymentStatus;
 

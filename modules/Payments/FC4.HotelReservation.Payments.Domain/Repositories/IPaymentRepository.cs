@@ -1,6 +1,6 @@
-using FC4.HotelReservation.Domain.Entities;
+using FC4.HotelReservation.Payments.Domain.Entities;
 
-namespace FC4.HotelReservation.Domain.Repositories;
+namespace FC4.HotelReservation.Payments.Domain.Repositories;
 
 public interface IPaymentRepository
 {

@@ -1,4 +1,5 @@
 using FC4.HotelReservation.Domain.Enums;
+using FC4.HotelReservation.Payments.Domain.Enums;
 using MediatR;
 
 namespace FC4.HotelReservation.Application.UseCases.Payment.UpdatePaymentStatus;

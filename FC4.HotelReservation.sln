@@ -41,6 +41,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{4EEA98D0-E
 		diagram_modules.puml = diagram_modules.puml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC4.HotelReservation.Payments.Domain", "modules\Payments\FC4.HotelReservation.Payments.Domain\FC4.HotelReservation.Payments.Domain.csproj", "{7FD001BC-7328-49D0-8B01-C9B32F899D33}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +60,7 @@ Global
 		{3D01265D-777F-43CE-910A-19B3096A9FF0} = {432C9F4D-3173-4DC1-80FF-F8B88EDCA223}
 		{8BA812D3-D2FD-46CE-A14B-57568F5C0F25} = {DC72BD65-EA22-4D76-A8ED-AC1DEC17C2EC}
 		{9E0DA312-1C2E-41C3-B602-6FE36BF01CD0} = {176722CD-D626-4C42-9273-E8A289E800A5}
+		{7FD001BC-7328-49D0-8B01-C9B32F899D33} = {4565EFD5-BC7A-421F-80F3-6B7CA9D54431}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{398503A8-07B0-42E3-A531-DDB0B7660BB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -88,5 +91,9 @@ Global
 		{9E0DA312-1C2E-41C3-B602-6FE36BF01CD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E0DA312-1C2E-41C3-B602-6FE36BF01CD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E0DA312-1C2E-41C3-B602-6FE36BF01CD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FD001BC-7328-49D0-8B01-C9B32F899D33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FD001BC-7328-49D0-8B01-C9B32F899D33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FD001BC-7328-49D0-8B01-C9B32F899D33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FD001BC-7328-49D0-8B01-C9B32F899D33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

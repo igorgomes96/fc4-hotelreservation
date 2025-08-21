@@ -1,7 +1,7 @@
-using FC4.HotelReservation.Domain.Enums;
+using FC4.HotelReservation.Payments.Domain.Enums;
 using FC4.HotelReservation.Shared.Domain;
 
-namespace FC4.HotelReservation.Domain.Events;
+namespace FC4.HotelReservation.Payments.Domain.Events;
 
 public class PaymentStatusChangedEvent(Guid paymentId, Guid reservationId, PaymentStatus paymentStatus)
     : DomainEvent

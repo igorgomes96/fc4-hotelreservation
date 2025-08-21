@@ -87,7 +87,7 @@ public partial class WebApiFixture
         return await AddToDatabaseAsync(reservation);
     }
 
-    public async Task<Domain.Entities.Payment> CreatePaymentInDatabaseAsync(Domain.Entities.Payment? payment = null)
+    public async Task<Payments.Domain.Entities.Payment> CreatePaymentInDatabaseAsync(Payments.Domain.Entities.Payment? payment = null)
     {
         payment ??= APayment().Build();
         return await AddToDatabaseAsync(payment);
@@ -111,7 +111,7 @@ public partial class WebApiFixture
         return await AddToDatabaseAsync(inventory);
     }
 
-    public async Task<Domain.Entities.Payment?> GetPaymentByReservationIdAsync(Guid reservationId)
+    public async Task<Payments.Domain.Entities.Payment?> GetPaymentByReservationIdAsync(Guid reservationId)
     {
         using var scope = Services.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<HotelDbContext>();
@@ -161,7 +161,7 @@ public partial class WebApiFixture
         return await dbContext.Reservations.FirstOrDefaultAsync(r => r.Id == reservationId);
     }
 
-    public async Task<Domain.Entities.Payment?> GetPaymentByIdAsync(Guid paymentId)
+    public async Task<Payments.Domain.Entities.Payment?> GetPaymentByIdAsync(Guid paymentId)
     {
         using var scope = Services.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<HotelDbContext>();

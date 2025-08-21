@@ -1,10 +1,10 @@
 using Ardalis.GuardClauses;
-using FC4.HotelReservation.Domain.Enums;
-using FC4.HotelReservation.Domain.Events;
+using FC4.HotelReservation.Payments.Domain.Enums;
+using FC4.HotelReservation.Payments.Domain.Events;
 using FC4.HotelReservation.Shared.Domain;
 using FC4.HotelReservation.Shared.Domain.ValueObjects;
 
-namespace FC4.HotelReservation.Domain.Entities;
+namespace FC4.HotelReservation.Payments.Domain.Entities;
 
 public class Payment : AggregateRoot
 {

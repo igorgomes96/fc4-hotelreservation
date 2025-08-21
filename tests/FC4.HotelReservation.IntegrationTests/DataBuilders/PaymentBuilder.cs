@@ -1,5 +1,6 @@
 using Bogus;
 using FC4.HotelReservation.Domain.Enums;
+using FC4.HotelReservation.Payments.Domain.Enums;
 using FC4.HotelReservation.Shared.Domain.ValueObjects;
 
 namespace FC4.HotelReservation.IntegrationTests.DataBuilders;
@@ -50,10 +51,10 @@ public class PaymentBuilder
         return this;
     }
 
-    public Domain.Entities.Payment Build()
+    public Payments.Domain.Entities.Payment Build()
     {
         var transactionId = _transactionId ?? _faker.Random.AlphaNumeric(10);
-        return new Domain.Entities.Payment(_id, _reservationId, new Money(_amount, "BRL"),
+        return new Payments.Domain.Entities.Payment(_id, _reservationId, new Money(_amount, "BRL"),
             _status, DateTime.UtcNow, transactionId);
     }
 }

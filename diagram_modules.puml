@@ -1,18 +1,55 @@
 @startuml
-enum PaymentStatus {
-    Pending=1
-    Processing=2
-    Completed=3
-    Failed=4
-    Refunded=5
+package Reservations {
+    class Reservation {
+        + Id : Guid
+        + HotelId : Guid
+        + RoomTypeId : Guid
+        + StayPeriod : DateRange
+        + Status : ReservationStatus
+        + GuestId : Guid
+        + RoomQuantity : int
+        + TotalAmount : Money
+        + CreatedAt : DateTime
+    }
+    
+    class RoomTypeInventory {
+        + Id : Guid
+        + HotelId : Guid
+        + RoomTypeId : Guid
+        + Date : DateTime
+        + TotalInventory : int
+        + TotalReserved : int
+        + AvailableInventory : int
+    }
+    
+    class GuestInfo {
+        + Id : Guid
+        + Email : Email
+        + FullName : string
+    }
 }
-enum ReservationStatus {
-    Pending=1
-    Paid=2
-    Cancelled=3
-    Rejected=4
-    Refunded=5
+
+package Guests {
+    class Guest {
+        + Id : Guid
+        + FirstName : string
+        + LastName : string
+        + Email : Email
+        + FullName : string
+    }
 }
+
+package Payments {
+    class Payment {
+        + Id : Guid
+        + ReservationId : Guid
+        + Amount : Money
+        + Status : PaymentStatus
+        + ProcessedAt : DateTime
+        + TransactionId : string
+    }
+}
+
 package Catalog {
     class Hotel {
         + Id : Guid
@@ -40,60 +77,13 @@ package Catalog {
     }
 }
 
-package Payments {
-    class Payment {
-        + Id : Guid
-        + ReservationId : Guid
-        + Amount : Money
-        + Status : PaymentStatus
-        + ProcessedAt : DateTime
-        + TransactionId : string
-    }
-}
-
-package Reservations {
-    class Reservation {
-        + Id : Guid
-        + HotelId : Guid
-        + RoomTypeId : Guid
-        + StayPeriod : DateRange
-        + Status : ReservationStatus
-        + GuestId : Guid
-        + RoomQuantity : int
-        + TotalAmount : Money
-        + CreatedAt : DateTime
-    }
-    
-    class RoomTypeInventory {
-        + Id : Guid
-        + HotelId : Guid
-        + RoomTypeId : Guid
-        + Date : DateTime
-        + TotalInventory : int
-        + TotalReserved : int
-        + AvailableInventory : int
-    }
-}
-
-package Guests {
-    class Guest {
-        + Id : Guid
-        + FirstName : string
-        + LastName : string
-        + Email : Email
-        + FullName : string
-    }
-}
-
+Catalog <-- Reservations
+Reservations --> Guests
 RoomTypeRate --> RoomType
-RoomTypeInventory --> Hotel
-RoomTypeInventory --> RoomType
-Reservation --> Hotel
-Reservation --> RoomType
+Reservation --> GuestInfo
 RoomTypeRate --> Hotel
-Reservation --> Guest
-Room --> Hotel
+Payments <--> Reservations
 Room --> RoomType
-Payment --> Reservation
+Room --> Hotel
 
 @enduml

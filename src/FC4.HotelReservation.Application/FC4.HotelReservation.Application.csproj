@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\modules\Catalog\FC4.HotelReservation.Catalog.Domain\FC4.HotelReservation.Catalog.Domain.csproj" />
+      <ProjectReference Include="..\..\modules\Payments\FC4.HotelReservation.Payments.Domain\FC4.HotelReservation.Payments.Domain.csproj" />
       <ProjectReference Include="..\FC4.HotelReservation.Domain\FC4.HotelReservation.Domain.csproj" />
     </ItemGroup>
 
