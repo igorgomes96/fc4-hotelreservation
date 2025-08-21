@@ -22,7 +22,7 @@ namespace FC4.HotelReservation.Infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("FC4.HotelReservation.Domain.Entities.Guest", b =>
+            modelBuilder.Entity("FC4.HotelReservation.Reservations.Domain.Entities.Guest", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid")
@@ -45,7 +45,7 @@ namespace FC4.HotelReservation.Infrastructure.Migrations
                     b.ToTable("guests", (string)null);
                 });
 
-            modelBuilder.Entity("FC4.HotelReservation.Domain.Entities.Hotel", b =>
+            modelBuilder.Entity("FC4.HotelReservation.Reservations.Domain.Entities.Hotel", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid")
@@ -62,7 +62,7 @@ namespace FC4.HotelReservation.Infrastructure.Migrations
                     b.ToTable("hotels", (string)null);
                 });
 
-            modelBuilder.Entity("FC4.HotelReservation.Domain.Entities.Payment", b =>
+            modelBuilder.Entity("FC4.HotelReservation.Reservations.Domain.Entities.Payment", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid")
@@ -93,7 +93,7 @@ namespace FC4.HotelReservation.Infrastructure.Migrations
                     b.ToTable("payments", (string)null);
                 });
 
-            modelBuilder.Entity("FC4.HotelReservation.Domain.Entities.Reservation", b =>
+            modelBuilder.Entity("FC4.HotelReservation.Reservations.Domain.Entities.Reservation", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid")
@@ -135,7 +135,7 @@ namespace FC4.HotelReservation.Infrastructure.Migrations
                     b.ToTable("reservations", (string)null);
                 });
 
-            modelBuilder.Entity("FC4.HotelReservation.Domain.Entities.Room", b =>
+            modelBuilder.Entity("FC4.HotelReservation.Reservations.Domain.Entities.Room", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid")
@@ -172,7 +172,7 @@ namespace FC4.HotelReservation.Infrastructure.Migrations
                     b.ToTable("rooms", (string)null);
                 });
 
-            modelBuilder.Entity("FC4.HotelReservation.Domain.Entities.RoomType", b =>
+            modelBuilder.Entity("FC4.HotelReservation.Reservations.Domain.Entities.RoomType", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid")
@@ -189,7 +189,7 @@ namespace FC4.HotelReservation.Infrastructure.Migrations
                     b.ToTable("room_types", (string)null);
                 });
 
-            modelBuilder.Entity("FC4.HotelReservation.Domain.Entities.RoomTypeInventory", b =>
+            modelBuilder.Entity("FC4.HotelReservation.Reservations.Domain.Entities.RoomTypeInventory", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid")
@@ -225,7 +225,7 @@ namespace FC4.HotelReservation.Infrastructure.Migrations
                     b.ToTable("room_type_inventory", (string)null);
                 });
 
-            modelBuilder.Entity("FC4.HotelReservation.Domain.Entities.RoomTypeRate", b =>
+            modelBuilder.Entity("FC4.HotelReservation.Reservations.Domain.Entities.RoomTypeRate", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid")
@@ -253,9 +253,9 @@ namespace FC4.HotelReservation.Infrastructure.Migrations
                     b.ToTable("room_type_rates", (string)null);
                 });
 
-            modelBuilder.Entity("FC4.HotelReservation.Domain.Entities.Guest", b =>
+            modelBuilder.Entity("FC4.HotelReservation.Reservations.Domain.Entities.Guest", b =>
                 {
-                    b.OwnsOne("FC4.HotelReservation.Domain.ValueObjects.Email", "Email", b1 =>
+                    b.OwnsOne("FC4.HotelReservation.Reservations.Domain.ValueObjects.Email", "Email", b1 =>
                         {
                             b1.Property<Guid>("GuestId")
                                 .HasColumnType("uuid");
@@ -278,9 +278,9 @@ namespace FC4.HotelReservation.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("FC4.HotelReservation.Domain.Entities.Hotel", b =>
+            modelBuilder.Entity("FC4.HotelReservation.Reservations.Domain.Entities.Hotel", b =>
                 {
-                    b.OwnsOne("FC4.HotelReservation.Domain.ValueObjects.Address", "Address", b1 =>
+                    b.OwnsOne("FC4.HotelReservation.Reservations.Domain.ValueObjects.Address", "Address", b1 =>
                         {
                             b1.Property<Guid>("HotelId")
                                 .HasColumnType("uuid");
@@ -327,16 +327,16 @@ namespace FC4.HotelReservation.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("FC4.HotelReservation.Domain.Entities.Payment", b =>
+            modelBuilder.Entity("FC4.HotelReservation.Reservations.Domain.Entities.Payment", b =>
                 {
-                    b.HasOne("FC4.HotelReservation.Domain.Entities.Reservation", null)
+                    b.HasOne("FC4.HotelReservation.Reservations.Domain.Entities.Reservation", null)
                         .WithMany()
                         .HasForeignKey("ReservationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_payments_reservations");
 
-                    b.OwnsOne("FC4.HotelReservation.Domain.ValueObjects.Money", "Amount", b1 =>
+                    b.OwnsOne("FC4.HotelReservation.Reservations.Domain.ValueObjects.Money", "Amount", b1 =>
                         {
                             b1.Property<Guid>("PaymentId")
                                 .HasColumnType("uuid");
@@ -364,30 +364,30 @@ namespace FC4.HotelReservation.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("FC4.HotelReservation.Domain.Entities.Reservation", b =>
+            modelBuilder.Entity("FC4.HotelReservation.Reservations.Domain.Entities.Reservation", b =>
                 {
-                    b.HasOne("FC4.HotelReservation.Domain.Entities.Guest", null)
+                    b.HasOne("FC4.HotelReservation.Reservations.Domain.Entities.Guest", null)
                         .WithMany()
                         .HasForeignKey("GuestId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_reservations_guests");
 
-                    b.HasOne("FC4.HotelReservation.Domain.Entities.Hotel", null)
+                    b.HasOne("FC4.HotelReservation.Reservations.Domain.Entities.Hotel", null)
                         .WithMany()
                         .HasForeignKey("HotelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_reservations_hotels");
 
-                    b.HasOne("FC4.HotelReservation.Domain.Entities.RoomType", null)
+                    b.HasOne("FC4.HotelReservation.Reservations.Domain.Entities.RoomType", null)
                         .WithMany()
                         .HasForeignKey("RoomTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_reservations_room_types");
 
-                    b.OwnsOne("FC4.HotelReservation.Domain.ValueObjects.Money", "TotalAmount", b1 =>
+                    b.OwnsOne("FC4.HotelReservation.Reservations.Domain.ValueObjects.Money", "TotalAmount", b1 =>
                         {
                             b1.Property<Guid>("ReservationId")
                                 .HasColumnType("uuid");
@@ -411,7 +411,7 @@ namespace FC4.HotelReservation.Infrastructure.Migrations
                                 .HasForeignKey("ReservationId");
                         });
 
-                    b.OwnsOne("FC4.HotelReservation.Domain.ValueObjects.DateRange", "StayPeriod", b1 =>
+                    b.OwnsOne("FC4.HotelReservation.Reservations.Domain.ValueObjects.DateRange", "StayPeriod", b1 =>
                         {
                             b1.Property<Guid>("ReservationId")
                                 .HasColumnType("uuid");
@@ -439,16 +439,16 @@ namespace FC4.HotelReservation.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("FC4.HotelReservation.Domain.Entities.Room", b =>
+            modelBuilder.Entity("FC4.HotelReservation.Reservations.Domain.Entities.Room", b =>
                 {
-                    b.HasOne("FC4.HotelReservation.Domain.Entities.Hotel", null)
+                    b.HasOne("FC4.HotelReservation.Reservations.Domain.Entities.Hotel", null)
                         .WithMany()
                         .HasForeignKey("HotelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_rooms_hotels");
 
-                    b.HasOne("FC4.HotelReservation.Domain.Entities.RoomType", null)
+                    b.HasOne("FC4.HotelReservation.Reservations.Domain.Entities.RoomType", null)
                         .WithMany()
                         .HasForeignKey("RoomTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -456,16 +456,16 @@ namespace FC4.HotelReservation.Infrastructure.Migrations
                         .HasConstraintName("fk_rooms_room_types");
                 });
 
-            modelBuilder.Entity("FC4.HotelReservation.Domain.Entities.RoomTypeInventory", b =>
+            modelBuilder.Entity("FC4.HotelReservation.Reservations.Domain.Entities.RoomTypeInventory", b =>
                 {
-                    b.HasOne("FC4.HotelReservation.Domain.Entities.Hotel", null)
+                    b.HasOne("FC4.HotelReservation.Reservations.Domain.Entities.Hotel", null)
                         .WithMany()
                         .HasForeignKey("HotelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_room_type_inventories_hotels");
 
-                    b.HasOne("FC4.HotelReservation.Domain.Entities.RoomType", null)
+                    b.HasOne("FC4.HotelReservation.Reservations.Domain.Entities.RoomType", null)
                         .WithMany()
                         .HasForeignKey("RoomTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -473,23 +473,23 @@ namespace FC4.HotelReservation.Infrastructure.Migrations
                         .HasConstraintName("fk_room_type_inventories_room_types");
                 });
 
-            modelBuilder.Entity("FC4.HotelReservation.Domain.Entities.RoomTypeRate", b =>
+            modelBuilder.Entity("FC4.HotelReservation.Reservations.Domain.Entities.RoomTypeRate", b =>
                 {
-                    b.HasOne("FC4.HotelReservation.Domain.Entities.Hotel", null)
+                    b.HasOne("FC4.HotelReservation.Reservations.Domain.Entities.Hotel", null)
                         .WithMany()
                         .HasForeignKey("HotelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_room_type_rates_hotels");
 
-                    b.HasOne("FC4.HotelReservation.Domain.Entities.RoomType", null)
+                    b.HasOne("FC4.HotelReservation.Reservations.Domain.Entities.RoomType", null)
                         .WithMany()
                         .HasForeignKey("RoomTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_room_type_rates_room_types");
 
-                    b.OwnsOne("FC4.HotelReservation.Domain.ValueObjects.Money", "Rate", b1 =>
+                    b.OwnsOne("FC4.HotelReservation.Reservations.Domain.ValueObjects.Money", "Rate", b1 =>
                         {
                             b1.Property<Guid>("RoomTypeRateId")
                                 .HasColumnType("uuid");
