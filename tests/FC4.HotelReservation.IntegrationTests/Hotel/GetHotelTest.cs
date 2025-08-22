@@ -1,6 +1,6 @@
 using System.Net;
 using System.Net.Http.Json;
-using FC4.HotelReservation.Application.UseCases.Hotel.GetHotel;
+using FC4.HotelReservation.Catalog.Application.UseCases.Hotel.GetHotel;
 using FluentAssertions;
 
 namespace FC4.HotelReservation.IntegrationTests.Hotel;

@@ -1,7 +1,7 @@
 using FC4.HotelReservation.Shared.Domain.ValueObjects;
 using MediatR;
 
-namespace FC4.HotelReservation.Application.UseCases.Hotel.CreateHotel;
+namespace FC4.HotelReservation.Catalog.Application.UseCases.Hotel.CreateHotel;
 
 public record CreateHotelInput(
     string Name,

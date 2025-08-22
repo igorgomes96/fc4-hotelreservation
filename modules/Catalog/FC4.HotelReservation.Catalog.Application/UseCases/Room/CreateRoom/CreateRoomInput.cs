@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace FC4.HotelReservation.Application.UseCases.Room.CreateRoom;
+namespace FC4.HotelReservation.Catalog.Application.UseCases.Room.CreateRoom;
 
 public record CreateRoomInput(
     Guid RoomTypeId,

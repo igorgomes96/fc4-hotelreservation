@@ -11,6 +11,7 @@
       <ProjectReference Include="..\..\modules\Guests\FC4.HotelReservation.Guests.Domain\FC4.HotelReservation.Guests.Domain.csproj" />
       <ProjectReference Include="..\..\modules\Payments\FC4.HotelReservation.Payments.Domain\FC4.HotelReservation.Payments.Domain.csproj" />
       <ProjectReference Include="..\..\modules\Reservations\FC4.HotelReservation.Reservations.Domain\FC4.HotelReservation.Reservations.Domain.csproj" />
+      <ProjectReference Include="..\..\shared\FC4.HotelReservation.Shared.Application\FC4.HotelReservation.Shared.Application.csproj" />
     </ItemGroup>
 
 </Project>
