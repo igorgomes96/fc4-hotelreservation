@@ -1,4 +1,4 @@
-using FC4.HotelReservation.Application.UseCases.Guest.CreateGuest;
+using FC4.HotelReservation.Guests.Application.UseCases.Guest.CreateGuest;
 using MediatR;
 
 namespace FC4.HotelReservation.WebApi.Endpoints;

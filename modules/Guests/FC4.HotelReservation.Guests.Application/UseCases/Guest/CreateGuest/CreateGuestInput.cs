@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace FC4.HotelReservation.Application.UseCases.Guest.CreateGuest;
+namespace FC4.HotelReservation.Guests.Application.UseCases.Guest.CreateGuest;
 
 public record CreateGuestInput(
     string FirstName,

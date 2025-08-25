@@ -1,6 +1,6 @@
 using System.Net;
 using System.Net.Http.Json;
-using FC4.HotelReservation.Application.UseCases.Guest.CreateGuest;
+using FC4.HotelReservation.Guests.Application.UseCases.Guest.CreateGuest;
 using FluentAssertions;
 using static FC4.HotelReservation.IntegrationTests.DataBuilders.CreateGuestInputBuilder;
 
