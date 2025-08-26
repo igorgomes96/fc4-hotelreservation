@@ -3,6 +3,8 @@ using FC4.HotelReservation.Catalog.Application;
 using FC4.HotelReservation.Catalog.Domain;
 using FC4.HotelReservation.Guests.Application;
 using FC4.HotelReservation.Infrastructure;
+using FC4.HotelReservation.Reservations.Adapters;
+using FC4.HotelReservation.Reservations.Application;
 using FC4.HotelReservation.WebApi;
 using FC4.HotelReservation.WebApi.Endpoints;
 
@@ -17,6 +19,8 @@ builder.Services
     .AddRepositories()
     .AddCatalogUseCases()
     .AddGuestsUseCases()
+    .AddReservationsUseCases()
+    .AddReservationsAdapters()
     .AddUseCases();
 
 var app = builder.Build();

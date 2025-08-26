@@ -1,7 +1,7 @@
 using FC4.HotelReservation.Shared.Domain.ValueObjects;
 using MediatR;
 
-namespace FC4.HotelReservation.Application.UseCases.Reservation.CreateReservation;
+namespace FC4.HotelReservation.Reservations.Application.UseCases.Reservation.CreateReservation;
 
 public record CreateReservationInput(
     Guid HotelId,

@@ -1,8 +1,8 @@
 using FC4.HotelReservation.Application.Exceptions;
-using FC4.HotelReservation.Application.UseCases.Reservation.Common;
 using FC4.HotelReservation.Domain.Repositories;
+using FC4.HotelReservation.Reservations.Application.UseCases.Reservation.Common;
 
-namespace FC4.HotelReservation.Application.UseCases.Reservation.GetReservation;
+namespace FC4.HotelReservation.Reservations.Application.UseCases.Reservation.GetReservation;
 
 public class GetReservation(IReservationRepository reservationRepository) : IGetReservation
 {

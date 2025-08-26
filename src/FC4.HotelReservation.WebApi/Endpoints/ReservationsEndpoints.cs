@@ -1,7 +1,7 @@
-using FC4.HotelReservation.Application.UseCases.Reservation.CancelReservation;
-using FC4.HotelReservation.Application.UseCases.Reservation.CreateReservation;
-using FC4.HotelReservation.Application.UseCases.Reservation.GetReservation;
-using FC4.HotelReservation.Application.UseCases.Reservation.ListReservations;
+using FC4.HotelReservation.Reservations.Application.UseCases.Reservation.CancelReservation;
+using FC4.HotelReservation.Reservations.Application.UseCases.Reservation.CreateReservation;
+using FC4.HotelReservation.Reservations.Application.UseCases.Reservation.GetReservation;
+using FC4.HotelReservation.Reservations.Application.UseCases.Reservation.ListReservations;
 using MediatR;
 
 namespace FC4.HotelReservation.WebApi.Endpoints;

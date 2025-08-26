@@ -1,5 +1,5 @@
 using Bogus;
-using FC4.HotelReservation.Application.UseCases.Reservation.CreateReservation;
+using FC4.HotelReservation.Reservations.Application.UseCases.Reservation.CreateReservation;
 
 namespace FC4.HotelReservation.IntegrationTests.DataBuilders;
 

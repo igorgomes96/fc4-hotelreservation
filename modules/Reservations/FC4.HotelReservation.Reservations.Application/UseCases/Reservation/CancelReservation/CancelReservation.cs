@@ -2,7 +2,7 @@ using FC4.HotelReservation.Application.Common;
 using FC4.HotelReservation.Application.Exceptions;
 using FC4.HotelReservation.Domain.Repositories;
 
-namespace FC4.HotelReservation.Application.UseCases.Reservation.CancelReservation;
+namespace FC4.HotelReservation.Reservations.Application.UseCases.Reservation.CancelReservation;
 
 public class CancelReservation(IReservationRepository reservationRepository, IUnitOfWork unitOfWork) : ICancelReservation
 {

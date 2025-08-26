@@ -1,6 +1,6 @@
 using FC4.HotelReservation.Domain.Enums;
 
-namespace FC4.HotelReservation.Application.UseCases.Reservation.Common;
+namespace FC4.HotelReservation.Reservations.Application.UseCases.Reservation.Common;
 
 public record ReservationOutput(
     Guid Id,
