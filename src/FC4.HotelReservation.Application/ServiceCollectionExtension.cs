@@ -4,10 +4,10 @@ namespace FC4.HotelReservation.Application;
 
 public static class ServiceCollectionExtension
 {
-    public static void AddUseCases(
+    public static IServiceCollection AddUseCases(
         this IServiceCollection services)
     {
-        services.AddMediatR(x => x.RegisterServicesFromAssemblies(
+        return services.AddMediatR(x => x.RegisterServicesFromAssemblies(
             typeof(ServiceCollectionExtension).Assembly));
     }
 }

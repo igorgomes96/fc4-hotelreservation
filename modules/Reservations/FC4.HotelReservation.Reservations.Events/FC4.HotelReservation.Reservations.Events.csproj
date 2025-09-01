@@ -8,12 +8,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\shared\FC4.HotelReservation.Shared.Application\FC4.HotelReservation.Shared.Application.csproj" />
-      <ProjectReference Include="..\FC4.HotelReservation.Reservations.Domain\FC4.HotelReservation.Reservations.Domain.csproj" />
-      <ProjectReference Include="..\FC4.HotelReservation.Reservations.Events\FC4.HotelReservation.Reservations.Events.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="UseCases\" />
     </ItemGroup>
 
 </Project>

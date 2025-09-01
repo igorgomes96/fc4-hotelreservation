@@ -7,6 +7,7 @@ using FC4.HotelReservation.Reservations.Adapters;
 using FC4.HotelReservation.Reservations.Application;
 using FC4.HotelReservation.WebApi;
 using FC4.HotelReservation.WebApi.Endpoints;
+using MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
@@ -21,7 +22,26 @@ builder.Services
     .AddGuestsUseCases()
     .AddReservationsUseCases()
     .AddReservationsAdapters()
-    .AddUseCases();
+    .AddUseCases()
+    .AddPostgresMigrationHostedService(options =>
+    {
+        options.CreateDatabase = false;
+        options.CreateInfrastructure = true;
+    })
+    .AddMassTransit(configurator =>
+    {
+        configurator
+            .UsingPostgres((context, cfg) =>
+            {
+                cfg.UseSqlMessageScheduler();
+                cfg.ConfigureEndpoints(context);
+            });
+    })
+    .AddOptions<SqlTransportOptions>()
+    .Configure(options =>
+    {
+        options.ConnectionString = builder.Configuration.GetConnectionString("HotelReservationDb");
+    });
 
 var app = builder.Build();
 
