@@ -14,6 +14,7 @@
     <ItemGroup>
       <ProjectReference Include="..\..\modules\Catalog\FC4.HotelReservation.Catalog.Application\FC4.HotelReservation.Catalog.Application.csproj" />
       <ProjectReference Include="..\..\modules\Guests\FC4.HotelReservation.Guests.Application\FC4.HotelReservation.Guests.Application.csproj" />
+      <ProjectReference Include="..\..\modules\Payments\FC4.HotelReservation.Payments.Consumers\FC4.HotelReservation.Payments.Consumers.csproj" />
       <ProjectReference Include="..\..\modules\Reservations\FC4.HotelReservation.Reservations.Adapters\FC4.HotelReservation.Reservations.Adapters.csproj" />
       <ProjectReference Include="..\FC4.HotelReservation.Infrastructure\FC4.HotelReservation.Infrastructure.csproj" />
     </ItemGroup>
