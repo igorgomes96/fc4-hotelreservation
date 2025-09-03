@@ -1,6 +1,6 @@
-using FC4.HotelReservation.Application.Common;
-using FC4.HotelReservation.Application.Exceptions;
 using FC4.HotelReservation.Domain.Repositories;
+using FC4.HotelReservation.Shared.Application;
+using FC4.HotelReservation.Shared.Application.Exceptions;
 
 namespace FC4.HotelReservation.Reservations.Application.UseCases.Reservation.CancelReservation;
 

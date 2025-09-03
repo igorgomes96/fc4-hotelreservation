@@ -3,6 +3,7 @@ using FC4.HotelReservation.Catalog.Application;
 using FC4.HotelReservation.Catalog.Domain;
 using FC4.HotelReservation.Guests.Application;
 using FC4.HotelReservation.Infrastructure;
+using FC4.HotelReservation.Payments.Application;
 using FC4.HotelReservation.Payments.Consumers;
 using FC4.HotelReservation.Reservations.Adapters;
 using FC4.HotelReservation.Reservations.Application;
@@ -22,6 +23,7 @@ builder.Services
     .AddCatalogUseCases()
     .AddGuestsUseCases()
     .AddReservationsUseCases()
+    .AddPaymentsUseCases()
     .AddReservationsAdapters()
     .AddUseCases()
     .AddPostgresMigrationHostedService(options =>

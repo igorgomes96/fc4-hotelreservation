@@ -88,6 +88,7 @@ public class CreateReservationTest(WebApiFixture fixture) : IAsyncDisposable
         updatedInventories.Should().OnlyContain(i => i.AvailableInventory == totalInventory - roomQuantity);
 
         // Verify payment was created via event
+        await Task.Delay(1000);
         var payment = await fixture.GetPaymentByReservationIdAsync(output.Id);
         payment.Should().NotBeNull();
         payment.ReservationId.Should().Be(output.Id);

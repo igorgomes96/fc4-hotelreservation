@@ -1,4 +1,4 @@
-namespace FC4.HotelReservation.Application.Common.IntegrationEvents;
+namespace FC4.HotelReservation.Shared.Application.IntegrationEvents;
 
 public abstract class IntegrationEvent
 {

@@ -1,7 +1,7 @@
-using FC4.HotelReservation.Application.Common;
 using FC4.HotelReservation.Domain.Entities;
 using FC4.HotelReservation.Domain.Repositories;
 using FC4.HotelReservation.Reservations.Application.Gateways;
+using FC4.HotelReservation.Shared.Application;
 using FC4.HotelReservation.Shared.Domain.ValueObjects;
 
 namespace FC4.HotelReservation.Reservations.Application.UseCases.Reservation.CreateReservation;

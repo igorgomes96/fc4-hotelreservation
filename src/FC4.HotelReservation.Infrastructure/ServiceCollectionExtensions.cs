@@ -1,9 +1,9 @@
-using FC4.HotelReservation.Application.Common;
 using FC4.HotelReservation.Catalog.Domain.Repositories;
 using FC4.HotelReservation.Domain.Repositories;
 using FC4.HotelReservation.Guests.Domain.Repositories;
 using FC4.HotelReservation.Infrastructure.Repositories;
 using FC4.HotelReservation.Payments.Domain.Repositories;
+using FC4.HotelReservation.Shared.Application;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

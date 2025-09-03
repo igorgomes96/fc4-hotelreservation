@@ -1,4 +1,4 @@
-using FC4.HotelReservation.Application.Common.IntegrationEvents;
+using FC4.HotelReservation.Shared.Application.IntegrationEvents;
 
 namespace FC4.HotelReservation.Reservations.Events.IntegrationEvents;
 

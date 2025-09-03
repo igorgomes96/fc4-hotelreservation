@@ -1,5 +1,5 @@
-using FC4.HotelReservation.Application.Exceptions;
 using FC4.HotelReservation.Catalog.Domain.Repositories;
+using FC4.HotelReservation.Shared.Application.Exceptions;
 
 namespace FC4.HotelReservation.Catalog.Application.UseCases.Hotel.GetHotel;
 

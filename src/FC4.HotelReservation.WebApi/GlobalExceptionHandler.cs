@@ -1,4 +1,4 @@
-using FC4.HotelReservation.Application.Exceptions;
+using FC4.HotelReservation.Shared.Application.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
