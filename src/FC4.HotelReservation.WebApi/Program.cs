@@ -1,4 +1,3 @@
-using FC4.HotelReservation.Application;
 using FC4.HotelReservation.Catalog.Application;
 using FC4.HotelReservation.Catalog.Domain;
 using FC4.HotelReservation.Guests.Application;
@@ -7,6 +6,7 @@ using FC4.HotelReservation.Payments.Application;
 using FC4.HotelReservation.Payments.Consumers;
 using FC4.HotelReservation.Reservations.Adapters;
 using FC4.HotelReservation.Reservations.Application;
+using FC4.HotelReservation.Reservations.Consumers;
 using FC4.HotelReservation.WebApi;
 using FC4.HotelReservation.WebApi.Endpoints;
 using MassTransit;
@@ -25,7 +25,6 @@ builder.Services
     .AddReservationsUseCases()
     .AddPaymentsUseCases()
     .AddReservationsAdapters()
-    .AddUseCases()
     .AddPostgresMigrationHostedService(options =>
     {
         options.CreateDatabase = false;
@@ -35,6 +34,7 @@ builder.Services
     {
         configurator
             .AddPaymentConsumers()
+            .AddReservationConsumers()
             .UsingPostgres((context, cfg) =>
             {
                 cfg.UseSqlMessageScheduler();
