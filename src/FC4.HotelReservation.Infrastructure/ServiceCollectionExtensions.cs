@@ -1,8 +1,3 @@
-using FC4.HotelReservation.Catalog.Domain.Repositories;
-using FC4.HotelReservation.Domain.Repositories;
-using FC4.HotelReservation.Guests.Domain.Repositories;
-using FC4.HotelReservation.Infrastructure.Repositories;
-using FC4.HotelReservation.Payments.Domain.Repositories;
 using FC4.HotelReservation.Shared.Application;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -16,15 +11,6 @@ public static class ServiceCollectionExtensions
     {
         return services
             .AddScoped<IUnitOfWork, UnitOfWork>()
-            .AddScoped<IHotelRepository, HotelRepository>()
-            .AddScoped<IPaymentRepository, PaymentRepository>()
-            .AddScoped<IGuestRepository, GuestRepository>()
-            .AddScoped<IReservationGuestRepository, ReservationGuestRepository>()
-            .AddScoped<IRoomTypeRepository, RoomTypeRepository>()
-            .AddScoped<IReservationRepository, ReservationRepository>()
-            .AddScoped<IRoomRepository, RoomRepository>()
-            .AddScoped<IRoomTypeRateRepository, RoomTypeRateRepository>()
-            .AddScoped<IRoomTypeInventoryRepository, RoomTypeInventoryRepository>()
             .AddDbContext<HotelDbContext>((serviceProvider, options) =>
             {
                 var configuration = serviceProvider.GetRequiredService<IConfiguration>();

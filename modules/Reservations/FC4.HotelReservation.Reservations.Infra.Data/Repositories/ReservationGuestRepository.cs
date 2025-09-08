@@ -1,8 +1,9 @@
 using FC4.HotelReservation.Domain.Entities;
 using FC4.HotelReservation.Domain.Repositories;
+using FC4.HotelReservation.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
-namespace FC4.HotelReservation.Infrastructure.Repositories;
+namespace FC4.HotelReservation.Reservations.Infra.Data.Repositories;
 
 public class ReservationGuestRepository(HotelDbContext context) : IReservationGuestRepository
 {

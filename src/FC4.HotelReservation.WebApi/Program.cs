@@ -1,12 +1,16 @@
 using FC4.HotelReservation.Catalog.Application;
 using FC4.HotelReservation.Catalog.Domain;
+using FC4.HotelReservation.Catalog.Infra;
 using FC4.HotelReservation.Guests.Application;
+using FC4.HotelReservation.Guests.Infra;
 using FC4.HotelReservation.Infrastructure;
 using FC4.HotelReservation.Payments.Application;
 using FC4.HotelReservation.Payments.Consumers;
+using FC4.HotelReservation.Payments.Infra;
 using FC4.HotelReservation.Reservations.Adapters;
 using FC4.HotelReservation.Reservations.Application;
 using FC4.HotelReservation.Reservations.Consumers;
+using FC4.HotelReservation.Reservations.Infra.Data;
 using FC4.HotelReservation.WebApi;
 using FC4.HotelReservation.WebApi.Endpoints;
 using MassTransit;
@@ -25,6 +29,10 @@ builder.Services
     .AddReservationsUseCases()
     .AddPaymentsUseCases()
     .AddReservationsAdapters()
+    .AddReservationsRepositories()
+    .AddPaymentsRepositories()
+    .AddGuestsRepositories()
+    .AddCatalogRepositories()
     .AddPostgresMigrationHostedService(options =>
     {
         options.CreateDatabase = false;
