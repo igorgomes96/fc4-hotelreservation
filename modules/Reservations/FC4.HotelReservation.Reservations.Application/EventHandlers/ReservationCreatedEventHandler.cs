@@ -1,4 +1,4 @@
-using FC4.HotelReservation.Domain.Events;
+using FC4.HotelReservation.Reservations.Domain.Events;
 using FC4.HotelReservation.Reservations.Events.IntegrationEvents;
 using MassTransit;
 using MediatR;

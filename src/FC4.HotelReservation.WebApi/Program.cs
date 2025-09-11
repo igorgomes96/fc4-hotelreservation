@@ -3,7 +3,7 @@ using FC4.HotelReservation.Catalog.Domain;
 using FC4.HotelReservation.Catalog.Infra;
 using FC4.HotelReservation.Guests.Application;
 using FC4.HotelReservation.Guests.Infra;
-using FC4.HotelReservation.Infrastructure;
+using FC4.HotelReservation.Shared.Infrastructure;
 using FC4.HotelReservation.Payments.Application;
 using FC4.HotelReservation.Payments.Consumers;
 using FC4.HotelReservation.Payments.Infra;

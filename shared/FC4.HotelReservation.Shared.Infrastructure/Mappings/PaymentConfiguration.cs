@@ -1,9 +1,9 @@
-using FC4.HotelReservation.Domain.Entities;
 using FC4.HotelReservation.Payments.Domain.Entities;
+using FC4.HotelReservation.Reservations.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace FC4.HotelReservation.Infrastructure.Mappings;
+namespace FC4.HotelReservation.Shared.Infrastructure.Mappings;
 
 public class PaymentConfiguration: IEntityTypeConfiguration<Payment>
 {

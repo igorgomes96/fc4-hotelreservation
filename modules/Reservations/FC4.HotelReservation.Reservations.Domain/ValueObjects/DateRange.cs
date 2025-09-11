@@ -1,6 +1,6 @@
 using Ardalis.GuardClauses;
 
-namespace FC4.HotelReservation.Shared.Domain.ValueObjects;
+namespace FC4.HotelReservation.Reservations.Domain.ValueObjects;
 
 public record DateRange
 {

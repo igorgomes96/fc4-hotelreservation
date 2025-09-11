@@ -1,4 +1,4 @@
-using FC4.HotelReservation.Domain.Enums;
+using FC4.HotelReservation.Reservations.Domain.Enums;
 
 namespace FC4.HotelReservation.Reservations.Application.UseCases.Reservation.Common;
 

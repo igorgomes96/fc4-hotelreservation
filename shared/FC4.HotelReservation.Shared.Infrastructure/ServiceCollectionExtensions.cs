@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace FC4.HotelReservation.Infrastructure;
+namespace FC4.HotelReservation.Shared.Infrastructure;
 
 public static class ServiceCollectionExtensions
 {

@@ -1,11 +1,11 @@
 using FC4.HotelReservation.Catalog.Domain.Entities;
-using FC4.HotelReservation.Domain.Entities;
 using FC4.HotelReservation.Guests.Domain.Entities;
-using FC4.HotelReservation.Infrastructure.Mappings;
+using FC4.HotelReservation.Shared.Infrastructure.Mappings;
 using FC4.HotelReservation.Payments.Domain.Entities;
+using FC4.HotelReservation.Reservations.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace FC4.HotelReservation.Infrastructure;
+namespace FC4.HotelReservation.Shared.Infrastructure;
 
 public class HotelDbContext(DbContextOptions<HotelDbContext> options) : DbContext(options)
 {

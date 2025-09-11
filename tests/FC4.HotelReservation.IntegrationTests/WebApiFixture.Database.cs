@@ -1,8 +1,8 @@
 using FC4.HotelReservation.Catalog.Domain.Entities;
-using FC4.HotelReservation.Domain.Entities;
-using FC4.HotelReservation.Infrastructure;
+using FC4.HotelReservation.Reservations.Domain.Entities;
+using FC4.HotelReservation.Reservations.Domain.ValueObjects;
+using FC4.HotelReservation.Shared.Infrastructure;
 using FC4.HotelReservation.Shared.Domain;
-using FC4.HotelReservation.Shared.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using static FC4.HotelReservation.IntegrationTests.DataBuilders.HotelBuilder;
@@ -70,8 +70,8 @@ public partial class WebApiFixture
         return await AddToDatabaseAsync(roomType);
     }
 
-    public async Task<Domain.Entities.Reservation> CreateReservationInDatabaseAsync(
-        Domain.Entities.Reservation? reservation = null)
+    public async Task<Reservations.Domain.Entities.Reservation> CreateReservationInDatabaseAsync(
+        Reservations.Domain.Entities.Reservation? reservation = null)
     {
         if (reservation is null)
         {
@@ -154,7 +154,7 @@ public partial class WebApiFixture
         return await dbContext.Guests.FirstOrDefaultAsync(h => h.Id == hotelId);
     }
 
-    public async Task<Domain.Entities.Reservation?> GetReservationByIdAsync(Guid reservationId)
+    public async Task<Reservations.Domain.Entities.Reservation?> GetReservationByIdAsync(Guid reservationId)
     {
         using var scope = Services.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<HotelDbContext>();
@@ -168,7 +168,7 @@ public partial class WebApiFixture
         return await dbContext.Payments.FirstOrDefaultAsync(p => p.Id == paymentId);
     }
 
-    public async Task<List<Domain.Entities.Reservation>> GetReservationsByGuestIdAsync(Guid guestId)
+    public async Task<List<Reservations.Domain.Entities.Reservation>> GetReservationsByGuestIdAsync(Guid guestId)
     {
         using var scope = Services.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<HotelDbContext>();

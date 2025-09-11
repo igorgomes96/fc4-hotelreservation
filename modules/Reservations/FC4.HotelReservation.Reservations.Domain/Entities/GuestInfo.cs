@@ -1,8 +1,8 @@
 using Ardalis.GuardClauses;
+using FC4.HotelReservation.Reservations.Domain.ValueObjects;
 using FC4.HotelReservation.Shared.Domain;
-using FC4.HotelReservation.Shared.Domain.ValueObjects;
 
-namespace FC4.HotelReservation.Domain.Entities;
+namespace FC4.HotelReservation.Reservations.Domain.Entities;
 
 public class GuestInfo : AggregateRoot
 {

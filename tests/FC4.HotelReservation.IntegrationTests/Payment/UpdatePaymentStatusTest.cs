@@ -1,8 +1,8 @@
 using System.Net;
 using System.Net.Http.Json;
-using FC4.HotelReservation.Domain.Enums;
 using FC4.HotelReservation.Payments.Domain.Enums;
-using FC4.HotelReservation.Shared.Domain.ValueObjects;
+using FC4.HotelReservation.Reservations.Domain.Enums;
+using FC4.HotelReservation.Reservations.Domain.ValueObjects;
 using FluentAssertions;
 using static FC4.HotelReservation.IntegrationTests.DataBuilders.UpdatePaymentStatusInputBuilder;
 using static FC4.HotelReservation.IntegrationTests.DataBuilders.PaymentBuilder;

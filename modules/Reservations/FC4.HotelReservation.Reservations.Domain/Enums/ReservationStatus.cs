@@ -1,4 +1,4 @@
-namespace FC4.HotelReservation.Domain.Enums;
+namespace FC4.HotelReservation.Reservations.Domain.Enums;
 
 public enum ReservationStatus
 {

@@ -1,6 +1,6 @@
-using FC4.HotelReservation.Domain.Entities;
+using FC4.HotelReservation.Reservations.Domain.Entities;
 
-namespace FC4.HotelReservation.Domain.Repositories;
+namespace FC4.HotelReservation.Reservations.Domain.Repositories;
 
 public interface IReservationRepository
 {

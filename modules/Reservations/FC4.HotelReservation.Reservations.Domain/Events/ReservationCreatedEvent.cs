@@ -1,7 +1,7 @@
+using FC4.HotelReservation.Reservations.Domain.ValueObjects;
 using FC4.HotelReservation.Shared.Domain;
-using FC4.HotelReservation.Shared.Domain.ValueObjects;
 
-namespace FC4.HotelReservation.Domain.Events;
+namespace FC4.HotelReservation.Reservations.Domain.Events;
 
 public class ReservationCreatedEvent(Guid reservationId, Money amount) : DomainEvent
 {

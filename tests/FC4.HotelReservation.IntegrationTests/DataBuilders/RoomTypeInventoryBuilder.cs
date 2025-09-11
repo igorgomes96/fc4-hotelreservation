@@ -1,5 +1,5 @@
 using Bogus;
-using FC4.HotelReservation.Domain.Entities;
+using FC4.HotelReservation.Reservations.Domain.Entities;
 
 namespace FC4.HotelReservation.IntegrationTests.DataBuilders;
 

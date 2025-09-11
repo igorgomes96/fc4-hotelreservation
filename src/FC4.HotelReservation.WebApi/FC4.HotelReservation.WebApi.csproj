@@ -22,7 +22,6 @@
       <ProjectReference Include="..\..\modules\Reservations\FC4.HotelReservation.Reservations.Adapters\FC4.HotelReservation.Reservations.Adapters.csproj" />
       <ProjectReference Include="..\..\modules\Reservations\FC4.HotelReservation.Reservations.Consumers\FC4.HotelReservation.Reservations.Consumers.csproj" />
       <ProjectReference Include="..\..\modules\Reservations\FC4.HotelReservation.Reservations.Infra.Data\FC4.HotelReservation.Reservations.Infra.Data.csproj" />
-      <ProjectReference Include="..\FC4.HotelReservation.Infrastructure\FC4.HotelReservation.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

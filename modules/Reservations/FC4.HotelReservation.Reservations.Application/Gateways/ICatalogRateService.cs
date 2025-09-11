@@ -1,4 +1,4 @@
-using FC4.HotelReservation.Shared.Domain.ValueObjects;
+using FC4.HotelReservation.Reservations.Domain.ValueObjects;
 
 namespace FC4.HotelReservation.Reservations.Application.Gateways;
 

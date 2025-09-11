@@ -1,4 +1,4 @@
-using FC4.HotelReservation.Infrastructure;
+using FC4.HotelReservation.Shared.Infrastructure;
 using FC4.HotelReservation.Payments.Domain.Entities;
 using FC4.HotelReservation.Payments.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;

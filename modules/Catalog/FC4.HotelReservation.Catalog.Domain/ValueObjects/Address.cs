@@ -1,6 +1,6 @@
 using Ardalis.GuardClauses;
 
-namespace FC4.HotelReservation.Shared.Domain.ValueObjects;
+namespace FC4.HotelReservation.Catalog.Domain.ValueObjects;
 
 public record Address(
     string Street,

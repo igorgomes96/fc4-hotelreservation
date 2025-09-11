@@ -1,5 +1,5 @@
-using FC4.HotelReservation.Domain.Events;
-using FC4.HotelReservation.Domain.Repositories;
+using FC4.HotelReservation.Reservations.Domain.Events;
+using FC4.HotelReservation.Reservations.Domain.Repositories;
 using MediatR;
 
 namespace FC4.HotelReservation.Reservations.Application.EventHandlers;

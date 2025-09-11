@@ -1,6 +1,6 @@
 using FC4.HotelReservation.Guests.Domain.Entities;
 using FC4.HotelReservation.Guests.Domain.Repositories;
-using FC4.HotelReservation.Infrastructure;
+using FC4.HotelReservation.Shared.Infrastructure;
 
 namespace FC4.HotelReservation.Guests.Infra.Repositories;
 

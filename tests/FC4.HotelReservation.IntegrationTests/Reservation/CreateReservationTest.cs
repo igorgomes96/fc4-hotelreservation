@@ -2,7 +2,7 @@ using System.Net;
 using System.Net.Http.Json;
 using FC4.HotelReservation.Payments.Domain.Enums;
 using FC4.HotelReservation.Reservations.Application.UseCases.Reservation.CreateReservation;
-using FC4.HotelReservation.Shared.Domain.ValueObjects;
+using FC4.HotelReservation.Reservations.Domain.ValueObjects;
 using FluentAssertions;
 using static FC4.HotelReservation.IntegrationTests.DataBuilders.CreateReservationInputBuilder;
 using static FC4.HotelReservation.IntegrationTests.DataBuilders.RoomTypeRateBuilder;
@@ -24,7 +24,7 @@ public class CreateReservationTest(WebApiFixture fixture) : IAsyncDisposable
         var roomType = await fixture.CreateRoomTypeInDatabaseAsync();
         var startDate = DateTime.Today.AddDays(1);
         var endDate = startDate.AddDays(3);
-        var dailyRate = new Money(150.00m, "USD");
+        var dailyRate = new Catalog.Domain.ValueObjects.Money(150.00m, "USD");
         const int roomQuantity = 2;
         const int totalInventory = 5;
         const decimal lastMinuteRateIncrease = 1.15m;

@@ -1,9 +1,8 @@
-using FC4.HotelReservation.Domain.Entities;
 using FC4.HotelReservation.Guests.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace FC4.HotelReservation.Infrastructure.Mappings;
+namespace FC4.HotelReservation.Shared.Infrastructure.Mappings;
 
 public class GuestConfiguration: IEntityTypeConfiguration<Guest>
 {

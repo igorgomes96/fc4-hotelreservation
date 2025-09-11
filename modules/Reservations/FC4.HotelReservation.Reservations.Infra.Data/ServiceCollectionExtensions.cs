@@ -1,4 +1,4 @@
-using FC4.HotelReservation.Domain.Repositories;
+using FC4.HotelReservation.Reservations.Domain.Repositories;
 using FC4.HotelReservation.Reservations.Infra.Data.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 

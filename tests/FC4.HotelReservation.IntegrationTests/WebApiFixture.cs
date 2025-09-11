@@ -1,5 +1,5 @@
 using System.Text.Json;
-using FC4.HotelReservation.Infrastructure;
+using FC4.HotelReservation.Shared.Infrastructure;
 using FC4.HotelReservation.WebApi;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
