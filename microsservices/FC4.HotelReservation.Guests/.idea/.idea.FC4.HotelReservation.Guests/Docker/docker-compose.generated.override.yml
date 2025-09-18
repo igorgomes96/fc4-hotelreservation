@@ -1,0 +1,20 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  guests-webapi:
+    build:
+      context: "/Users/igorgomes/src/Modular Monolith/Microsservices/FC4.HotelReservation.Guests"
+      dockerfile: "src/FC4.HotelReservation.Guests.WebApi/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/FC4.HotelReservation.Guests.WebApi.dll"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "fc4.hotelreservation.guests.webapi:dev"
+    ports: []
+    volumes:
+    - "/Users/igorgomes/.nuget/packages:/home/app/.nuget/packages"
+    - "/Users/igorgomes/src/Modular Monolith/Microsservices/FC4.HotelReservation.Guests/src/FC4.HotelReservation.Guests.WebApi:/app:rw"
+    - "/Users/igorgomes/src/Modular Monolith/Microsservices/FC4.HotelReservation.Guests:/src:rw"
+    working_dir: "/app"

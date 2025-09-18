@@ -1,0 +1,89 @@
+@startuml
+package Reservations {
+    class Reservation {
+        + Id : Guid
+        + HotelId : Guid
+        + RoomTypeId : Guid
+        + StayPeriod : DateRange
+        + Status : ReservationStatus
+        + GuestId : Guid
+        + RoomQuantity : int
+        + TotalAmount : Money
+        + CreatedAt : DateTime
+    }
+    
+    class RoomTypeInventory {
+        + Id : Guid
+        + HotelId : Guid
+        + RoomTypeId : Guid
+        + Date : DateTime
+        + TotalInventory : int
+        + TotalReserved : int
+        + AvailableInventory : int
+    }
+    
+    class GuestInfo {
+        + Id : Guid
+        + Email : Email
+        + FullName : string
+    }
+}
+
+package Guests {
+    class Guest {
+        + Id : Guid
+        + FirstName : string
+        + LastName : string
+        + Email : Email
+        + FullName : string
+    }
+}
+
+package Payments {
+    class Payment {
+        + Id : Guid
+        + ReservationId : Guid
+        + Amount : Money
+        + Status : PaymentStatus
+        + ProcessedAt : DateTime
+        + TransactionId : string
+    }
+}
+
+package Catalog {
+    class Hotel {
+        + Id : Guid
+        + Name : string
+        + Address : Address
+    }
+    class Room {
+        + Id : Guid
+        + HotelId : Guid
+        + RoomTypeId : Guid
+        + Floor : int
+        + Number : string
+        + IsAvailable : bool
+    }
+    class RoomType {
+        + Id : Guid
+        + Description : string
+    }
+    class RoomTypeRate {
+        + Id : Guid
+        + HotelId : Guid
+        + RoomTypeId : Guid
+        + Date : DateTime
+        + Rate : Money
+    }
+}
+
+Catalog <-- Reservations
+Reservations --> Guests
+RoomTypeRate --> RoomType
+Reservation --> GuestInfo
+RoomTypeRate --> Hotel
+Payments <--> Reservations
+Room --> RoomType
+Room --> Hotel
+
+@enduml

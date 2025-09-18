@@ -1,0 +1,16 @@
+services:
+    guests-webapi:
+        build:
+            context: .
+            dockerfile: src/FC4.HotelReservation.Guests.WebApi/Dockerfile
+        environment:
+            ASPNETCORE_ENVIRONMENT: Development
+            ConnectionStrings__HotelReservationDb: Host=postgres;Port=5432;Database=hotel_reservation;Username=postgres;Password=Test1234
+        ports:
+            - "8090:8090"
+        networks:
+            - hotelnet
+    
+networks:
+    hotelnet:
+        external: true
