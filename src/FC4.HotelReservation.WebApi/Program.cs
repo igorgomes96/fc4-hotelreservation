@@ -14,6 +14,7 @@ builder.Services
     .AddExceptionHandler<GlobalExceptionHandler>()
     .AddDomainServices()
     .AddRepositories()
+    .AddGateways()
     .AddUseCases();
 
 var app = builder.Build();

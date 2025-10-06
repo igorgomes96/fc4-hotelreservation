@@ -1,5 +1,7 @@
 using FC4.HotelReservation.Application.Common;
+using FC4.HotelReservation.Application.Services;
 using FC4.HotelReservation.Domain.Repositories;
+using FC4.HotelReservation.Infrastructure.Gateways;
 using FC4.HotelReservation.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -25,6 +27,25 @@ public static class ServiceCollectionExtensions
             {
                 var configuration = serviceProvider.GetRequiredService<IConfiguration>();
                 options.UseNpgsql(configuration.GetConnectionString("HotelReservationDb"));
+            });
+    }
+
+    private static bool IsExternalReservationsEnabled(IConfiguration configuration) 
+        => configuration["FeatureFlags:ExternalReservationsGateway"]?.ToLower() == "true";
+    
+    public static IServiceCollection AddGateways(this IServiceCollection services)
+    {
+        return services
+            .AddScoped<ReservationsGateway>()
+            .AddScoped<ExternalReservationsGateway>()
+            .AddScoped<IReservationsGateway>(serviceProvider =>
+            {
+                var config = serviceProvider.GetRequiredService<IConfiguration>();
+                if (IsExternalReservationsEnabled(config))
+                {
+                    return serviceProvider.GetRequiredService<ExternalReservationsGateway>();
+                }
+                return serviceProvider.GetRequiredService<ReservationsGateway>();
             });
     }
 }
