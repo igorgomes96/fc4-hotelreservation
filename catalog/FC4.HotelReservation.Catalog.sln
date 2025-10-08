@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{54B2E312-A7D0-486B-A04E-972663F0B9C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC4.HotelReservation.WebApi", "src\FC4.HotelReservation.WebApi\FC4.HotelReservation.WebApi.csproj", "{4AD62AFF-985D-480F-93BA-22E3871AEB33}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sandbox", "sandbox", "{D9C71AEE-0DE6-42D2-B959-D01167C3D806}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{432C9F4D-3173-4DC1-80FF-F8B88EDCA223}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{DC72BD65-EA22-4D76-A8ED-AC1DEC17C2EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC4.HotelReservation.Catalog.Domain", "modules\Catalog\FC4.HotelReservation.Catalog.Domain\FC4.HotelReservation.Catalog.Domain.csproj", "{8BA812D3-D2FD-46CE-A14B-57568F5C0F25}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{176722CD-D626-4C42-9273-E8A289E800A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC4.HotelReservation.Shared.Domain", "shared\FC4.HotelReservation.Shared.Domain\FC4.HotelReservation.Shared.Domain.csproj", "{9E0DA312-1C2E-41C3-B602-6FE36BF01CD0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{4EEA98D0-E82F-45BB-A9F3-7F8D8BDB043E}"
+	ProjectSection(SolutionItems) = preProject
+		diagram_monolith.puml = diagram_monolith.puml
+		diagram_modules.puml = diagram_modules.puml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC4.HotelReservation.Shared.Application", "shared\FC4.HotelReservation.Shared.Application\FC4.HotelReservation.Shared.Application.csproj", "{B1E7A9B2-3531-4CDD-91EE-C2C9BD129079}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC4.HotelReservation.Catalog.Application", "modules\Catalog\FC4.HotelReservation.Catalog.Application\FC4.HotelReservation.Catalog.Application.csproj", "{6D512625-37DC-4AD9-B3F0-9E36F1256795}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC4.HotelReservation.Catalog.Infra.Data", "modules\Catalog\FC4.HotelReservation.Catalog.Infra.Data\FC4.HotelReservation.Catalog.Infra.Data.csproj", "{8C97916A-4B5F-4AC3-82AE-7A8BF5921A06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC4.HotelReservation.Shared.Infrastructure", "shared\FC4.HotelReservation.Shared.Infrastructure\FC4.HotelReservation.Shared.Infrastructure.csproj", "{201971AB-F088-4032-8761-78987C40FDE3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4AD62AFF-985D-480F-93BA-22E3871AEB33} = {54B2E312-A7D0-486B-A04E-972663F0B9C0}
+		{DC72BD65-EA22-4D76-A8ED-AC1DEC17C2EC} = {432C9F4D-3173-4DC1-80FF-F8B88EDCA223}
+		{8BA812D3-D2FD-46CE-A14B-57568F5C0F25} = {DC72BD65-EA22-4D76-A8ED-AC1DEC17C2EC}
+		{9E0DA312-1C2E-41C3-B602-6FE36BF01CD0} = {176722CD-D626-4C42-9273-E8A289E800A5}
+		{B1E7A9B2-3531-4CDD-91EE-C2C9BD129079} = {176722CD-D626-4C42-9273-E8A289E800A5}
+		{6D512625-37DC-4AD9-B3F0-9E36F1256795} = {DC72BD65-EA22-4D76-A8ED-AC1DEC17C2EC}
+		{8C97916A-4B5F-4AC3-82AE-7A8BF5921A06} = {DC72BD65-EA22-4D76-A8ED-AC1DEC17C2EC}
+		{201971AB-F088-4032-8761-78987C40FDE3} = {176722CD-D626-4C42-9273-E8A289E800A5}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4AD62AFF-985D-480F-93BA-22E3871AEB33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AD62AFF-985D-480F-93BA-22E3871AEB33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AD62AFF-985D-480F-93BA-22E3871AEB33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AD62AFF-985D-480F-93BA-22E3871AEB33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BA812D3-D2FD-46CE-A14B-57568F5C0F25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BA812D3-D2FD-46CE-A14B-57568F5C0F25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BA812D3-D2FD-46CE-A14B-57568F5C0F25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BA812D3-D2FD-46CE-A14B-57568F5C0F25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E0DA312-1C2E-41C3-B602-6FE36BF01CD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E0DA312-1C2E-41C3-B602-6FE36BF01CD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E0DA312-1C2E-41C3-B602-6FE36BF01CD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E0DA312-1C2E-41C3-B602-6FE36BF01CD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1E7A9B2-3531-4CDD-91EE-C2C9BD129079}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1E7A9B2-3531-4CDD-91EE-C2C9BD129079}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1E7A9B2-3531-4CDD-91EE-C2C9BD129079}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1E7A9B2-3531-4CDD-91EE-C2C9BD129079}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D512625-37DC-4AD9-B3F0-9E36F1256795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D512625-37DC-4AD9-B3F0-9E36F1256795}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D512625-37DC-4AD9-B3F0-9E36F1256795}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D512625-37DC-4AD9-B3F0-9E36F1256795}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C97916A-4B5F-4AC3-82AE-7A8BF5921A06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C97916A-4B5F-4AC3-82AE-7A8BF5921A06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C97916A-4B5F-4AC3-82AE-7A8BF5921A06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C97916A-4B5F-4AC3-82AE-7A8BF5921A06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{201971AB-F088-4032-8761-78987C40FDE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{201971AB-F088-4032-8761-78987C40FDE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{201971AB-F088-4032-8761-78987C40FDE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{201971AB-F088-4032-8761-78987C40FDE3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
