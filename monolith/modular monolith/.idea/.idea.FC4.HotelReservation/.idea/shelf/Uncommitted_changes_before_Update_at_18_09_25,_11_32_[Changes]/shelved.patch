@@ -1,0 +1,80 @@
+Index: .idea/.idea.FC4.HotelReservation/.idea/.name
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.idea.FC4.HotelReservation/.idea/.name b/.idea/.idea.FC4.HotelReservation/.idea/.name
+new file mode 100644
+--- /dev/null	(date 1758205825493)
++++ b/.idea/.idea.FC4.HotelReservation/.idea/.name	(date 1758205825493)
+@@ -0,0 +1,1 @@
++FC4.HotelReservation
+\ No newline at end of file
+Index: .idea/.idea.FC4.HotelReservation/.idea/copilot.data.migration.edit.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.idea.FC4.HotelReservation/.idea/copilot.data.migration.edit.xml b/.idea/.idea.FC4.HotelReservation/.idea/copilot.data.migration.edit.xml
+new file mode 100644
+--- /dev/null	(date 1758205825521)
++++ b/.idea/.idea.FC4.HotelReservation/.idea/copilot.data.migration.edit.xml	(date 1758205825521)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="EditMigrationStateService">
++    <option name="migrationStatus" value="COMPLETED" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/.idea.FC4.HotelReservation/.idea/copilot.data.migration.agent.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.idea.FC4.HotelReservation/.idea/copilot.data.migration.agent.xml b/.idea/.idea.FC4.HotelReservation/.idea/copilot.data.migration.agent.xml
+new file mode 100644
+--- /dev/null	(date 1758205825512)
++++ b/.idea/.idea.FC4.HotelReservation/.idea/copilot.data.migration.agent.xml	(date 1758205825512)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="AgentMigrationStateService">
++    <option name="migrationStatus" value="COMPLETED" />
++  </component>
++</project>
+\ No newline at end of file
+Index: ../microsservices/FC4.HotelReservation.Guests/.idea/.idea.FC4.HotelReservation.Guests/.idea/copilot.data.migration.edit.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../microsservices/FC4.HotelReservation.Guests/.idea/.idea.FC4.HotelReservation.Guests/.idea/copilot.data.migration.edit.xml b/../microsservices/FC4.HotelReservation.Guests/.idea/.idea.FC4.HotelReservation.Guests/.idea/copilot.data.migration.edit.xml
+new file mode 100644
+--- /dev/null	(date 1758113087343)
++++ b/../microsservices/FC4.HotelReservation.Guests/.idea/.idea.FC4.HotelReservation.Guests/.idea/copilot.data.migration.edit.xml	(date 1758113087343)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="EditMigrationStateService">
++    <option name="migrationStatus" value="COMPLETED" />
++  </component>
++</project>
+\ No newline at end of file
+Index: ../microsservices/FC4.HotelReservation.Guests/.idea/.idea.FC4.HotelReservation.Guests/.idea/copilot.data.migration.agent.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../microsservices/FC4.HotelReservation.Guests/.idea/.idea.FC4.HotelReservation.Guests/.idea/copilot.data.migration.agent.xml b/../microsservices/FC4.HotelReservation.Guests/.idea/.idea.FC4.HotelReservation.Guests/.idea/copilot.data.migration.agent.xml
+new file mode 100644
+--- /dev/null	(date 1758113087258)
++++ b/../microsservices/FC4.HotelReservation.Guests/.idea/.idea.FC4.HotelReservation.Guests/.idea/copilot.data.migration.agent.xml	(date 1758113087258)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="AgentMigrationStateService">
++    <option name="migrationStatus" value="COMPLETED" />
++  </component>
++</project>
+\ No newline at end of file
