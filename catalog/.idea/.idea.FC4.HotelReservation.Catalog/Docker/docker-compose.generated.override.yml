@@ -1,0 +1,20 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  catalog-webapi:
+    build:
+      context: "/Users/igorgomes/src/Modular Monolith/FC4.HotelReservation/catalog"
+      dockerfile: "src/FC4.HotelReservation.WebApi/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/FC4.HotelReservation.WebApi.dll"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "fc4.hotelreservation.webapi:dev"
+    ports: []
+    volumes:
+    - "/Users/igorgomes/.nuget/packages:/home/app/.nuget/packages"
+    - "/Users/igorgomes/src/Modular Monolith/FC4.HotelReservation/catalog/src/FC4.HotelReservation.WebApi:/app:rw"
+    - "/Users/igorgomes/src/Modular Monolith/FC4.HotelReservation/catalog:/src:rw"
+    working_dir: "/app"

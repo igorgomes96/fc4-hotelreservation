@@ -1,15 +1,16 @@
 services:
-    postgres:
-        image: postgres:16
-        container_name: postgres-hotel
+    catalog-webapi:
+        build:
+            context: .
+            dockerfile: src/FC4.HotelReservation.WebApi/Dockerfile
         environment:
-            POSTGRES_DB: hotel_reservation
-            POSTGRES_USER: postgres
-            POSTGRES_PASSWORD: Test1234
+            ASPNETCORE_ENVIRONMENT: Development
+            ConnectionStrings__HotelReservationDb: Host=postgres;Port=5432;Database=hotel_reservation;Username=postgres;Password=Test1234
         ports:
-            - "5432:5432"
-        volumes:
-            - postgres_data:/var/lib/postgresql/data
+            - "8090:8080"
+        networks:
+            - hotelnet
 
-volumes:
-    postgres_data:
+networks:
+    hotelnet:
+        external: true
