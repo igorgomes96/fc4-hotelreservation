@@ -1,0 +1,93 @@
+@startuml
+enum PaymentStatus {
+    Pending=1
+    Processing=2
+    Completed=3
+    Failed=4
+    Refunded=5
+}
+
+enum ReservationStatus {
+    Pending=1
+    Paid=2
+    Cancelled=3
+    Rejected=4
+    Refunded=5
+}
+
+class Hotel {
+    + Id : Guid
+    + Name : string
+    + Address : Address
+}
+class Room {
+    + Id : Guid
+    + HotelId : Guid
+    + RoomTypeId : Guid
+    + Floor : int
+    + Number : string
+    + IsAvailable : bool
+}
+class RoomType {
+    + Id : Guid
+    + Description : string
+}
+class RoomTypeRate {
+    + Id : Guid
+    + HotelId : Guid
+    + RoomTypeId : Guid
+    + Date : DateTime
+    + Rate : Money
+}
+
+class Payment {
+    + Id : Guid
+    + ReservationId : Guid
+    + Amount : Money
+    + Status : PaymentStatus
+    + ProcessedAt : DateTime
+    + TransactionId : string
+}
+
+class Reservation {
+    + Id : Guid
+    + HotelId : Guid
+    + RoomTypeId : Guid
+    + StayPeriod : DateRange
+    + Status : ReservationStatus
+    + GuestId : Guid
+    + RoomQuantity : int
+    + TotalAmount : Money
+    + CreatedAt : DateTime
+}
+
+class RoomTypeInventory {
+    + Id : Guid
+    + HotelId : Guid
+    + RoomTypeId : Guid
+    + Date : DateTime
+    + TotalInventory : int
+    + TotalReserved : int
+    + AvailableInventory : int
+}
+
+class Guest {
+    + Id : Guid
+    + FirstName : string
+    + LastName : string
+    + Email : Email
+    + FullName : string
+}
+
+RoomTypeRate --> RoomType
+RoomTypeInventory --> Hotel
+RoomTypeInventory --> RoomType
+Reservation --> Hotel
+Reservation --> RoomType
+RoomTypeRate --> Hotel
+Reservation --> Guest
+Room --> Hotel
+Room --> RoomType
+Payment --> Reservation
+
+@enduml

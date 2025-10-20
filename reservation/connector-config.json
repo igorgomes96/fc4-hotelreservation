@@ -1,0 +1,19 @@
+{
+  "name": "payments-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "plugin.name": "pgoutput",
+    "database.hostname": "postgres",
+    "database.port": "5432",
+    "database.user": "postgres",
+    "database.password": "Test1234",
+    "database.dbname": "hotel_reservation",
+    "database.server.name": "postgres",
+    "table.include.list": "public.payments",
+    "slot.name": "payments_slot",
+    "publication.name": "payments_pub",
+    "topic.prefix": "postgres",
+    "schema.include.list": "public",
+    "tombstones.on.delete": "false"
+  }
+}

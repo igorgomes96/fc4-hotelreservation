@@ -10,6 +10,18 @@ services:
             - "5432:5432"
         volumes:
             - postgres_data:/var/lib/postgresql/data
+        networks:
+            - hotel-net
+        command: >
+            postgres 
+            -c wal_level=logical 
+            -c max_replication_slots=10 
+            -c max_wal_senders=10
 
 volumes:
     postgres_data:
+
+networks:
+    hotel-net:
+        name: hotel-net
+        driver: bridge

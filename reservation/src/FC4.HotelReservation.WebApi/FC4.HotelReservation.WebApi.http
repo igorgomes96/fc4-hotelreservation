@@ -1,0 +1,6 @@
+@FC4.HotelReservation.WebApi_HostAddress = http://localhost:5077
+
+GET {{FC4.HotelReservation.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
